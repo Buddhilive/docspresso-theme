@@ -7,3 +7,15 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: $darktheme_background_color;
 }
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background-color: $darktheme_background_color;
+}
+
+main {
+    margin-top: 60px;
+}

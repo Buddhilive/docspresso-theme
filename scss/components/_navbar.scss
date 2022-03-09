@@ -29,7 +29,25 @@
             justify-content: space-around;
             gap: 10px;
             font-size: 14px;
+            font-weight: 700;
             align-content: center;
+            .submenu-container {
+                align-self: center;
+                margin-right: 12px;
+                &:after {
+                    content: '\25BE';
+                    color: $primary_text_color;
+                    font-size: 24px;
+                    position: absolute;
+                    top: 12px;
+                }
+                &:hover {
+                    ul {
+                        display: block;
+                        max-height: 300px;
+                    }
+                }
+            }
         }
         &--item {
             box-sizing: border-box;
@@ -40,7 +58,6 @@
                 margin-bottom: -2px;
                 border-bottom: 2px solid $theme_color;
             }
-            &.submenu {}
         }
         &--sublist {
             display: none;
@@ -53,10 +70,45 @@
             top: 100%;
             border-radius: 4px;
             border: 1px solid $default_border_color;
+            &:hover {
+                display: block;
+                max-height: 300px;
+            }
         }
         &--subitem {
             color: $primary_text_color;
-            padding: 5px 0;
+            text-decoration: none;
+            li {
+                margin-bottom: 15px;
+            }
+            &:last-child {
+                li {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &__search {
+        align-self: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        input {
+            cursor: text;
+            width: 300px;
+            max-width: 360px;
+            height: 2rem;
+            color: $primary_text_color;
+            display: inline-block;
+            border: 1px solid $default_border_color;
+            border-radius: 2rem;
+            font-size: .9rem;
+            line-height: 2rem;
+            padding: 0 0.5rem 0 2rem;
+            outline: 0;
+            transition: all ease .3s;
+            background: $darktheme_background_color url(/images/search.0782d0d1.svg)0.6rem 0.5rem no-repeat;
+            background-size: 1rem;
         }
     }
 }
