@@ -29,6 +29,7 @@
             justify-content: space-around;
             gap: 10px;
             font-size: 14px;
+            font-weight: 700;
             align-content: center;
             .submenu-container {
                 align-self: center;
@@ -89,5 +90,25 @@
     }
     &__search {
         align-self: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        input {
+            cursor: text;
+            width: 300px;
+            max-width: 360px;
+            height: 2rem;
+            color: $primary_text_color;
+            display: inline-block;
+            border: 1px solid $default_border_color;
+            border-radius: 2rem;
+            font-size: .9rem;
+            line-height: 2rem;
+            padding: 0 0.5rem 0 2rem;
+            outline: 0;
+            transition: all ease .3s;
+            background: $darktheme_background_color url(/images/search.0782d0d1.svg)0.6rem 0.5rem no-repeat;
+            background-size: 1rem;
+        }
     }
 }
