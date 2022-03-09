@@ -1,0 +1,15 @@
+.home {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &--wrapper {
+            padding: 40px;
+        }
+        &--banner {
+            max-height: 300px;
+            min-height: 250px;
+        }
+    }
+}

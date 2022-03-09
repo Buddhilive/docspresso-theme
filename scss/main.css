@@ -1,3 +1,28 @@
+.home__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home__header--wrapper {
+  padding: 40px;
+}
+
+.home__header--banner {
+  max-height: 300px;
+  min-height: 250px;
+}
+
 .navbar__wrapper {
   position: relative;
   max-height: 60px;
@@ -114,6 +139,12 @@
 
 .navbar__menu--subitem:last-child li {
   margin-bottom: 0;
+}
+
+.navbar__search {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 body {
