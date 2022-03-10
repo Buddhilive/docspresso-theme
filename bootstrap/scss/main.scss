@@ -1,0 +1,9 @@
+@import 'components/variables';
+@import 'components/navbar';
+@import 'components/sections';
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: $default_background_color;
+}

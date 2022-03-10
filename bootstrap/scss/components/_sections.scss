@@ -1,0 +1,48 @@
+.home {
+    &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &--wrapper {
+            padding: 30px 0 0;
+        }
+        &--banner {
+            max-height: 250px;
+            min-height: 150px;
+        }
+        h1 {
+            color: $primary_text_color;
+            text-align: center;
+            text-transform: capitalize;
+        }
+        p {
+            color: $secondary_dark_text_color;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: 600;
+            margin-top: 0;
+            font-size: 20px;
+        }
+    }
+    &__cards {
+        margin: 15px auto;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 30px 60px;
+        &--wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            border: 1px solid $default_border_color;
+            border-radius: 15px;
+            background-color: $default_background_color;
+            color: $primary_text_color;
+            img {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+        }
+    }
+}
