@@ -1,0 +1,9 @@
+.navbar {
+    background-color: $default_background_color;
+    border-bottom: 1px solid $default_border_color;
+    &-brand {
+        img {
+            height: 33px;
+        }
+    }
+}
