@@ -1,0 +1,25 @@
+.article {
+    padding: 15px;
+    padding-left: 40px;
+    &__title {
+        color: $primary_text_color;
+        text-transform: capitalize;
+    }
+    &__body {
+        color: $primary_text_color;
+        font-size: 14px;
+    }
+}
+
+.sidebar {
+    width: 320px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    border-left: 1px solid $default_border_color;
+    &__widget {
+        max-width: 300px;
+    }
+}

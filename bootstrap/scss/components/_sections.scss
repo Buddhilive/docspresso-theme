@@ -46,3 +46,15 @@
         }
     }
 }
+
+footer {
+    padding: 10px 15px;
+    text-align: center;
+    border-top: 1px solid $default_border_color;
+    p {
+        color: $primary_text_color;
+        font-size: 16px;
+        text-transform: capitalize;
+        margin: 8px auto;
+    }
+}

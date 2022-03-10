@@ -2,8 +2,55 @@
     background-color: $default_background_color;
     border-bottom: 1px solid $default_border_color;
     &-brand {
+        padding-right: 30px;
         img {
             height: 33px;
+        }
+    }
+    &__search {
+        input {
+            cursor: text;
+            width: 300px;
+            max-width: 360px;
+            height: 2rem;
+            color: $primary_text_color;
+            display: inline-block;
+            border: 1px solid $default_border_color;
+            border-radius: 2rem;
+            font-size: .9rem;
+            line-height: 2rem;
+            padding: 0 0.5rem 0 2rem;
+            outline: 0;
+            transition: all ease .3s;
+            background: $default_background_color url(/images/search.0782d0d1.svg)0.6rem 0.5rem no-repeat;
+            background-size: 1rem;
+        }
+    }
+}
+
+.nav {
+    &-item {
+        a,
+        a:visited {
+            color: $primary_text_color;
+            &:hover,
+            &:focus {
+                color: $primary_theme_color;
+            }
+        }
+    }
+}
+
+.dropdown {
+    &-menu {
+        background-color: $default_background_color;
+        border-color: $default_border_color;
+    }
+    &-item {
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: transparent;
         }
     }
 }
