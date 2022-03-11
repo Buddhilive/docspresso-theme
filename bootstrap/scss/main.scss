@@ -1,9 +1,14 @@
 @import 'components/variables';
 @import 'components/navbar';
 @import 'components/sections';
+@import 'components/page';
 body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: $default_background_color;
+}
+
+main {
+    margin-top: 61px;
 }

@@ -3,8 +3,51 @@
   border-bottom: 1px solid #3e4c5a;
 }
 
+.navbar-brand {
+  padding-right: 30px;
+}
+
 .navbar-brand img {
   height: 33px;
+}
+
+.navbar__search input {
+  cursor: text;
+  width: 300px;
+  max-width: 360px;
+  height: 2rem;
+  color: #adbac7;
+  display: inline-block;
+  border: 1px solid #3e4c5a;
+  border-radius: 2rem;
+  font-size: .9rem;
+  line-height: 2rem;
+  padding: 0 0.5rem 0 2rem;
+  outline: 0;
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
+  background: #22272e url(/images/search.0782d0d1.svg) 0.6rem 0.5rem no-repeat;
+  background-size: 1rem;
+}
+
+.nav-item a,
+.nav-item a:visited {
+  color: #adbac7;
+}
+
+.nav-item a:hover, .nav-item a:focus,
+.nav-item a:visited:hover,
+.nav-item a:visited:focus {
+  color: #FFA800;
+}
+
+.dropdown-menu {
+  background-color: #22272e;
+  border-color: #3e4c5a;
+}
+
+.dropdown-item:hover, .dropdown-item:focus, .dropdown-item:active {
+  background-color: transparent;
 }
 
 .home__header {
@@ -59,6 +102,10 @@
   margin: 0 auto;
 }
 
+.home__cards--wrapper a {
+  text-decoration: none;
+}
+
 .home__cards .card {
   border: 1px solid #3e4c5a;
   border-radius: 15px;
@@ -71,10 +118,79 @@
   border-top-right-radius: 15px;
 }
 
+.home__cards .card-text {
+  color: #8094a8;
+}
+
+.home__cards .card:hover {
+  color: #FFA800;
+}
+
+footer {
+  padding: 10px 15px;
+  text-align: center;
+  border-top: 1px solid #3e4c5a;
+}
+
+footer p {
+  color: #adbac7;
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 8px auto;
+}
+
+.page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.article {
+  padding: 15px;
+  padding-left: 40px;
+  width: 100%;
+}
+
+.article__title {
+  color: #adbac7;
+  text-transform: capitalize;
+}
+
+.article__body {
+  color: #adbac7;
+  font-size: 14px;
+}
+
+.sidebar {
+  width: 320px;
+  padding: 15px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+  border-left: 1px solid #3e4c5a;
+}
+
+.sidebar__widget {
+  max-width: 300px;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   background-color: #22272e;
+}
+
+main {
+  margin-top: 61px;
 }
 /*# sourceMappingURL=main.css.map */

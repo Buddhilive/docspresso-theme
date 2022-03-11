@@ -33,6 +33,9 @@
         &--wrapper {
             max-width: 800px;
             margin: 0 auto;
+            a {
+                text-decoration: none;
+            }
         }
         .card {
             border: 1px solid $default_border_color;
@@ -43,6 +46,24 @@
                 border-top-left-radius: 15px;
                 border-top-right-radius: 15px;
             }
+            &-text {
+                color: $secondary_dark_text_color;
+            }
+            &:hover {
+                color: $primary_theme_color;
+            }
         }
+    }
+}
+
+footer {
+    padding: 10px 15px;
+    text-align: center;
+    border-top: 1px solid $default_border_color;
+    p {
+        color: $primary_text_color;
+        font-size: 16px;
+        text-transform: capitalize;
+        margin: 8px auto;
     }
 }
