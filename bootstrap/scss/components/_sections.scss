@@ -33,6 +33,9 @@
         &--wrapper {
             max-width: 800px;
             margin: 0 auto;
+            a {
+                text-decoration: none;
+            }
         }
         .card {
             border: 1px solid $default_border_color;
@@ -42,6 +45,12 @@
             img {
                 border-top-left-radius: 15px;
                 border-top-right-radius: 15px;
+            }
+            &-text {
+                color: $secondary_dark_text_color;
+            }
+            &:hover {
+                color: $primary_theme_color;
             }
         }
     }

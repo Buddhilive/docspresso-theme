@@ -102,6 +102,10 @@
   margin: 0 auto;
 }
 
+.home__cards--wrapper a {
+  text-decoration: none;
+}
+
 .home__cards .card {
   border: 1px solid #3e4c5a;
   border-radius: 15px;
@@ -112,6 +116,14 @@
 .home__cards .card img {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.home__cards .card-text {
+  color: #8094a8;
+}
+
+.home__cards .card:hover {
+  color: #FFA800;
 }
 
 footer {
