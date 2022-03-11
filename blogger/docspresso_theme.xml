@@ -15,12 +15,12 @@
     <!-- Main Styles -->
     <b:skin><![CDATA[
   /**PUT YOUR ALL CSS HERE**/
-.navbar{background-color:#22272e;border-bottom:1px solid #3e4c5a}.navbar-brand{padding-right:30px}.navbar-brand img{height:33px}.navbar__search input{cursor:text;width:300px;max-width:360px;height:2rem;color:#adbac7;display:inline-block;border:1px solid #3e4c5a;border-radius:2rem;font-size:.9rem;line-height:2rem;padding:0 .5rem 0 2rem;outline:0;-webkit-transition:all ease .3s;transition:all ease .3s;background:#22272e url(/images/search.0782d0d1.svg) .6rem .5rem no-repeat;background-size:1rem}.nav-item a,.nav-item a:visited{color:#adbac7}.nav-item a:focus,.nav-item a:hover,.nav-item a:visited:focus,.nav-item a:visited:hover{color:#ffa800}.dropdown-menu{background-color:#22272e;border-color:#3e4c5a}.dropdown-item:active,.dropdown-item:focus,.dropdown-item:hover{background-color:transparent}.home__header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.home__header--wrapper{padding:30px 0 0}.home__header--banner{max-height:250px;min-height:150px}.home__header h1{color:#adbac7;text-align:center;text-transform:capitalize}.home__header p{color:#8094a8;text-align:center;text-transform:capitalize;font-weight:600;margin-top:0;font-size:20px}.home__cards{margin:15px auto;max-width:100%;overflow:hidden;padding:30px 60px}.home__cards--wrapper{max-width:800px;margin:0 auto}.home__cards .card{border:1px solid #3e4c5a;border-radius:15px;background-color:#22272e;color:#adbac7}.home__cards .card img{border-top-left-radius:15px;border-top-right-radius:15px}footer{padding:10px 15px;text-align:center;border-top:1px solid #3e4c5a}footer p{color:#adbac7;font-size:16px;text-transform:capitalize;margin:8px auto}.page{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%}.article{padding:15px;padding-left:40px;width: 100%;}.article__title{color:#adbac7;text-transform:capitalize}.article__body{color:#adbac7;font-size:14px}.sidebar{width:320px;padding:15px 10px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;gap:30px;border-left:1px solid #3e4c5a}.sidebar__widget{max-width:300px}body{margin:0;padding:0;font-family:Montserrat,sans-serif;background-color:#22272e}main{margin-top:61px}
+.navbar{background-color:#22272e;border-bottom:1px solid #3e4c5a}.navbar-brand{padding-right:30px}.navbar-brand img{height:33px}.navbar__search input{cursor:text;width:300px;max-width:360px;height:2rem;color:#adbac7;display:inline-block;border:1px solid #3e4c5a;border-radius:2rem;font-size:.9rem;line-height:2rem;padding:0 .5rem 0 2rem;outline:0;-webkit-transition:all ease .3s;transition:all ease .3s;background:#22272e url(/images/search.0782d0d1.svg) .6rem .5rem no-repeat;background-size:1rem}.nav-item a,.nav-item a:visited{color:#adbac7}.nav-item a:focus,.nav-item a:hover,.nav-item a:visited:focus,.nav-item a:visited:hover{color:#ffa800}.dropdown-menu{background-color:#22272e;border-color:#3e4c5a}.dropdown-item:active,.dropdown-item:focus,.dropdown-item:hover{background-color:transparent}.home__header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.home__header--wrapper{padding:30px 0 0}.home__header--banner{max-height:250px;min-height:150px}.home__header h1{color:#adbac7;text-align:center;text-transform:capitalize}.home__header p{color:#8094a8;text-align:center;text-transform:capitalize;font-weight:600;margin-top:0;font-size:20px}.home__cards{margin:15px auto;max-width:100%;overflow:hidden;padding:30px 60px}.home__cards--wrapper{max-width:800px;margin:0 auto}.home__cards .card{border:1px solid #3e4c5a;border-radius:15px;background-color:#22272e;color:#adbac7}.home__cards .card img{border-top-left-radius:15px;border-top-right-radius:15px}footer{padding:10px 15px;text-align:center;border-top:1px solid #3e4c5a}footer p{color:#adbac7;font-size:16px;text-transform:capitalize;margin:8px auto}.page{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%}.article{padding:15px;padding-left:40px;width: 100%;}.article__title{color:#adbac7;text-transform:capitalize}.article__body{color:#adbac7;font-size:14px}.sidebar{width:320px;padding:15px 10px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column!important;-webkit-box-pack:center;-ms-flex-pack:center;gap:30px;border-left:1px solid #3e4c5a}.sidebar__widget{max-width:300px}body{margin:0;padding:0;font-family:Montserrat,sans-serif;background-color:#22272e}main{margin-top:61px}
   ]]></b:skin>
 </head>
 
 <body>
-  <b:section class='hello' id='hello'/>
+  <!-- <b:section class='hello' id='hello'/> -->
     <header>
         <nav class='navbar navbar-expand-lg fixed-top'>
             <div class='container-fluid'>
@@ -35,7 +35,7 @@
                 <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                     <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
                         <li class='nav-item'>
-                            <a aria-current='page' class='nav-link active' href='#'>Home</a>
+                            <a aria-current='page' class='nav-link active' href='/'>Home</a>
                         </li>
                         <li class='nav-item'>
                             <a class='nav-link' href='page.html'>Page</a>
@@ -67,7 +67,7 @@
 
     <main>
       <!-- Home Page -->
-    <b:if cond='data:view.isSingleItem'>
+    <b:if cond='data:view.isHomepage'>
       <section class='home__header'>
             <div class='home__header--wrapper'>
                 <img alt='' class='home__header--banner' src='images/buddhilive-home-banner.png'/>
@@ -75,83 +75,69 @@
             <h1>Welcome to Buddhilive Acadamy</h1>
             <p>Let&#39;s explore data science</p>
         </section>
-        <section class='home__cards'>
-            <div class='row row-cols-1 row-cols-md-3 g-4 home__cards--wrapper'>
-                <div class='col'>
-                    <div class='card h-100'>
-                        <img alt='...' class='card-img-top' src='images/flower.jpg'/>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Card title</h5>
-                            <p class='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class='col'>
-                    <div class='card h-100'>
-                        <img alt='...' class='card-img-top' src='images/flower.jpg'/>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Card title</h5>
-                            <p class='card-text'>This is a short card.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class='col'>
-                    <div class='card h-100'>
-                        <img alt='...' class='card-img-top' src='images/flower.jpg'/>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Card title</h5>
-                            <p class='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class='col'>
-                    <div class='card h-100'>
-                        <img alt='...' class='card-img-top' src='images/flower.jpg'/>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Card title</h5>
-                            <p class='card-text'>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
       </b:if>
       
       <!-- Blog Post -->
-      <b:if cond='data:blog.pageType == &quot;item&quot;'>
+      
         <div class='page'>
             <article class='article'>
                 <div class='article__body'>
-                    <b:section class='main' id='main' showaddelement='yes'>
+                    <b:section class='main' id='main' showaddelement='no'>
                       <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
                         <b:widget-settings>
-                          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-                          <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                          <b:widget-setting name='commentLabel'>$type={blogger}</b:widget-setting>
                           <b:widget-setting name='showShareButtons'>false</b:widget-setting>
-                          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                          <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
-                          <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                          <b:widget-setting name='authorLabel'>by</b:widget-setting>
                           <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-                          <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
                           <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='timestampLabel'>-</b:widget-setting>
                           <b:widget-setting name='reactionsLabel'/>
                           <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
                           <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-                          <b:widget-setting name='showLabels'>true</b:widget-setting>
-                          <b:widget-setting name='showLocation'>true</b:widget-setting>
+                          <b:widget-setting name='showLocation'>false</b:widget-setting>
                           <b:widget-setting name='showTimestamp'>true</b:widget-setting>
                           <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-                          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
                           <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                          <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                          <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+                          <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                          <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                          <b:widget-setting name='showLabels'>true</b:widget-setting>
+                          <b:widget-setting name='postLabelsLabel'>Tags:</b:widget-setting>
+                          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
                           <b:widget-setting name='showInlineAds'>false</b:widget-setting>
                           <b:widget-setting name='showReactions'>false</b:widget-setting>
                         </b:widget-settings>
                         <b:includable id='main' var='this'>
   <div class='blog-posts hfeed container'>
-    <b:loop index='i' values='data:posts' var='post'>
+    
+      <b:if cond='data:view.isSingleItem'>
+        <b:loop index='i' values='data:posts' var='post'>
       <b:include data='post' name='postCommentsAndAd'/>
-    </b:loop>
+          </b:loop>
+      </b:if>
+      <!--home cards-->
+      <b:if cond='data:view.isHomepage'>
+        <section class='home__cards'>
+            <div class='row row-cols-1 row-cols-md-3 g-4 home__cards--wrapper'>
+              <b:loop index='i' values='data:posts' var='post'>
+                <div class='col'>
+                    <div class='card h-100'>
+                        <img alt='...' class='card-img-top' expr:src='data:post.thumbnailUrl'/>
+                        <div class='card-body'>
+                            <h5 class='card-title'><data:post.title/></h5>
+                            <p class='card-text'><b:eval expr='data:posts[i].snippets.short'/></p>
+                        </div>
+                    </div>
+                </div>
+                </b:loop>
+            </div>
+        </section>        
+      </b:if>
+    
   </div>
   <b:include cond='data:view.isMultipleItems' name='postPagination'/>
   <b:include name='feedLinks'/>
@@ -774,22 +760,48 @@
                     </b:section> 
                 </div>
             </article>
+          <b:if cond='data:view.isLayoutMode or (data:view.isSingleItem or data:view.isArchive) or data:view.isLabelSearch'>
             <aside class='sidebar'>
-              <b:section class='sidebar' id='sidebar'/>
-                <div class='sidebar__widget'>
-                    <img alt='' src='https://mylocalnews.us/wp-content/uploads/2017/06/300px-X-250px-AD.jpg'/>
-                </div>
-                <div class='sidebar__widget'>
-                    <img alt='' src='https://mylocalnews.us/wp-content/uploads/2017/06/300px-X-250px-AD.jpg'/>
-                </div>
+              <b:section class='sidebar1' id='sidebar1'>
+                <b:widget id='Image1' locked='false' title='' type='Image' visible='true'>
+                  <b:widget-settings>
+                    <b:widget-setting name='displayUrl'>https://mylocalnews.us/wp-content/uploads/2017/06/300px-X-250px-AD.jpg</b:widget-setting>
+                    <b:widget-setting name='displayHeight'>250</b:widget-setting>
+                    <b:widget-setting name='sectionWidth'>204</b:widget-setting>
+                    <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                    <b:widget-setting name='displayWidth'>300</b:widget-setting>
+                    <b:widget-setting name='link'/>
+                    <b:widget-setting name='caption'/>
+                  </b:widget-settings>
+                  <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <b:include name='content'/>
+</b:includable>
+                  <b:includable id='content'>
+  <div class='widget-content'>
+    <b:tag cond='data:link' expr:href='data:link' name='a'>
+      <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'>
+        <b:attr cond='data:sourceSet' expr:value='data:sourceSet' name='srcset'/>
+      </img>
+    </b:tag>
+    <br/>
+    <b:if cond='data:caption'>
+      <span class='caption'><data:caption/></span>
+    </b:if>
+  </div>
+</b:includable>
+                </b:widget>
+              </b:section>
             </aside>
+            </b:if>
         </div>
-</b:if>
+
     </main>
 
     <footer>
         <p>Copyright &#169; 2015 - present | Powered by Berkelium Labs</p>
     </footer>
+  
 </body>
 
 </html>
