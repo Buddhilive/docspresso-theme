@@ -1,6 +1,12 @@
+.page {
+    display: flex;
+    width: 100%;
+}
+
 .article {
     padding: 15px;
     padding-left: 40px;
+    width: 100%;
     &__title {
         color: $primary_text_color;
         text-transform: capitalize;
