@@ -36,7 +36,6 @@ new Date().getTime(),event:&#39;gtm.js&#39;});var f=d.getElementsByTagName(s)[0]
 })(window,document,&#39;script&#39;,&#39;dataLayer&#39;,&#39;GTM-WFMJHR8&#39;);</script>
 
         <!-- End Google Tag Manager -->
-        <script src='https://cdn.jsdelivr.net/npm/ceylon-progress@latest/dist/ceylon-progress/ceylon-progress.esm.js' type='module'/>
 
         <!-- Cache -->
         <include expiration='7d' path='*.css'/>
@@ -98,6 +97,12 @@ Author:       Buddhi Kavindra
 Author Url:   https://www.buddhilive.com/
 -----------------------------------------------*/
 
+* {
+	--menu-font-color: #425066;
+	--primary-color: #34B45A;
+	--secondary-color: #073042;
+}
+
 .body {
 	font-family: 'Montserrat', sans-serif;
 }
@@ -117,14 +122,90 @@ Author Url:   https://www.buddhilive.com/
 	margin-block-end: 0;
 }
 
+.navbar form input {
+	background: #f5f6f7;
+    color: var(--menu-font-color);
+    border: 0;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+
+.navbar form input:focus {
+	background: #e8eaed;
+	box-shadow: none;
+}
+
+.navbar-collapse {
+    background-color: #fff;
+    padding: 8px;
+}
+
+.navbar .nav-link {
+	color: var(--menu-font-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.navbar .nav-link:hover {
+	color: var(--primary-color);
+}
+
 .typewriter-container {
 	min-height: 400px;
     font-family: 'VT323', monospace;
 }
 
 .typewriter-container .lead {
-	color: #39ff14;
+	color: var(--primary-color);
     font-size: 24px;
+}
+
+/* Cards */
+
+.card {
+	border-radius: 10px;
+}
+
+.card:hover {
+	background-color: var(--primary-color);
+}
+
+.card img {
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card .card-text {
+	color: var(--menu-font-color);
+}
+
+.card .card-text:hover, .card .card-title:hover {
+	color: #fff;
+}
+
+.card-link-main {
+	text-decoration: none;
+}
+
+.card-link-main:hover {
+	color: var(--secondary-color);
+}
+
+.card .card-footer {
+	background-color: transparent;
+    border-top: none;
+}
+
+.card .card-footer .btn-primary {
+	background-color: transparent;
+	color: var(--menu-font-color);
+	font-weight: 700;
+	border: none;
+	padding: 10px 0;
+}
+
+.card .card-footer .btn-primary:hover {
+	color: var(--primary-color);
 }
 
 .content-wrapper {
@@ -158,11 +239,24 @@ Author Url:   https://www.buddhilive.com/
 /*
  * Blog posts
  */
+
 .blog-post {
   margin-bottom: 4rem;
+  overflow-x: hidden;
+
 }
+
+article {
+	height: auto !important;
+    padding: 22px;
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
 .blog-post-title {
-  font-size: 2.5rem;
+	font-size: 46px;
+    font-weight: 700;
 }
 .blog-post-meta {
   margin-bottom: 1.25rem;
@@ -171,6 +265,22 @@ Author Url:   https://www.buddhilive.com/
 
 .blog-post-body {
 	margin-bottom: 15px;
+}
+
+.blog-post-body img {
+    width: 93%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.blog-post-body a {
+	color: var(--menu-font-color);
+	font-weight: 500;
+}
+
+.blog-post-body a:hover {
+	color: var(--primary-color);
 }
 
 .blog-post-body pre {
@@ -185,9 +295,15 @@ Author Url:   https://www.buddhilive.com/
     content:none
 }
 
+.blog-post-body pre code {
+	color: #39ff14;
+}
+
 .my-profile-pc{
     border-radius:50%;
-    border: 15px solid #f7931e;
+    border: 15px solid var(--primary-color);
+    width: 300px !important;
+    padding: 0 !important;
 }
 
 .post-feeds, .blog-feeds {
@@ -206,12 +322,42 @@ Author Url:   https://www.buddhilive.com/
 	text-decoration: none;
 }
 
+/* Widgets */
+
+.BlogArchive {
+	background: var(--primary-color);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.BlogArchive a {
+	color: var(--secondary-color);
+    font-size: 14px;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.BlogArchive a:hover {
+	text-decoration: underline;
+}
+
+.BlogArchive #ArchiveList ul.posts li {
+	list-style: decimal-leading-zero !important;
+	font-size: 14px;
+}
+
+#Text1 .bg-light {
+	margin-top: 15px;
+    background-color: var(--menu-font-color) !important;
+    color: #fff;
+}
+
 /*
  * Footer
  */
 
                 
-      ]]>            </b:skin>
+                  ]]>            </b:skin>
         </b:if>
     </head>
 
@@ -220,15 +366,15 @@ Author Url:   https://www.buddhilive.com/
         <nav class='navbar navbar-expand-md fixed-top'>
             <div class='container-fluid'>
                 <b:section class='Header' id='Header' showaddelement='no'>
-                    <b:widget id='Header1' locked='true' title='Buddhism and Life (Header)' type='Header' version='1'>
+                    <b:widget id='Header1' locked='true' title='Buddhilive Academy (Header)' type='Header' version='1'>
                         <b:widget-settings>
-                            <b:widget-setting name='displayUrl'>https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjde6bJplHnrKJNV7nsikL-DwA6nPrGalY99XK_e95EE1-oIFUAYEkT7wgJR3QG7l_eB8C3QPj6Dr4tXzx9KpoFx73YRsEb9_KoAKqRKSme-bTZt8vpwLvrK4huDpKRPxuq2ZIOkfMhn_5DboNkSUxmAQAsQ-dqbbQk_HowK4in9TPY1qe5LVmdh88/s320/buddhilive-academy-logo-colored.png</b:widget-setting>
-                            <b:widget-setting name='displayHeight'>80</b:widget-setting>
+                            <b:widget-setting name='displayUrl'>https://blogger.googleusercontent.com/img/a/AVvXsEgPLVolS356PXQcUlNWsEVxpvnlZ8OcxZstusgmqA0rUj1A08z2r5iyA5KATp6uLfRRB3TpvwMgtU9bfqVYnwLdiSnlXQ7FWKfNyl8RyUKamXHEze9t_EUn2zzsYY6IWjSo7xumDS-ynRtYtvOaORAs96EmA-hH4AFwgHP53Eds_K0VMGwH4xoRxdE=s502</b:widget-setting>
+                            <b:widget-setting name='displayHeight'>150</b:widget-setting>
                             <b:widget-setting name='sectionWidth'>1020</b:widget-setting>
                             <b:widget-setting name='useImage'>true</b:widget-setting>
                             <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
                             <b:widget-setting name='imagePlacement'>REPLACE</b:widget-setting>
-                            <b:widget-setting name='displayWidth'>320</b:widget-setting>
+                            <b:widget-setting name='displayWidth'>502</b:widget-setting>
                         </b:widget-settings>
                         <b:includable id='main'>
                             <!--Show the image only-->
@@ -259,11 +405,15 @@ Author Url:   https://www.buddhilive.com/
                     <b:section class='pages me-auto' id='pages' showaddelement='no'>
                         <b:widget id='LinkList2' locked='true' title='' type='LinkList' version='1'>
                             <b:widget-settings>
+                                <b:widget-setting name='link-3'>/p/archive.html</b:widget-setting>
                                 <b:widget-setting name='sorting'>NONE</b:widget-setting>
-                                <b:widget-setting name='text-1'>Page</b:widget-setting>
-                                <b:widget-setting name='link-1'>/p/blog-page_30.html</b:widget-setting>
+                                <b:widget-setting name='text-1'>Machine Learning</b:widget-setting>
+                                <b:widget-setting name='link-1'><![CDATA[/search/label/Machine%20Learning?&max-results=7]]></b:widget-setting>
                                 <b:widget-setting name='text-0'>Home</b:widget-setting>
+                                <b:widget-setting name='link-2'>/search/label/Tensorflow</b:widget-setting>
+                                <b:widget-setting name='text-3'>Archive</b:widget-setting>
                                 <b:widget-setting name='link-0'>/</b:widget-setting>
+                                <b:widget-setting name='text-2'>TensorFlow</b:widget-setting>
                             </b:widget-settings>
                             <b:includable id='main'>
                                 <ul class='navbar-nav me-auto mb-2 mb-md-0'>
@@ -303,7 +453,7 @@ Author Url:   https://www.buddhilive.com/
                 <!-- main section -->
                 <b:if cond='!data:view.isError'>
                     <div class='row'>
-                        <div class='col-md-9'>
+                        <div class='col-md-9 col-sm-12'>
                             <div class='post-wrapper'>
                                 <!--Put Main Section Here-->
                                 <b:section class='main' id='main' showaddelement='yes'>
@@ -312,6 +462,7 @@ Author Url:   https://www.buddhilive.com/
                                             <b:widget-setting name='showDateHeader'>true</b:widget-setting>
                                             <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
                                             <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                                            <b:widget-setting name='authorLabel'>By</b:widget-setting>
                                             <b:widget-setting name='showCommentLink'>true</b:widget-setting>
                                             <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
                                             <b:widget-setting name='showAuthor'>true</b:widget-setting>
@@ -345,12 +496,16 @@ Author Url:   https://www.buddhilive.com/
                                                                 <h2 class='blog-post-title mb-1'>
                                                                     <data:post.title/>
                                                                 </h2>
-                                                                <p class='blog-post-meta'>
-                                                                    <data:post.date/>
+                                                                <b:if cond='!data:view.isPage'>
+                                                                    <p class='blog-post-meta'>
+                                                                        <data:post.date/>
+                                                                  
  by <a href='#'>
-                                                                    <data:post.author/>
-                                                                </a>
-                                                            </p>
+                                                                        <data:post.author/>
+                                                                    </a>
+
+                                                                </p>
+                                                            </b:if>
                                                             <div class='blog-post-body'>
                                                                 <data:post.body/>
                                                             </div>
@@ -370,26 +525,28 @@ Author Url:   https://www.buddhilive.com/
                                                     <div class='row row-cols-1 row-cols-md-2 g-4'>
                                                         <b:loop index='i' values='data:posts' var='post'>
                                                             <div class='col-md-6'>
-                                                                <div class='card h-100'>
-                                                                    <img class='card-img-top' expr:alt='data:post.title' expr:src='resizeImage(data:post.thumbnailUrl, 300, &quot;1:1&quot;)'/>
-                                                                    <div class='card-body'>
-                                                                        <h5 class='card-title'>
-                                                                            <data:post.title/>
-                                                                        </h5>
-                                                                        <p class='card-text'>
-                                                                            <small class='text-muted home-card-label'>
-                                                                                <data:post.labels.first.name/>
-                                                                            </small>
-                                                                        </p>
-                                                                        <p class='card-text'>
-                                                                            <b:eval expr='snippet(data:post.longSnippet, {length: 200, links: false, ellipsis: true, linebreaks: false})'/>
-                                                                        </p>
+                                                                <a class='card-link-main' expr:href='data:post.url'>
+                                                                    <div class='card h-100'>
+                                                                        <img class='card-img-top' expr:alt='data:post.title' expr:src='resizeImage(data:post.thumbnailUrl, 300, &quot;4:2&quot;)'/>
+                                                                        <div class='card-body'>
+                                                                            <h5 class='card-title'>
+                                                                                <data:post.title/>
+                                                                            </h5>
+                                                                            <p class='card-text'>
+                                                                                <small class='text-muted home-card-label'>
+                                                                                    <data:post.labels.first.name/>
+                                                                                </small>
+                                                                            </p>
+                                                                            <p class='card-text'>
+                                                                                <b:eval expr='snippet(data:post.longSnippet, {length: 200, links: false, ellipsis: true, linebreaks: false})'/>
+                                                                            </p>
 
+                                                                        </div>
+                                                                        <div class='card-footer'>
+                                                                            <a class='btn btn-primary' expr:href='data:post.url'>Read More</a>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class='card-footer'>
-                                                                        <a class='btn btn-primary' expr:href='data:post.url'>Read More</a>
-                                                                    </div>
-                                                                </div>
+                                                                </a>
                                                             </div>
                                                         </b:loop>
                                                     </div>
@@ -400,21 +557,23 @@ Author Url:   https://www.buddhilive.com/
                                                     <div class='row row-cols-1 row-cols-md-2 g-4'>
                                                         <b:loop index='i' values='data:posts' var='post'>
                                                             <div class='col-md-6'>
-                                                                <div class='card h-100'>
-                                                                    <img class='card-img-top' expr:alt='data:post.title' expr:src='resizeImage(data:post.thumbnailUrl, 300, &quot;1:1&quot;)'/>
-                                                                    <div class='card-body'>
-                                                                        <h5 class='card-title'>
-                                                                            <data:post.title/>
-                                                                        </h5>
-                                                                        <p class='card-text'>
-                                                                            <b:eval expr='snippet(data:post.longSnippet, {length: 200, links: false, ellipsis: true, linebreaks: false})'/>
-                                                                        </p>
+                                                                <a class='card-link-main' expr:href='data:post.url'>
+                                                                    <div class='card h-100'>
+                                                                        <img class='card-img-top' expr:alt='data:post.title' expr:src='resizeImage(data:post.thumbnailUrl, 300, &quot;4:2&quot;)'/>
+                                                                        <div class='card-body'>
+                                                                            <h5 class='card-title'>
+                                                                                <data:post.title/>
+                                                                            </h5>
+                                                                            <p class='card-text'>
+                                                                                <b:eval expr='snippet(data:post.longSnippet, {length: 200, links: false, ellipsis: true, linebreaks: false})'/>
+                                                                            </p>
 
+                                                                        </div>
+                                                                        <div class='card-footer'>
+                                                                            <a class='btn btn-primary' expr:href='data:post.url'>Read More</a>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class='card-footer'>
-                                                                        <a class='btn btn-primary' expr:href='data:post.url'>Read More</a>
-                                                                    </div>
-                                                                </div>
+                                                                </a>
                                                             </div>
                                                         </b:loop>
                                                     </div>
@@ -1132,7 +1291,7 @@ Author Url:   https://www.buddhilive.com/
       var config = <data:post.commentConfig/>
 ;
 
-//                                                                 <![CDATA[
+//                                                                                                 <![CDATA[
       var cursor = null;
       if (items && items.length > 0) {
         cursor = parseInt(items[items.length - 1].timestamp) + 1;
@@ -1345,23 +1504,69 @@ Author Url:   https://www.buddhilive.com/
                                 </div>
                             </b:includable>
                         </b:widget>
+                        <b:widget id='HTML1' locked='false' title='' type='HTML'>
+                            <b:widget-settings>
+                                <b:widget-setting name='content'>&lt;script async src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9435032914308988&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;!-- Featured Buddhilive --&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9435032914308988&quot; data-ad-slot=&quot;9280073752&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</b:widget-setting>
+                            </b:widget-settings>
+                            <b:includable id='main'>
+                                <!-- only display title if it's non-empty -->
+                                <b:if cond='data:title != &quot;&quot;'>
+                                    <h2 class='title'>
+                                        <data:title/>
+                                    </h2>
+                                </b:if>
+                                <div class='widget-content'>
+                                    <data:content/>
+                                </div>
+
+                                <b:include name='quickedit'/>
+                            </b:includable>
+                        </b:widget>
                     </b:section>
 
 
-                    <div class='col-md-3'>
+                    <div class='col-md-3 col-sm-12'>
                         <div class='sidebar-wrapper'>
                             <!--Put Sidebar Section Here-->
                             <div class='position-sticky' style='top: 2rem'>
                                 <b:section class='Sidebar' id='Sidebar' showaddelement='yes'>
+                                    <b:widget id='HTML2' locked='false' title='' type='HTML'>
+                                        <b:widget-settings>
+                                            <b:widget-setting name='content'>&lt;script async src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9435032914308988&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;!-- Sidebar-banner buddhilive --&gt;
+&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9435032914308988&quot; data-ad-slot=&quot;6056255750&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
+&lt;script&gt;
+     (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</b:widget-setting>
+                                        </b:widget-settings>
+                                        <b:includable id='main'>
+                                            <!-- only display title if it's non-empty -->
+                                            <b:if cond='data:title != &quot;&quot;'>
+                                                <h2 class='title'>
+                                                    <data:title/>
+                                                </h2>
+                                            </b:if>
+                                            <div class='widget-content'>
+                                                <data:content/>
+                                            </div>
+
+                                            <b:include name='quickedit'/>
+                                        </b:includable>
+                                    </b:widget>
                                     <b:widget id='Text1' locked='true' title='About' type='Text' version='1'>
                                         <b:widget-settings>
-                                            <b:widget-setting name='content'>Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</b:widget-setting>
+                                            <b:widget-setting name='content'>Buddhilive.com was launched on 2nd of July 2015</b:widget-setting>
                                         </b:widget-settings>
                                         <b:includable id='main'>
                                             <!-- only display title if it's non-empty -->
                                             <div class='p-4 mb-3 bg-light rounded'>
                                                 <b:if cond='data:title != &quot;&quot;'>
-                                                    <h4 class='fst-italic'>
+                                                    <h4>
                                                         <data:title/>
                                                     </h4>
                                                 </b:if>
@@ -1387,7 +1592,7 @@ Author Url:   https://www.buddhilive.com/
                                         <b:includable id='main'>
                                             <div class='p-4'>
                                                 <b:if cond='data:title != &quot;&quot;'>
-                                                    <h4 class='fst-italic'>
+                                                    <h4>
                                                         <data:title/>
                                                     </h4>
                                                 </b:if>
@@ -1469,34 +1674,6 @@ Author Url:   https://www.buddhilive.com/
                                             </a>
                                         </b:includable>
                                     </b:widget>
-                                    <b:widget id='LinkList1' locked='true' title='Links' type='LinkList' version='1'>
-                                        <b:widget-settings>
-                                            <b:widget-setting name='sorting'>NONE</b:widget-setting>
-                                            <b:widget-setting name='text-0'>Home</b:widget-setting>
-                                            <b:widget-setting name='link-0'>/</b:widget-setting>
-                                        </b:widget-settings>
-                                        <b:includable id='main'>
-                                            <div class='p-4'>
-                                                <b:if cond='data:title != &quot;&quot;'>
-                                                    <h4 class='fst-italic'>
-                                                        <data:title/>
-                                                    </h4>
-                                                </b:if>
-                                                <div class='widget-content'>
-                                                    <ul class='list-unstyled'>
-                                                        <b:loop values='data:links' var='link'>
-                                                            <li>
-                                                                <a expr:href='data:link.target'>
-                                                                    <data:link.name/>
-                                                                </a>
-                                                            </li>
-                                                        </b:loop>
-                                                    </ul>
-                                                    <b:include name='quickedit'/>
-                                                </div>
-                                            </div>
-                                        </b:includable>
-                                    </b:widget>
                                 </b:section>
 
                             </div>
@@ -1557,7 +1734,7 @@ var date = today.getFullYear()+&#39;-&#39;+(today.getMonth()+1)+&#39;-&#39;+toda
         <div class='align-items-center d-flex flex-wrap justify-content-between py-3'>
             <div class='col-md-4 d-flex align-items-center'>
                 <a class='mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1' href='/'>
-                    <img class='d-inline-block align-text-top' expr:alt='data:blog.title' src='https://www.buddhilive.com/favicon.ico' style='height: 40px;width: auto;'/>
+                    <img class='d-inline-block align-text-top' expr:alt='data:blog.title' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxGQb__uZubJXe0awCOxE4aRxa9Nvm5lAQa8oIt93jqQVdjmDznFRXFUy-_ayOZ7Kp1V8TF6Kmt_LztI6G4IoG3C7AzDDcdAVinR3gTiiyOGtOBHaGoP0hKL_mVmaXNI3PZfugjzJhmaOl8sSJmPrcmLN5pHWtiAnXpEEB5Ut9lIwiiFapdalHP3o/s320/Buddhilive.png' style='height: 40px;width: auto;'/>
                 </a>
                 <span class='mb-3 mb-md-0 text-muted'>&#169; 2015 - <script>document.write(new Date().getFullYear())</script>
                     <data:blog.title/>
@@ -1600,6 +1777,10 @@ var date = today.getFullYear()+&#39;-&#39;+(today.getMonth()+1)+&#39;-&#39;+toda
     </footer>
 </div>
 </footer>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d4fa921b5b4aa71' type='text/javascript'/>
+<!-- Blogger Scripts -->
 
 <script>
       if (document.getElementsByClassName(&#39;typewriter&#39;).length &gt; 0) {
