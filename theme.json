@@ -1,0 +1,111 @@
+{
+    "version": 2,
+    "title": "DocsPresso Tech Blog",
+    "settings": {
+        "appearanceTools": true,
+        "color": {
+            "palette": [
+                {
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "#0073aa"
+                },
+                {
+                    "name": "Secondary",
+                    "slug": "secondary",
+                    "color": "#005a87"
+                },
+                {
+                    "name": "Dark Gray",
+                    "slug": "dark-gray",
+                    "color": "#111111"
+                },
+                {
+                    "name": "Light Gray",
+                    "slug": "light-gray",
+                    "color": "#f0f0f0"
+                },
+                {
+                    "name": "White",
+                    "slug": "white",
+                    "color": "#ffffff"
+                }
+            ]
+        },
+        "typography": {
+            "fontSizes": [
+                {
+                    "name": "Small",
+                    "size": "0.875rem",
+                    "slug": "small"
+                },
+                {
+                    "name": "Normal",
+                    "size": "1rem",
+                    "slug": "normal"
+                },
+                {
+                    "name": "Large",
+                    "size": "1.25rem",
+                    "slug": "large"
+                },
+                {
+                    "name": "Larger",
+                    "size": "1.5rem",
+                    "slug": "larger"
+                }
+            ]
+        },
+        "spacing": {
+            "spacingScale": {
+                "step": 2,
+                "unitless": true
+            },
+            "spacingSizes": [
+                {
+                    "name": "Small",
+                    "size": "clamp(0.5rem, 1vw, 1rem)",
+                    "slug": "small"
+                },
+                {
+                    "name": "Medium",
+                    "size": "clamp(1rem, 2vw, 2rem)",
+                    "slug": "medium"
+                },
+                {
+                    "name": "Large",
+                    "size": "clamp(2rem, 4vw, 4rem)",
+                    "slug": "large"
+                },
+                {
+                    "name": "Extra Large",
+                    "size": "clamp(3rem, 6vw, 6rem)",
+                    "slug": "x-large"
+                }
+            ]
+        },
+        "useRootPaddingAwareAlignments": true
+    },
+    "styles": {
+        "color": {
+            "background": "var(--wp--preset--color--white)",
+            "text": "var(--wp--preset--color--dark-gray)"
+        },
+        "typography": {
+            "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+            "lineHeight": 1.6
+        }
+    },
+    "templateParts": [
+        {
+            "name": "header",
+            "title": "Header",
+            "area": "header"
+        },
+        {
+            "name": "footer",
+            "title": "Footer",
+            "area": "footer"
+        }
+    ]
+}

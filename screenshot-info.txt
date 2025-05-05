@@ -1,0 +1,9 @@
+# DocsPresso Tech Blog Theme
+
+## Screenshot
+
+A screenshot.png file is required for WordPress themes. For this theme, you'll need to create a screenshot that is exactly 1200x900 pixels showing a preview of your theme's design.
+
+To create the screenshot:
+1. Design a 1200x900 pixel image showing your theme in action
+2. Save it as screenshot.png in the theme root directory

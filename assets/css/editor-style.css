@@ -1,0 +1,12 @@
+/*!
+ * Editor styles for DocsPresso Tech Blog
+ */
+
+/* Editor specific styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    max-width: 720px; /* Match the content width in the frontend */
+    margin: 0 auto;
+    padding: 20px;
+}
