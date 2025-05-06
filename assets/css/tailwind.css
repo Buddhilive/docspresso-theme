@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for DocsPresso Tech Blog */
+body {
+  @apply font-sans antialiased;
+}
+
+.site {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+/* Header styles */
+.site-header {
+  @apply py-4 border-b border-gray-200 mb-8;
+}
+
+.site-branding {
+  @apply text-center mb-4;
+}
+
+.site-title {
+  @apply text-3xl font-bold mb-2;
+}
+
+.site-title a {
+  @apply text-gray-900 no-underline hover:text-primary;
+}
+
+.site-description {
+  @apply italic text-gray-600 mb-0;
+}
+
+/* Navigation */
+.main-navigation {
+  @apply text-center;
+}
+
+.menu-toggle {
+  @apply md:hidden bg-white border border-gray-300 p-2 cursor-pointer;
+}
+
+.main-navigation ul {
+  @apply list-none p-0 m-0 flex justify-center gap-6;
+}
+
+.main-navigation li {
+  @apply relative;
+}
+
+.main-navigation a {
+  @apply block py-1 px-2 text-gray-700 hover:text-primary transition-colors;
+}
+
+/* Content */
+.site-content {
+  @apply mb-12;
+}
+
+.entry-header {
+  @apply mb-6;
+}
+
+.entry-title {
+  @apply text-2xl font-bold m-0 mb-4;
+}
+
+.entry-meta {
+  @apply text-gray-600 text-sm mb-4;
+}
+
+.entry-content {
+  @apply mb-8;
+}
+
+.read-more {
+  @apply inline-block mt-4 px-4 py-2 bg-primary text-white no-underline rounded hover:bg-secondary transition-colors;
+}
+
+/* Posts navigation */
+.posts-navigation {
+  @apply my-8 py-4 border-t border-b border-gray-200;
+}
+
+.nav-links {
+  @apply flex justify-between;
+}
+
+.nav-previous a,
+.nav-next a {
+  @apply block px-4 py-2 bg-gray-100 text-gray-800 no-underline rounded;
+}
+
+/* Footer */
+.site-footer {
+  @apply mt-12 pt-8 border-t border-gray-200 text-center;
+}
+
+.copyright {
+  @apply m-0 text-gray-600;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .main-navigation ul {
+    @apply flex-col gap-2 hidden;
+  }
+  
+  .menu-toggle[aria-expanded="true"] + ul {
+    @apply flex;
+  }
+  
+  .site {
+    @apply px-3;
+  }
+  
+  .site-title {
+    @apply text-2xl;
+  }
+}
+
+/* Comments */
+.comment-content a,
+.pingback .comment-body > a {
+  @apply break-words;
+}

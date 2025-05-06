@@ -7,9 +7,9 @@
 
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'docspresso-theme' ); ?></h1>
+<section class="no-results not-found max-w-2xl mx-auto py-16">
+	<header class="page-header mb-8 text-center">
+		<h1 class="page-title text-2xl font-bold"><?php esc_html_e( 'Nothing Found', 'docspresso-theme' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -17,12 +17,13 @@
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
 			printf(
-				'<p>' . wp_kses(
+				'<p class="text-center mb-6">' . wp_kses(
 					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'docspresso-theme' ),
+					__( 'Ready to publish your first post? <a href="%1$s" class="text-blue-600 hover:text-blue-800 font-medium">Get started here</a>.', 'docspresso-theme' ),
 					array(
 						'a' => array(
 							'href' => array(),
+							'class' => array(),
 						),
 					)
 				) . '</p>',
@@ -32,17 +33,23 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'docspresso-theme' ); ?></p>
-			<?php
-			get_search_form();
-
+			<p class="text-center mb-6"><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'docspresso-theme' ); ?></p>
+			<div class="max-w-md mx-auto mb-8">
+				<?php
+				get_search_form();
+				?>
+			</div>
+		<?php
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'docspresso-theme' ); ?></p>
-			<?php
-			get_search_form();
-
+			<p class="text-center mb-6"><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'docspresso-theme' ); ?></p>
+			<div class="max-w-md mx-auto">
+				<?php
+				get_search_form();
+				?>
+			</div>
+		<?php
 		endif;
 		?>
 	</div><!-- .page-content -->

@@ -101,10 +101,24 @@ add_action( 'init', 'docspresso_register_block_patterns' );
  * Enqueue scripts and styles.
  */
 function docspresso_scripts() {
-	wp_enqueue_style( 'docspresso-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
+	// Enqueue Tailwind CSS
+	wp_enqueue_style( 'tailwind-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue theme's custom CSS (with overrides)
+	wp_enqueue_style( 'docspresso-style', get_stylesheet_uri(), array('tailwind-css'), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue main JavaScript
 	wp_enqueue_script( 'docspresso-script', get_template_directory_uri() . '/assets/js/main.js', array(), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'docspresso_scripts' );
+
+/**
+ * Enqueue editor styles for the block editor.
+ */
+function docspresso_block_editor_assets() {
+	wp_enqueue_style( 'docspresso-editor-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
+}
+add_action( 'enqueue_block_editor_assets', 'docspresso_block_editor_assets' );
 
 /**
  * Custom function to display post meta information
