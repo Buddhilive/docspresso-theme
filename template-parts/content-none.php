@@ -19,7 +19,7 @@
 			printf(
 				'<p class="text-center mb-6">' . wp_kses(
 					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s" class="text-blue-600 hover:text-blue-800 font-medium">Get started here</a>.', 'docspresso-theme' ),
+					__( 'Ready to publish your first post? <a href="%1$s" class="text-purple-600 hover:text-purple-800 font-medium">Get started here</a>.', 'docspresso-theme' ),
 					array(
 						'a' => array(
 							'href' => array(),

@@ -18,11 +18,11 @@
             <?php
             if ( is_front_page() && is_home() ) :
                 ?>
-                <h1 class="site-title text-3xl font-bold mb-2"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="text-gray-900 no-underline hover:text-blue-600"><?php bloginfo( 'name' ); ?></a></h1>
+                <h1 class="site-title text-3xl font-bold mb-2"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="text-gray-900 no-underline hover:text-purple-600"><?php bloginfo( 'name' ); ?></a></h1>
                 <?php
             else :
                 ?>
-                <p class="site-title text-3xl font-bold mb-2"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="text-gray-900 no-underline hover:text-blue-600"><?php bloginfo( 'name' ); ?></a></p>
+                <p class="site-title text-3xl font-bold mb-2"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="text-gray-900 no-underline hover:text-purple-600"><?php bloginfo( 'name' ); ?></a></p>
                 <?php
             endif;
 

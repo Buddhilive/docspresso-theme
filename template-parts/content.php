@@ -13,7 +13,7 @@
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title text-3xl font-bold m-0 mb-4">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title text-2xl font-bold m-0 mb-4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-gray-900 hover:text-blue-600 no-underline">', '</a></h2>' );
+			the_title( '<h2 class="entry-title text-2xl font-bold m-0 mb-4"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" class="text-gray-900 hover:text-purple-600 no-underline">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :

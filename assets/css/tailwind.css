@@ -25,7 +25,7 @@ body {
 }
 
 .site-title a {
-  @apply text-gray-900 no-underline hover:text-primary;
+  @apply text-gray-900 no-underline hover:text-purple-600;
 }
 
 .site-description {
@@ -50,7 +50,7 @@ body {
 }
 
 .main-navigation a {
-  @apply block py-1 px-2 text-gray-700 hover:text-primary transition-colors;
+  @apply block py-1 px-2 text-gray-700 hover:text-purple-600 transition-colors;
 }
 
 /* Content */
@@ -75,7 +75,7 @@ body {
 }
 
 .read-more {
-  @apply inline-block mt-4 px-4 py-2 bg-primary text-white no-underline rounded hover:bg-secondary transition-colors;
+  @apply inline-block mt-4 px-4 py-2 bg-purple-600 text-white no-underline rounded hover:bg-purple-700 transition-colors;
 }
 
 /* Posts navigation */

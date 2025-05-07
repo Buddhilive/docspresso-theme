@@ -8,12 +8,12 @@
                 {
                     "name": "Primary",
                     "slug": "primary",
-                    "color": "#0073aa"
+                    "color": "#8B5CF6"
                 },
                 {
                     "name": "Secondary",
                     "slug": "secondary",
-                    "color": "#005a87"
+                    "color": "#7C3AED"
                 },
                 {
                     "name": "Dark Gray",
