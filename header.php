@@ -11,9 +11,15 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site min-h-screen flex flex-col">
+    <?php if (is_front_page() || is_home()) : ?>
+    <!-- Animated gradient background on front page and blog index -->
+    <div class="animated-gradient"></div>
+    <div class="gradient-transition"></div>
+    <?php endif; ?>
+    
     <a class="skip-link screen-reader-text absolute top-0 left-0 bg-white text-black p-4 -m-px border-0 w-px h-px overflow-hidden focus:z-10 focus:w-auto focus:h-auto" href="#content"><?php esc_html_e( 'Skip to content', 'docspresso-theme' ); ?></a>
 
-    <header id="masthead" class="site-header py-4 border-b border-gray-200 mb-8">
+    <header id="masthead" class="site-header py-4 border-b border-gray-200 mb-8 relative z-10">
         <div class="site-branding text-center mb-4">
             <?php
             if ( is_front_page() && is_home() ) :
@@ -43,7 +49,7 @@
                         'menu_id'        => 'primary-menu',
                         'container_class' => 'hidden md:flex justify-center gap-6',
                         'menu_class'      => 'list-none p-0 m-0 flex flex-col md:flex-row gap-2 md:gap-6',
-                        'link_class'      => 'block py-1 px-2 text-gray-700 hover:text-blue-600 transition-colors',
+                        'link_class'      => 'block py-1 px-2 text-gray-700 hover:text-purple-600 transition-colors',
                     )
                 );
                 ?>

@@ -125,3 +125,39 @@ body {
 .pingback .comment-body > a {
   @apply break-words;
 }
+
+/* Animated Gradient Background */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #8B0000, #FF69B4, #8B5CF6, #4B0082);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  z-index: -1;
+}
+
+/* Dark transition below gradient */
+.gradient-transition {
+  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+  position: fixed;
+  top: 50vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
