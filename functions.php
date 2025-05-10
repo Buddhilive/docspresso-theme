@@ -90,7 +90,59 @@ if ( ! function_exists( 'docspresso_register_block_patterns' ) ) :
 	 */
 	function docspresso_register_block_patterns() {
 		if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
-			// Register block patterns here if needed
+			// Register pattern categories
+			register_block_pattern_category(
+				'docspresso-sections',
+				array( 'label' => __( 'DocsPresso Sections', 'docspresso-theme' ) )
+			);
+
+			// Register Hero Section pattern
+			register_block_pattern(
+				'docspresso/hero-section',
+				array(
+					'title'         => __( 'Hero Section with Animated Gradient', 'docspresso-theme' ),
+					'description'   => __( 'A hero section with animated gradient background and call-to-action buttons', 'docspresso-theme' ),
+					'content'       => file_get_contents( get_template_directory() . '/patterns/hero-section.php' ),
+					'categories'    => array( 'featured', 'header', 'docspresso-sections' ),
+					'keywords'      => array( 'hero', 'gradient', 'header', 'cta' ),
+				)
+			);
+
+			// Register Build Section pattern
+			register_block_pattern(
+				'docspresso/build-section',
+				array(
+					'title'         => __( 'Build Section with Services', 'docspresso-theme' ),
+					'description'   => __( 'A build section showcasing AI services and tools', 'docspresso-theme' ),
+					'content'       => file_get_contents( get_template_directory() . '/patterns/build-section.php' ),
+					'categories'    => array( 'featured', 'services', 'docspresso-sections' ),
+					'keywords'      => array( 'build', 'services', 'ai', 'tools' ),
+				)
+			);
+
+			// Register Research Section pattern
+			register_block_pattern(
+				'docspresso/research-section',
+				array(
+					'title'         => __( 'Research Section with Articles', 'docspresso-theme' ),
+					'description'   => __( 'A research section displaying latest articles and findings', 'docspresso-theme' ),
+					'content'       => file_get_contents( get_template_directory() . '/patterns/research-section.php' ),
+					'categories'    => array( 'featured', 'research', 'docspresso-sections' ),
+					'keywords'      => array( 'research', 'articles', 'dark', 'grid' ),
+				)
+			);
+
+			// Register Action Buttons pattern
+			register_block_pattern(
+				'docspresso/action-buttons',
+				array(
+					'title'         => __( 'Quick Action Buttons', 'docspresso-theme' ),
+					'description'   => __( 'A set of action buttons for AI features', 'docspresso-theme' ),
+					'content'       => file_get_contents( get_template_directory() . '/patterns/action-buttons.php' ),
+					'categories'    => array( 'featured', 'buttons', 'docspresso-sections' ),
+					'keywords'      => array( 'buttons', 'actions', 'ai', 'cta' ),
+				)
+			);
 		}
 	}
 endif;

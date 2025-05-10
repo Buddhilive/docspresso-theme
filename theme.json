@@ -11,6 +11,11 @@
                     "color": "#8B5CF6"
                 },
                 {
+                    "name": "Purple",
+                    "slug": "purple",
+                    "color": "#8B5CF6"
+                },
+                {
                     "name": "Secondary",
                     "slug": "secondary",
                     "color": "#7C3AED"
@@ -18,7 +23,47 @@
                 {
                     "name": "Dark Gray",
                     "slug": "dark-gray",
-                    "color": "#111111"
+                    "color": "#111827"
+                },
+                {
+                    "name": "Gray 900",
+                    "slug": "gray-900",
+                    "color": "#111827"
+                },
+                {
+                    "name": "Gray 800",
+                    "slug": "gray-800",
+                    "color": "#1F2937"
+                },
+                {
+                    "name": "Gray 700",
+                    "slug": "gray-700",
+                    "color": "#374151"
+                },
+                {
+                    "name": "Gray 600",
+                    "slug": "gray-600",
+                    "color": "#4B5563"
+                },
+                {
+                    "name": "Gray 400",
+                    "slug": "gray-400",
+                    "color": "#9CA3AF"
+                },
+                {
+                    "name": "Gray 200",
+                    "slug": "gray-200",
+                    "color": "#E5E7EB"
+                },
+                {
+                    "name": "Gray 100",
+                    "slug": "gray-100",
+                    "color": "#F3F4F6"
+                },
+                {
+                    "name": "Gray 50",
+                    "slug": "gray-50",
+                    "color": "#F9FAFB"
                 },
                 {
                     "name": "Light Gray",
@@ -29,6 +74,36 @@
                     "name": "White",
                     "slug": "white",
                     "color": "#ffffff"
+                },
+                {
+                    "name": "Black",
+                    "slug": "black",
+                    "color": "#000000"
+                },
+                {
+                    "name": "Blue 600",
+                    "slug": "blue-600",
+                    "color": "#2563EB"
+                },
+                {
+                    "name": "Blue 100",
+                    "slug": "blue-100",
+                    "color": "#DBEAFE"
+                },
+                {
+                    "name": "Purple 600",
+                    "slug": "purple-600",
+                    "color": "#9333EA"
+                },
+                {
+                    "name": "Purple 700",
+                    "slug": "purple-700",
+                    "color": "#7C3AED"
+                },
+                {
+                    "name": "Purple 100",
+                    "slug": "purple-100",
+                    "color": "#EDE9FE"
                 }
             ]
         },
