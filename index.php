@@ -13,45 +13,86 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main flex-grow max-w-3xl mx-auto px-4 py-8">
-	<?php
-	if ( have_posts() ) :
+<div class="blog-home min-h-screen bg-white">
+    <div class="site">
+        <?php if ( have_posts() ) : ?>
+            
+            <!-- Blog Header -->
+            <header class="blog-header py-12 text-center border-b border-gray-100 mb-12">
+                <h1 class="blog-title text-4xl font-bold text-gray-900 mb-4">
+                    <?php 
+                    if ( is_home() && ! is_front_page() ) {
+                        single_post_title();
+                    } else {
+                        esc_html_e( 'Latest Articles', 'docspresso-theme' );
+                    }
+                    ?>
+                </h1>
+                <div class="blog-description text-lg text-gray-600 max-w-3xl mx-auto">
+                    <?php
+                    $blog_description = get_bloginfo( 'description' );
+                    if ( $blog_description ) {
+                        echo esc_html( $blog_description );
+                    } else {
+                        esc_html_e( 'Discover the latest insights, tutorials, and research in technology and AI.', 'docspresso-theme' );
+                    }
+                    ?>
+                </div>
+            </header>
 
-		/* Start the Loop */
-		while ( have_posts() ) :
-			the_post();
+            <!-- Posts Grid -->
+            <div class="posts-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <?php
+                /* Start the Loop */
+                while ( have_posts() ) :
+                    the_post();
+                    
+                    /*
+                     * Include the archive template for consistent styling
+                     */
+                    get_template_part( 'template-parts/content', 'archive' );
 
-			/*
-			 * Include the Post-Type-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-			 */
-			get_template_part( 'template-parts/content', get_post_type() );
+                endwhile;
+                ?>
+            </div>
 
-		endwhile;
+            <!-- Pagination -->
+            <div class="blog-pagination mb-16">
+                <?php
+                // Custom pagination
+                $big = 999999999; // need an unlikely integer
+                
+                $pagination_links = paginate_links( array(
+                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                    'format' => '?paged=%#%',
+                    'current' => max( 1, get_query_var('paged') ),
+                    'total' => $wp_query->max_num_pages,
+                    'prev_text' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>',
+                    'next_text' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>',
+                    'type' => 'array'
+                ) );
 
-		// Previous/next post navigation.
-		?>
-		<nav class="posts-navigation py-8 border-t border-b border-gray-200 my-8">
-			<div class="nav-links flex justify-between">
-				<div class="nav-previous">
-					<?php previous_posts_link( esc_html__( 'Previous', 'docspresso-theme' ) ); ?>
-				</div>
-				<div class="nav-next">
-					<?php next_posts_link( esc_html__( 'Next', 'docspresso-theme' ) ); ?>
-				</div>
-			</div>
-		</nav>
-		<?php
+                if ( $pagination_links ) : ?>
+                    <nav class="pagination flex justify-center items-center space-x-2" aria-label="Posts pagination">
+                        <?php foreach ( $pagination_links as $link ) : ?>
+                            <div class="pagination-item">
+                                <?php echo $link; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </nav>
+                <?php endif; ?>
+            </div>
 
-	else :
+        <?php else : ?>
 
-		// If no content, include the "No posts found" template.
-		get_template_part( 'template-parts/content', 'none' );
+            <!-- No posts found -->
+            <div class="no-posts-found text-center py-16">
+                <?php get_template_part( 'template-parts/content', 'none' ); ?>
+            </div>
 
-	endif;
-	?>
-</main><!-- #main -->
+        <?php endif; ?>
+    </div>
+</div>
 
 <?php
 get_footer();

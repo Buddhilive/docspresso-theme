@@ -312,3 +312,159 @@ body {
 .bg-black {
   background-color: #000000 !important;
 }
+
+/* Archive page styles */
+.archive-page,
+.blog-home {
+  @apply min-h-screen;
+}
+
+.archive-header,
+.blog-header {
+  @apply py-12 text-center border-b border-gray-100 mb-12;
+}
+
+.archive-title,
+.blog-title {
+  @apply text-4xl font-bold text-gray-900 mb-4;
+}
+
+.archive-description,
+.blog-description {
+  @apply text-lg text-gray-600 max-w-3xl mx-auto;
+}
+
+/* Posts grid layout */
+.posts-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+}
+
+/* Archive post card styles */
+.archive-post-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100;
+}
+
+.archive-post-card:hover {
+  @apply transform hover:-translate-y-1;
+}
+
+/* Post thumbnail styles */
+.post-thumbnail {
+  @apply aspect-video overflow-hidden;
+}
+
+.post-thumbnail img {
+  @apply w-full h-full object-cover hover:scale-105 transition-transform duration-300;
+}
+
+.post-thumbnail-placeholder {
+  @apply aspect-video bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center;
+}
+
+/* Post content styles */
+.post-content {
+  @apply p-6;
+}
+
+.post-meta {
+  @apply flex items-center text-xs text-gray-500 mb-3 space-x-4;
+}
+
+.post-title {
+  @apply text-lg font-bold leading-tight m-0 mb-3;
+}
+
+.post-title a {
+  @apply text-gray-900 hover:text-purple-600 no-underline transition-colors;
+}
+
+.post-excerpt {
+  @apply mb-4;
+}
+
+.post-excerpt p {
+  @apply text-gray-600 text-sm leading-relaxed m-0;
+}
+
+.post-footer {
+  @apply flex items-center justify-between;
+}
+
+.post-tags {
+  @apply flex items-center space-x-2;
+}
+
+.tag {
+  @apply bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full;
+}
+
+.read-more-link {
+  @apply inline-flex items-center text-purple-600 hover:text-purple-800 text-sm font-medium transition-colors;
+}
+
+/* Pagination styles */
+.archive-pagination,
+.blog-pagination {
+  @apply mb-16;
+}
+
+.pagination {
+  @apply flex justify-center items-center space-x-2;
+}
+
+.pagination-item a,
+.pagination-item span {
+  @apply block px-4 py-2 text-sm font-medium rounded-md transition-colors border;
+}
+
+.pagination-item a {
+  @apply bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:text-purple-600 hover:border-purple-300;
+}
+
+.pagination-item span.current {
+  @apply bg-purple-600 text-white border-purple-600;
+}
+
+.pagination-item span.dots {
+  @apply bg-transparent text-gray-500 border-transparent;
+}
+
+.pagination-item a svg {
+  @apply w-5 h-5;
+}
+
+/* Responsive styles for archive */
+@media (max-width: 768px) {
+  .posts-grid {
+    @apply grid-cols-1 gap-6;
+  }
+  
+  .archive-header {
+    @apply py-8 mb-8;
+  }
+  
+  .archive-title {
+    @apply text-3xl;
+  }
+  
+  .archive-description {
+    @apply text-base;
+  }
+  
+  .post-content {
+    @apply p-4;
+  }
+  
+  .post-title {
+    @apply text-base;
+  }
+  
+  .pagination {
+    @apply space-x-1;
+  }
+  
+  .pagination-item a,
+  .pagination-item span {
+    @apply px-3 py-2 text-xs;
+  }
+}

@@ -150,6 +150,19 @@ endif;
 add_action( 'init', 'docspresso_register_block_patterns' );
 
 /**
+ * Set posts per page for archive pages
+ */
+function docspresso_modify_main_query( $query ) {
+	if ( ! is_admin() && $query->is_main_query() ) {
+		// Set 12 posts per page for all archive pages
+		if ( is_home() || is_category() || is_tag() || is_author() || is_date() || is_archive() ) {
+			$query->set( 'posts_per_page', 12 );
+		}
+	}
+}
+add_action( 'pre_get_posts', 'docspresso_modify_main_query' );
+
+/**
  * Enqueue scripts and styles.
  */
 function docspresso_scripts() {

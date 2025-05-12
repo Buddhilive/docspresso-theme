@@ -6,33 +6,73 @@
  */
 
 get_header();
+?>
 
-if ( have_posts() ) :
+<div class="archive-page min-h-screen bg-white">
+    <div class="site">
+        <?php if ( have_posts() ) : ?>
+            
+            <!-- Archive Header -->
+            <header class="archive-header py-12 text-center border-b border-gray-100 mb-12">
+                <?php
+                the_archive_title( '<h1 class="archive-title text-4xl font-bold text-gray-900 mb-4">', '</h1>' );
+                the_archive_description( '<div class="archive-description text-lg text-gray-600 max-w-3xl mx-auto">', '</div>' );
+                ?>
+            </header>
 
-    the_archive_title( '<h1 class="page-title">', '</h1>' );
-    the_archive_description( '<div class="archive-description">', '</div>' );
+            <!-- Posts Grid -->
+            <div class="posts-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <?php
+                /* Start the Loop */
+                while ( have_posts() ) :
+                    the_post();
+                    
+                    /*
+                     * Include the Post-Type-specific template for the archive content.
+                     */
+                    get_template_part( 'template-parts/content', 'archive' );
 
-    /* Start the Loop */
-    while ( have_posts() ) :
-        the_post();
+                endwhile;
+                ?>
+            </div>
 
-        /*
-         * Include the Post-Type-specific template for the content.
-         * If you want to override this in a child theme, then include a file
-         * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-         */
-        get_template_part( 'template-parts/content', get_post_type() );
+            <!-- Pagination -->
+            <div class="archive-pagination mb-16">
+                <?php
+                // Custom pagination
+                $big = 999999999; // need an unlikely integer
+                
+                $pagination_links = paginate_links( array(
+                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                    'format' => '?paged=%#%',
+                    'current' => max( 1, get_query_var('paged') ),
+                    'total' => $wp_query->max_num_pages,
+                    'prev_text' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>',
+                    'next_text' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>',
+                    'type' => 'array'
+                ) );
 
-    endwhile;
+                if ( $pagination_links ) : ?>
+                    <nav class="pagination flex justify-center items-center space-x-2" aria-label="Posts pagination">
+                        <?php foreach ( $pagination_links as $link ) : ?>
+                            <div class="pagination-item">
+                                <?php echo $link; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </nav>
+                <?php endif; ?>
+            </div>
 
-    // Previous/next post navigation.
-    the_posts_navigation();
+        <?php else : ?>
 
-else :
+            <!-- No posts found -->
+            <div class="no-posts-found text-center py-16">
+                <?php get_template_part( 'template-parts/content', 'none' ); ?>
+            </div>
 
-    // If no content, include the "No posts found" template.
-    get_template_part( 'template-parts/content', 'none' );
+        <?php endif; ?>
+    </div>
+</div>
 
-endif;
-
+<?php
 get_footer();
