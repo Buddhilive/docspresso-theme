@@ -273,3 +273,133 @@ function docspresso_post_thumbnail() {
 		<?php
 	endif;
 }
+
+/**
+ * Enhance search functionality
+ */
+
+/**
+ * Improve search to include custom fields and post excerpts
+ */
+function docspresso_extend_search( $search_query ) {
+	if ( ! is_admin() && $search_query->is_main_query() && $search_query->is_search() ) {
+		// Add post_excerpt to search
+		$search_query->set( 'meta_query', array(
+			'relation' => 'OR',
+		));
+	}
+}
+add_action( 'pre_get_posts', 'docspresso_extend_search' );
+
+/**
+ * Highlight search terms in search results
+ */
+function docspresso_highlight_search_terms( $content ) {
+	if ( is_search() && ! is_admin() && in_the_loop() && is_main_query() ) {
+		$search_terms = get_search_query();
+		if ( ! empty( $search_terms ) ) {
+			$content = preg_replace(
+				'/(' . preg_quote( $search_terms, '/' ) . ')/i',
+				'<mark class="search-highlight bg-yellow-200 px-1 rounded">$1</mark>',
+				$content
+			);
+		}
+	}
+	return $content;
+}
+add_filter( 'the_content', 'docspresso_highlight_search_terms' );
+add_filter( 'the_excerpt', 'docspresso_highlight_search_terms' );
+
+/**
+ * Add search form to wp_nav_menu for easy inclusion in navigation
+ */
+function docspresso_add_search_to_menu( $items, $args ) {
+	// Only add to primary menu if not on front page
+	if ( $args->theme_location === 'primary' && ! is_front_page() ) {
+		$search_form = '<li class="menu-item menu-item-search hidden lg:block">';
+		$search_form .= '<div class="inline-search-form relative">';
+		$search_form .= get_search_form( false );
+		$search_form .= '</div></li>';
+		$items .= $search_form;
+	}
+	return $items;
+}
+// Uncomment the line below if you want search in the navigation menu
+// add_filter( 'wp_nav_menu_items', 'docspresso_add_search_to_menu', 10, 2 );
+
+/**
+ * Custom search results per page
+ */
+function docspresso_search_results_per_page( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
+		$query->set( 'posts_per_page', 12 ); // Show 12 results per page
+	}
+}
+add_action( 'pre_get_posts', 'docspresso_search_results_per_page' );
+
+/**
+ * Add search shortcode for easy placement
+ */
+function docspresso_search_form_shortcode( $atts ) {
+	$atts = shortcode_atts( array(
+		'placeholder' => __( 'Search posts...', 'docspresso-theme' ),
+		'class' => '',
+	), $atts );
+	
+	ob_start();
+	get_search_form();
+	$form = ob_get_clean();
+	
+	// Modify placeholder if custom one is provided
+	if ( $atts['placeholder'] !== __( 'Search posts...', 'docspresso-theme' ) ) {
+		$form = str_replace( 
+			'placeholder="' . esc_attr__( 'Search posts...', 'docspresso-theme' ) . '"',
+			'placeholder="' . esc_attr( $atts['placeholder'] ) . '"',
+			$form
+		);
+	}
+	
+	// Add custom class if provided
+	if ( ! empty( $atts['class'] ) ) {
+		$form = str_replace( 
+			'class="search-form',
+			'class="search-form ' . esc_attr( $atts['class'] ),
+			$form
+		);
+	}
+	
+	return $form;
+}
+add_shortcode( 'search_form', 'docspresso_search_form_shortcode' );
+
+/**
+ * Filter search form for different contexts
+ */
+function docspresso_modify_search_form_for_context( $form ) {
+	// Add hidden fields to maintain context on archive pages
+	if ( is_category() ) {
+		$category = get_queried_object();
+		$form = str_replace( 
+			'</form>',
+			'<input type="hidden" name="cat" value="' . esc_attr( $category->term_id ) . '"></form>',
+			$form
+		);
+	} elseif ( is_tag() ) {
+		$tag = get_queried_object();
+		$form = str_replace( 
+			'</form>',
+			'<input type="hidden" name="tag" value="' . esc_attr( $tag->slug ) . '"></form>',
+			$form
+		);
+	} elseif ( is_author() ) {
+		$author = get_queried_object();
+		$form = str_replace( 
+			'</form>',
+			'<input type="hidden" name="author" value="' . esc_attr( $author->ID ) . '"></form>',
+			$form
+		);
+	}
+	
+	return $form;
+}
+add_filter( 'get_search_form', 'docspresso_modify_search_form_for_context' );

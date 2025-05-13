@@ -1,11 +1,8 @@
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * The template for displaying the blog index page.
+ * This template is used when users have set a static front page
+ * and selected a separate page for their blog posts.
  *
  * @package DocsPresso_Tech_Blog
  */
@@ -20,9 +17,15 @@ get_header();
             <!-- Blog Header -->
             <header class="blog-header py-12 text-center border-b border-gray-100 mb-12">
                 <h1 class="blog-title text-4xl font-bold text-gray-900 mb-4">
-                    <?php 
+                    <?php
+                    // Display the posts page title if set, otherwise default
                     if ( is_home() && ! is_front_page() ) {
-                        single_post_title();
+                        $posts_page_id = get_option( 'page_for_posts' );
+                        if ( $posts_page_id ) {
+                            echo esc_html( get_the_title( $posts_page_id ) );
+                        } else {
+                            esc_html_e( 'Blog', 'docspresso-theme' );
+                        }
                     } else {
                         esc_html_e( 'Latest Articles', 'docspresso-theme' );
                     }
@@ -30,11 +33,26 @@ get_header();
                 </h1>
                 <div class="blog-description text-lg text-gray-600 max-w-3xl mx-auto">
                     <?php
-                    $blog_description = get_bloginfo( 'description' );
-                    if ( $blog_description ) {
-                        echo esc_html( $blog_description );
+                    // Display posts page content if available
+                    if ( is_home() && ! is_front_page() ) {
+                        $posts_page_id = get_option( 'page_for_posts' );
+                        if ( $posts_page_id ) {
+                            $posts_page_content = get_post_field( 'post_content', $posts_page_id );
+                            if ( $posts_page_content ) {
+                                echo wp_kses_post( wp_trim_words( $posts_page_content, 30 ) );
+                            } else {
+                                esc_html_e( 'Discover the latest insights, tutorials, and research in technology and AI.', 'docspresso-theme' );
+                            }
+                        } else {
+                            esc_html_e( 'Discover the latest insights, tutorials, and research in technology and AI.', 'docspresso-theme' );
+                        }
                     } else {
-                        esc_html_e( 'Discover the latest insights, tutorials, and research in technology and AI.', 'docspresso-theme' );
+                        $blog_description = get_bloginfo( 'description' );
+                        if ( $blog_description ) {
+                            echo esc_html( $blog_description );
+                        } else {
+                            esc_html_e( 'Discover the latest insights, tutorials, and research in technology and AI.', 'docspresso-theme' );
+                        }
                     }
                     ?>
                 </div>

@@ -402,6 +402,69 @@ body {
   @apply inline-flex items-center text-purple-600 hover:text-purple-800 text-sm font-medium transition-colors;
 }
 
+/* Search form styles */
+.search-form {
+  @apply max-w-2xl mx-auto;
+}
+
+.search-form-wrapper {
+  @apply flex items-stretch shadow-sm rounded-lg overflow-hidden;
+}
+
+.search-field {
+  @apply flex-1 px-4 py-3 border border-gray-300 border-r-0 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 placeholder-gray-500 text-gray-900;
+}
+
+.search-submit {
+  @apply px-6 py-3 bg-purple-600 text-white font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center border border-purple-600;
+}
+
+.search-submit:hover {
+  @apply bg-purple-700 border-purple-700;
+}
+
+.search-submit svg {
+  @apply w-5 h-5;
+}
+
+/* Search section styling */
+.search-section {
+  @apply mb-12;
+}
+
+.search-section h2 {
+  @apply text-xl font-semibold text-gray-900 mb-4 text-center;
+}
+
+/* Search page specific styles */
+.search-page {
+  @apply min-h-screen bg-white;
+}
+
+.search-header {
+  @apply py-12 text-center border-b border-gray-100 mb-12;
+}
+
+.search-title {
+  @apply text-4xl font-bold text-gray-900 mb-4;
+}
+
+.search-results-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+}
+
+.search-pagination {
+  @apply mb-16;
+}
+
+/* Screen reader text */
+.screen-reader-text,
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
 /* Pagination styles */
 .archive-pagination,
 .blog-pagination {
@@ -431,6 +494,24 @@ body {
 
 .pagination-item a svg {
   @apply w-5 h-5;
+}
+
+/* Search highlighting */
+.search-highlight {
+  @apply bg-yellow-200 px-1 rounded font-medium;
+}
+
+/* Inline search form for navigation */
+.inline-search-form .search-form {
+  @apply max-w-xs;
+}
+
+.inline-search-form .search-field {
+  @apply text-sm py-2 px-3;
+}
+
+.inline-search-form .search-submit {
+  @apply py-2 px-4 text-sm;
 }
 
 /* Responsive styles for archive */
@@ -466,5 +547,26 @@ body {
   .pagination-item a,
   .pagination-item span {
     @apply px-3 py-2 text-xs;
+  }
+  
+  /* Search form responsive styles */
+  .search-form {
+    @apply max-w-full;
+  }
+  
+  .search-section h2 {
+    @apply text-lg mb-3;
+  }
+  
+  .search-field {
+    @apply text-base py-2 px-3;
+  }
+  
+  .search-submit {
+    @apply px-4 py-2;
+  }
+  
+  .search-title {
+    @apply text-3xl;
   }
 }
