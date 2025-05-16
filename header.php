@@ -12,9 +12,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site min-h-screen flex flex-col">
     <?php if (is_front_page() || is_home()) : ?>
-    <!-- Animated gradient background on front page and blog index -->
-    <div class="animated-gradient"></div>
-    <div class="gradient-transition"></div>
+    <!-- Front page - hero and header handled by header pattern (no animated gradient) -->
     <?php endif; ?>
     
     <a class="skip-link screen-reader-text absolute top-0 left-0 bg-white text-black p-4 -m-px border-0 w-px h-px overflow-hidden focus:z-10 focus:w-auto focus:h-auto" href="#content"><?php esc_html_e( 'Skip to content', 'docspresso-theme' ); ?></a>

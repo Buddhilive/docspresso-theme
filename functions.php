@@ -100,11 +100,55 @@ if ( ! function_exists( 'docspresso_register_block_patterns' ) ) :
 			register_block_pattern(
 				'docspresso/hero-section',
 				array(
-					'title'         => __( 'Hero Section with Animated Gradient', 'docspresso-theme' ),
-					'description'   => __( 'A hero section with animated gradient background and call-to-action buttons', 'docspresso-theme' ),
+					'title'         => __( 'Hero Section', 'docspresso-theme' ),
+					'description'   => __( 'A large homepage hero with call-to-action buttons', 'docspresso-theme' ),
 					'content'       => file_get_contents( get_template_directory() . '/patterns/hero-section.php' ),
 					'categories'    => array( 'featured', 'header', 'docspresso-sections' ),
-					'keywords'      => array( 'hero', 'gradient', 'header', 'cta' ),
+					'keywords'      => array( 'hero', 'header', 'cta' ),
+				)
+			);
+
+			// Register Latest Posts Grid pattern
+			register_block_pattern(
+				'docspresso/latest-posts-grid',
+				array(
+					'title'       => __( 'Read the latest - Posts Grid', 'docspresso-theme' ),
+					'description' => __( 'Grid of latest posts for the homepage', 'docspresso-theme' ),
+					'content'     => file_get_contents( get_template_directory() . '/patterns/latest-posts-grid.php' ),
+					'categories'  => array( 'featured', 'docspresso-sections' ),
+				)
+			);
+
+			// Register Large Video pattern
+			register_block_pattern(
+				'docspresso/large-video',
+				array(
+					'title'       => __( 'Large Video Feature', 'docspresso-theme' ),
+					'description' => __( 'A center-aligned large video area for the homepage', 'docspresso-theme' ),
+					'content'     => file_get_contents( get_template_directory() . '/patterns/large-video-section.php' ),
+					'categories'  => array( 'media', 'docspresso-sections' ),
+				)
+			);
+
+			// Register Spotlight pattern
+			register_block_pattern(
+				'docspresso/spotlight',
+				array(
+					'title'       => __( 'Spotlight / Research Paper', 'docspresso-theme' ),
+					'description' => __( 'Two-column spotlight for a featured paper or story', 'docspresso-theme' ),
+					'content'     => file_get_contents( get_template_directory() . '/patterns/spotlight-section.php' ),
+					'categories'  => array( 'featured', 'docspresso-sections' ),
+				)
+			);
+
+			// Register Two Column Feature pattern
+			register_block_pattern(
+				'docspresso/two-column-feature',
+				array(
+					'title'       => __( 'Two Column Feature', 'docspresso-theme' ),
+					'description' => __( 'Image and text feature block', 'docspresso-theme' ),
+					'content'     => file_get_contents( get_template_directory() . '/patterns/two-column-feature.php' ),
+					'categories'  => array( 'layout', 'docspresso-sections' ),
 				)
 			);
 

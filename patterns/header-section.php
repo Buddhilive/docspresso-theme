@@ -7,54 +7,62 @@
  */
 ?>
 
-<header id="masthead" class="site-header <?php echo is_front_page() ? 'fixed top-0 left-0 w-full z-50 bg-transparent' : 'relative bg-white border-b border-gray-200'; ?> py-4">
-    <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between">
-            <div class="site-branding">
-                <?php
-                $site_title_color = is_front_page() ? 'text-white' : 'text-gray-900';
-                if ( is_front_page() && is_home() ) :
-                    ?>
-                    <h1 class="site-title text-2xl font-bold"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="<?php echo $site_title_color; ?> no-underline hover:text-purple-300"><?php bloginfo( 'name' ); ?></a></h1>
-                    <?php
-                else :
-                    ?>
-                    <p class="site-title text-2xl font-bold"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="<?php echo $site_title_color; ?> no-underline hover:text-purple-600"><?php bloginfo( 'name' ); ?></a></p>
-                    <?php
-                endif;
-                ?>
-            </div><!-- .site-branding -->
+<header id="masthead" class="site-header relative bg-transparent">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Top navigation row -->
+        <div class="flex items-center justify-between py-4">
+            <div class="flex items-center gap-4">
+                <?php if ( has_custom_logo() ) : ?>
+                    <div class="custom-logo text-white">
+                        <?php the_custom_logo(); ?>
+                    </div>
+                <?php else : ?>
+                    <a class="text-sm font-semibold text-gray-900" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+                <?php endif; ?>
+            </div>
 
             <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                <nav id="site-navigation" class="main-navigation">
-                    <button class="menu-toggle md:hidden <?php echo is_front_page() ? 'bg-transparent border-white text-white' : 'bg-white border-gray-300'; ?> border p-2 cursor-pointer rounded" aria-controls="primary-menu" aria-expanded="false">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                <nav id="site-navigation" class="main-navigation hidden md:flex" aria-label="Primary">
                     <?php
-                    $nav_link_color = is_front_page() ? 'text-white hover:text-purple-300' : 'text-gray-700 hover:text-purple-600';
                     wp_nav_menu(
                         array(
                             'theme_location' => 'primary',
                             'menu_id'        => 'primary-menu',
-                            'container_class' => 'hidden md:flex',
-                            'menu_class'      => 'list-none p-0 m-0 flex gap-8',
-                            'link_class'      => 'block py-2 px-4 ' . $nav_link_color . ' transition-colors font-medium',
+                            'container'      => false,
+                            'items_wrap'     => '<ul class="flex gap-6 text-sm list-none p-0 m-0">%3$s</ul>',
+                            'depth'          => 1,
                         )
                     );
                     ?>
-                </nav><!-- #site-navigation -->
+                </nav>
             <?php endif; ?>
 
-            <!-- Try Gemini button on front page -->
-            <?php if (is_front_page()) : ?>
-                <div class="hidden md:block">
-                    <a href="#" class="bg-white text-gray-900 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300">
-                        + Try Gemini
-                    </a>
-                </div>
-            <?php endif; ?>
+            <div class="flex items-center gap-3">
+                <button class="search-toggle text-sm text-gray-700 hidden md:inline">Search</button>
+                <?php if ( is_front_page() ) : ?>
+                    <a href="#" class="hidden md:inline-block bg-white text-gray-900 px-3 py-1 rounded-full text-sm">See more</a>
+                <?php endif; ?>
+            </div>
         </div>
+
+        <!-- Hero area (front page) -->
+        <?php if ( is_front_page() || is_home() ) : ?>
+        <div class="hero bg-black text-white rounded-lg overflow-hidden mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="md:col-span-7 px-6 py-16">
+                    <h1 class="text-5xl font-extrabold leading-tight mb-4">Research to reality</h1>
+                    <p class="text-lg text-gray-200 max-w-xl mb-6">Our mission is to drive breakthroughs that benefit society, businesses, and Google products. Through our research and foundational work in machine learning and generative AI, we deliver broad applications and transformative impact across many domains such as science, healthcare, climate, education, and more.</p>
+                    <div class="flex gap-4">
+                        <a class="px-5 py-3 bg-white text-black rounded-md text-sm font-semibold" href="#">See more publications</a>
+                        <a class="px-5 py-3 border border-white text-white rounded-md text-sm" href="#">See more blog posts</a>
+                    </div>
+                </div>
+                <div class="md:col-span-5 bg-gray-800 aspect-video flex items-center justify-center">
+                    <!-- Placeholder for hero collage/image -->
+                    <div class="w-11/12 h-3/4 bg-gray-900 rounded-lg border border-gray-700 flex items-center justify-center text-gray-400">Hero image</div>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
     </div>
 </header><!-- #masthead -->
