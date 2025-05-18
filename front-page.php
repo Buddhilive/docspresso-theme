@@ -7,8 +7,9 @@
 
 get_header();
 
-/* Front page sections are provided as patterns. The header pattern already renders the hero for the front page. */
+/* Front page sections are provided as patterns. */
 
+get_template_part( 'patterns/header-section' );
 get_template_part( 'patterns/latest-posts-grid' );
 get_template_part( 'patterns/large-video-section' );
 get_template_part( 'patterns/spotlight-section' );
