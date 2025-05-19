@@ -19,6 +19,14 @@ if ( ! function_exists( 'docspresso_theme_support' ) ) :
 		// Make theme available for translation.
 		load_theme_textdomain( 'docspresso-theme', get_template_directory() . '/languages' );
 
+		// Register navigation menus
+		register_nav_menus(
+			array(
+				'primary' => esc_html__( 'Primary Menu', 'docspresso-theme' ),
+				'footer'  => esc_html__( 'Footer Menu', 'docspresso-theme' ),
+			)
+		);
+
 		// Enqueue editor styles.
 		add_editor_style( 'style.css' );
 
@@ -83,6 +91,159 @@ if ( ! function_exists( 'docspresso_theme_support' ) ) :
 endif;
 
 add_action( 'after_setup_theme', 'docspresso_theme_support' );
+
+/**
+ * Custom Walker for Navigation Menu
+ */
+class DocsPresso_Walker_Nav_Menu extends Walker_Nav_Menu {
+	
+	/**
+	 * Start the list before the elements are added.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent<ul class=\"absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50 hidden group-hover:block\">\n";
+	}
+
+	/**
+	 * End the list after the elements are added.
+	 */
+	public function end_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "$indent</ul>\n";
+	}
+
+	/**
+	 * Start the element output.
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		
+		// Different classes for different levels
+		if ( $depth === 0 ) {
+			$li_class = 'relative group';
+			$a_class = 'text-gray-700 hover:text-purple-600 transition-colors duration-200 flex items-center gap-1';
+			if ( in_array( 'current-menu-item', $classes ) || in_array( 'current-page-ancestor', $classes ) ) {
+				$a_class = 'text-purple-600 flex items-center gap-1';
+			}
+		} else {
+			$li_class = '';
+			$a_class = 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors duration-200';
+		}
+
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . ' ' . $li_class . '"' : ' class="' . $li_class . '"';
+
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
+		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $class_names . '>';
+
+		$attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
+		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
+		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+
+		$item_output = isset( $args->before ) ? $args->before : '';
+		$item_output .= '<a class="' . $a_class . '"' . $attributes . '>';
+		$item_output .= ( isset( $args->link_before ) ? $args->link_before : '' ) . apply_filters( 'the_title', $item->title, $item->ID ) . ( isset( $args->link_after ) ? $args->link_after : '' );
+		
+		// Add dropdown arrow for parent items
+		if ( $depth === 0 && in_array( 'menu-item-has-children', $classes ) ) {
+			$item_output .= '<svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+			</svg>';
+		}
+		
+		$item_output .= '</a>';
+		$item_output .= isset( $args->after ) ? $args->after : '';
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+	/**
+	 * End the element output.
+	 */
+	public function end_el( &$output, $item, $depth = 0, $args = null ) {
+		$output .= "</li>\n";
+	}
+}
+
+/**
+ * Custom Walker for Mobile Navigation Menu
+ */
+class DocsPresso_Mobile_Walker_Nav_Menu extends Walker_Nav_Menu {
+	
+	/**
+	 * Start the list before the elements are added.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent<ul class=\"ml-4 mt-2 space-y-2 border-l border-gray-200 pl-4\">\n";
+	}
+
+	/**
+	 * End the list after the elements are added.
+	 */
+	public function end_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "$indent</ul>\n";
+	}
+
+	/**
+	 * Start the element output.
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		
+		// Mobile menu styling
+		$li_class = '';
+		$a_class = 'block py-2 text-base font-medium text-gray-700 hover:text-purple-600 transition-colors duration-200';
+		if ( in_array( 'current-menu-item', $classes ) || in_array( 'current-page-ancestor', $classes ) ) {
+			$a_class = 'block py-2 text-base font-medium text-purple-600';
+		}
+
+		if ( $depth > 0 ) {
+			$a_class = 'block py-1 text-sm text-gray-600 hover:text-purple-600 transition-colors duration-200';
+		}
+
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . ' ' . $li_class . '"' : ' class="' . $li_class . '"';
+
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
+		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $class_names . '>';
+
+		$attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
+		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+		$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
+		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+
+		$item_output = isset( $args->before ) ? $args->before : '';
+		$item_output .= '<a class="' . $a_class . '"' . $attributes . '>';
+		$item_output .= ( isset( $args->link_before ) ? $args->link_before : '' ) . apply_filters( 'the_title', $item->title, $item->ID ) . ( isset( $args->link_after ) ? $args->link_after : '' );
+		$item_output .= '</a>';
+		$item_output .= isset( $args->after ) ? $args->after : '';
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+	/**
+	 * End the element output.
+	 */
+	public function end_el( &$output, $item, $depth = 0, $args = null ) {
+		$output .= "</li>\n";
+	}
+}
 
 if ( ! function_exists( 'docspresso_register_block_patterns' ) ) :
 	/**
@@ -218,6 +379,19 @@ function docspresso_scripts() {
 	
 	// Enqueue main JavaScript
 	wp_enqueue_script( 'docspresso-script', get_template_directory_uri() . '/assets/js/main.js', array(), wp_get_theme()->get( 'Version' ), true );
+	
+	// Localize script for AJAX and other dynamic content
+	wp_localize_script( 'docspresso-script', 'docspresso_vars', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'search_nonce' => wp_create_nonce( 'docspresso_search_nonce' ),
+		'strings' => array(
+			'search_placeholder' => __( 'Search for articles, tutorials, and more...', 'docspresso-theme' ),
+			'search_label' => __( 'Search', 'docspresso-theme' ),
+			'close_search' => __( 'Close search', 'docspresso-theme' ),
+			'open_menu' => __( 'Open menu', 'docspresso-theme' ),
+			'close_menu' => __( 'Close menu', 'docspresso-theme' ),
+		)
+	));
 }
 add_action( 'wp_enqueue_scripts', 'docspresso_scripts' );
 

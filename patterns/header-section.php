@@ -7,7 +7,7 @@
  */
 ?>
 
-<header id="masthead" class="site-header relative bg-transparent">
+<header id="masthead" class="relative bg-transparent">
     <div class="max-w-7xl mx-auto px-6">
         <!-- Top navigation row -->
         <div class="flex items-center justify-between py-4">

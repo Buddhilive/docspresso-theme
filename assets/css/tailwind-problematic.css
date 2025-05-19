@@ -1,0 +1,487 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for DocsPresso Tech Blog */
+body {
+  @apply font-sans antialiased;
+}
+
+.site {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+/* Header styles */
+.site-header {
+  @apply sticky top-0 z-50 bg-white border-b border-gray-200;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Logo and custom logo styling */
+.custom-logo img {
+  @apply h-8 w-auto;
+  max-height: 2rem;
+}
+
+.site-header .custom-logo a {
+  @apply flex items-center;
+}
+
+.site-header .site-title {
+  @apply text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors duration-200;
+}
+
+/* Navigation menu styling */
+.main-navigation {
+  @apply text-center;
+}
+
+.main-navigation ul {
+  @apply list-none p-0 m-0 flex items-center space-x-8;
+}
+
+.main-navigation li {
+  @apply relative;
+}
+
+.main-navigation a {
+  @apply text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium;
+}
+
+.main-navigation .current-menu-item > a,
+.main-navigation .current-page-ancestor > a {
+  @apply text-purple-600;
+}
+
+/* Dropdown menu styling */
+.main-navigation .menu-item-has-children {
+  position: relative;
+}
+
+.main-navigation .menu-item-has-children > ul {
+  @apply absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50 hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+.main-navigation .menu-item-has-children:hover > ul {
+  @apply block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.main-navigation .menu-item-has-children ul li {
+  @apply w-full;
+}
+
+.main-navigation .menu-item-has-children ul a {
+  @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors duration-200;
+}
+
+/* Search dropdown styling */
+.search-dropdown {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.search-dropdown.hidden {
+  @apply opacity-0 transform translate-y-2;
+}
+
+/* Mobile menu styling */
+.mobile-menu {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.mobile-menu.hidden {
+  @apply opacity-0 transform translate-y-2;
+}
+
+.mobile-menu-list li {
+  @apply border-b border-gray-100 last:border-b-0;
+}
+
+.mobile-menu-list a {
+  @apply block py-3 text-base font-medium text-gray-700 hover:text-purple-600 transition-colors duration-200;
+}
+
+.mobile-menu-list .current-menu-item > a,
+.mobile-menu-list .current-page-ancestor > a {
+  @apply text-purple-600;
+}
+
+/* Search form enhancements */
+.search-form {
+  @apply w-full;
+}
+
+.search-form-wrapper {
+  @apply flex items-center bg-gray-50 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-transparent transition-all duration-200;
+}
+
+.search-field {
+  @apply w-full bg-transparent border-0 focus:outline-none placeholder-gray-500 text-gray-900;
+}
+
+/* Enhanced search submit button */
+.search-submit {
+  @apply bg-purple-600 text-white font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center;
+}
+
+/* Button hover effects */
+.search-toggle:hover,
+.mobile-menu-toggle:hover {
+  @apply bg-gray-100;
+}
+
+/* Accessibility improvements */
+.search-toggle:focus,
+.mobile-menu-toggle:focus {
+  @apply ring-2 ring-purple-500 ring-offset-2;
+}
+
+.search-toggle:focus-visible,
+.mobile-menu-toggle:focus-visible {
+  @apply ring-2 ring-purple-500 ring-offset-2 outline-none;
+}
+
+.search-field:focus-visible {
+  @apply ring-2 ring-purple-500 ring-offset-2 outline-none;
+}
+
+/* Transition classes for JavaScript animations */
+.transition-all-200 {
+  transition: all 200ms ease-out;
+}
+
+/* Clear button for search */
+.search-clear {
+  @apply text-gray-400 hover:text-gray-600 transition-colors duration-200;
+}
+
+/* Ensure consistent heights for header elements */
+.site-header .flex {
+  min-height: 4rem;
+}
+
+/* Search form mobile improvements */
+@media (max-width: 640px) {
+  .search-form-wrapper {
+    @apply flex-col space-y-2;
+  }
+  
+  .search-field {
+    @apply rounded-lg border border-gray-300;
+  }
+  
+  .search-submit {
+    @apply rounded-lg w-full justify-center;
+  }
+  
+  .search-submit span {
+    @apply inline;
+  }
+}
+
+/* Mobile responsive header adjustments */
+@media (max-width: 1024px) {
+  .main-navigation {
+    @apply hidden;
+  }
+}
+
+/* Academic-style content styling */
+.prose {
+  line-height: 1.75;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-bold text-gray-900 mb-4 mt-8;
+}
+
+.prose h1 {
+  @apply text-3xl mb-6 mt-12;
+}
+
+.prose h2 {
+  @apply text-2xl mb-5 mt-10;
+}
+
+.prose h3 {
+  @apply text-xl mb-4 mt-8;
+}
+
+.prose p {
+  @apply mb-6 text-gray-700 leading-relaxed;
+}
+
+.prose img {
+  @apply rounded-lg shadow-md my-8;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-purple-300 pl-6 my-6 italic text-gray-600 bg-purple-50 py-4 rounded-r-lg;
+}
+
+.prose code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono text-purple-700;
+}
+
+.prose pre {
+  @apply bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto my-6;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-gray-100;
+}
+
+.prose ul, .prose ol {
+  @apply mb-6 pl-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose a {
+  @apply text-purple-600 hover:text-purple-800 underline transition-colors;
+}
+
+.prose table {
+  @apply w-full border-collapse border border-gray-300 my-6;
+}
+
+.prose th, .prose td {
+  @apply border border-gray-300 px-4 py-2;
+}
+
+.prose th {
+  @apply bg-gray-50 font-semibold;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Figure styling */
+figure {
+  @apply my-8;
+}
+
+figcaption {
+  @apply text-sm text-gray-600 text-center mt-2 italic;
+}
+
+/* Enhanced meta styling */
+.entry-meta a {
+  @apply text-purple-600 hover:text-purple-800 transition-colors;
+}
+
+.entry-meta svg {
+  @apply flex-shrink-0;
+}
+
+/* Page navigation styling */
+.page-links a {
+  @apply text-purple-600 hover:text-purple-800 transition-colors;
+}
+
+/* Aspect ratio utilities */
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+/* Comments */
+.comment-content a,
+.pingback .comment-body > a {
+  @apply break-words;
+}
+
+/* Keep layout stable and ensure body background is white */
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Hero section specific styles */
+.hero-section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure white backgrounds are truly white */
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Dark section styles */
+.bg-black {
+  background-color: #000000 !important;
+}
+
+/* Archive page styles */
+.archive-page,
+.blog-home {
+  @apply min-h-screen;
+}
+
+.archive-header,
+.blog-header {
+  @apply py-12 text-center border-b border-gray-100 mb-12;
+}
+
+.archive-title,
+.blog-title {
+  @apply text-4xl font-bold text-gray-900 mb-4;
+}
+
+.archive-description,
+.blog-description {
+  @apply text-lg text-gray-600 max-w-3xl mx-auto;
+}
+
+/* Posts grid layout */
+.posts-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16;
+}
+
+/* Archive post card styles */
+.archive-post-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100;
+}
+
+.archive-post-card:hover {
+  @apply transform hover:-translate-y-1;
+}
+
+/* Post thumbnail styles */
+.post-thumbnail {
+  @apply aspect-video overflow-hidden;
+}
+
+.post-thumbnail img {
+  @apply w-full h-full object-cover hover:scale-105 transition-transform duration-300;
+}
+
+.post-thumbnail-placeholder {
+  @apply aspect-video bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center;
+}
+
+/* Post content styles */
+.post-content {
+  @apply p-6;
+}
+
+.post-meta {
+  @apply flex items-center text-xs text-gray-500 mb-3 space-x-4;
+}
+
+.post-title {
+  @apply text-lg font-bold leading-tight m-0 mb-3;
+}
+
+.post-title a {
+  @apply text-gray-900 hover:text-purple-600 no-underline transition-colors;
+}
+
+.post-excerpt {
+  @apply mb-4;
+}
+
+.post-excerpt p {
+  @apply text-gray-600 text-sm leading-relaxed m-0;
+}
+
+.post-footer {
+  @apply flex items-center justify-between;
+}
+
+.post-tags {
+  @apply flex items-center space-x-2;
+}
+
+.tag {
+  @apply bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full;
+}
+
+.read-more-link {
+  @apply inline-flex items-center text-purple-600 hover:text-purple-800 text-sm font-medium transition-colors;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .posts-grid {
+    @apply grid-cols-1 gap-6;
+  }
+  
+  .archive-header {
+    @apply py-8 mb-8;
+  }
+  
+  .archive-title {
+    @apply text-3xl;
+  }
+  
+  .archive-description {
+    @apply text-base;
+  }
+  
+  .post-content {
+    @apply p-4;
+  }
+  
+  .post-title {
+    @apply text-base;
+  }
+  
+  .prose h1 {
+    @apply text-2xl;
+  }
+  
+  .prose h2 {
+    @apply text-xl;
+  }
+  
+  .prose h3 {
+    @apply text-lg;
+  }
+}
+
+/* Screen reader text */
+.screen-reader-text,
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}

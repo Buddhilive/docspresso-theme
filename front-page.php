@@ -11,7 +11,6 @@ get_header();
 
 get_template_part( 'patterns/header-section' );
 get_template_part( 'patterns/latest-posts-grid' );
-get_template_part( 'patterns/large-video-section' );
 get_template_part( 'patterns/spotlight-section' );
 get_template_part( 'patterns/two-column-feature' );
 get_template_part( 'patterns/research-section' );
