@@ -9,42 +9,8 @@
 
 <header id="masthead" class="relative bg-transparent">
     <div class="max-w-7xl mx-auto px-6">
-        <!-- Top navigation row -->
-        <div class="flex items-center justify-between py-4">
-            <div class="flex items-center gap-4">
-                <?php if ( has_custom_logo() ) : ?>
-                    <div class="custom-logo text-white">
-                        <?php the_custom_logo(); ?>
-                    </div>
-                <?php else : ?>
-                    <a class="text-sm font-semibold text-gray-900" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-                <?php endif; ?>
-            </div>
-
-            <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                <nav id="site-navigation" class="main-navigation hidden md:flex" aria-label="Primary">
-                    <?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'primary',
-                            'menu_id'        => 'primary-menu',
-                            'container'      => false,
-                            'items_wrap'     => '<ul class="flex gap-6 text-sm list-none p-0 m-0">%3$s</ul>',
-                            'depth'          => 1,
-                        )
-                    );
-                    ?>
-                </nav>
-            <?php endif; ?>
-
-            <div class="flex items-center gap-3">
-                <button class="search-toggle text-sm text-gray-700 hidden md:inline">Search</button>
-                <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="hidden md:inline-block bg-white text-gray-900 px-3 py-1 rounded-full text-sm">See more</a>
-            </div>
-        </div>
-
         <!-- Hero area -->
-        <div class="hero bg-black text-white rounded-lg overflow-hidden mb-12">
+        <div class="hero bg-black text-white rounded-lg overflow-hidden mb-12 mt-12">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                 <div class="md:col-span-7 px-6 py-16">
                     <h1 class="text-5xl font-extrabold leading-tight mb-4">Research to reality</h1>

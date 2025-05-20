@@ -22,7 +22,6 @@ $latest_posts = new WP_Query( array(
     <header class="flex items-center justify-between mb-6">
         <h2 class="text-2xl font-bold">Read the latest</h2>
         <div class="flex gap-3">
-            <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="text-sm text-gray-600 border rounded px-3 py-1 hover:border-purple-600 hover:text-purple-600 transition-colors">See more publications</a>
             <a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" class="text-sm text-gray-600 border rounded px-3 py-1 hover:border-purple-600 hover:text-purple-600 transition-colors">See more blog posts</a>
         </div>
     </header>
