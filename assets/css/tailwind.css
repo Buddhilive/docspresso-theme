@@ -250,3 +250,139 @@ body {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
 }
+
+/* Modern Comment Styles */
+.comments-area {
+  @apply border-t-2 border-gray-100;
+}
+
+.comments-title {
+  @apply text-gray-900;
+}
+
+.comments-separator {
+  @apply bg-gradient-to-r from-purple-500 to-purple-600;
+}
+
+.comment-list {
+  @apply space-y-6;
+}
+
+.comment-item {
+  transition: all 0.2s ease;
+}
+
+.comment-item article {
+  @apply bg-white border border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-md transition-all duration-200 p-6;
+}
+
+.comment-item .comment-author.vcard {
+  @apply font-semibold text-gray-900;
+}
+
+.comment-item .comment-author.vcard a {
+  @apply text-purple-600 hover:text-purple-700 transition-colors;
+}
+
+.comment-item .comment-link {
+  @apply hover:text-purple-600 transition-colors;
+}
+
+.comment-item .comment-text {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.comment-form {
+  @apply border-t-2 border-gray-100 pt-8;
+}
+
+.comment-form .form-group {
+  @apply mb-6;
+}
+
+.comment-form label {
+  @apply block text-sm font-semibold text-gray-900 mb-2;
+}
+
+.comment-form .form-control {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200;
+}
+
+.comment-form textarea.form-control {
+  @apply resize-none min-h-[150px];
+}
+
+.comment-form .submit-btn {
+  @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 cursor-pointer;
+}
+
+.comment-form .submit-btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.comment-form .comment-form-author,
+.comment-form .comment-form-email,
+.comment-form .comment-form-url {
+  @apply mb-6;
+}
+
+.comment-navigation {
+  @apply my-8 flex gap-4;
+}
+
+.comment-navigation .nav-previous,
+.comment-navigation .nav-next {
+  @apply flex-1;
+}
+
+.comment-navigation a {
+  @apply inline-block px-4 py-2 bg-gray-100 hover:bg-purple-600 text-gray-900 hover:text-white rounded-lg transition-colors duration-200 font-medium;
+}
+
+.comment-navigation .nav-next a {
+  @apply text-right;
+}
+
+.no-comments-notice {
+  @apply p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 text-sm mb-8;
+}
+
+.comment-reply-link a {
+  @apply inline-flex items-center text-purple-600 hover:text-purple-700 transition-colors font-medium;
+}
+
+.comment-item.byuser {
+  @apply bg-purple-50;
+}
+
+.comment-item.byuser article {
+  @apply bg-purple-50 border border-purple-200 hover:border-purple-300;
+}
+
+.comment-item.bypostauthor article {
+  @apply ring-1 ring-purple-500;
+}
+
+.comment-item.bypostauthor .comment-author.vcard::before {
+  content: "✓ ";
+  @apply text-purple-600 font-bold;
+}
+
+@media (max-width: 640px) {
+  .comment-form .submit-btn {
+    @apply w-full;
+  }
+  
+  .comment-navigation {
+    @apply flex-col;
+  }
+  
+  .comment-navigation .nav-previous,
+  .comment-navigation .nav-next {
+    @apply w-full;
+  }
+  
+  .comment-navigation .nav-next a {
+    @apply text-left;
+  }
+}

@@ -621,3 +621,105 @@ function docspresso_modify_search_form_for_context( $form ) {
 	return $form;
 }
 add_filter( 'get_search_form', 'docspresso_modify_search_form_for_context' );
+
+/**
+ * Custom comment callback for modern comment styling
+ */
+function docspresso_comment_callback( $comment, $args, $depth ) {
+	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+	?>
+	<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( 'comment-item', $comment ); ?>>
+		<article class="bg-white rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-200 p-6">
+			<header class="comment-header flex items-start gap-4 mb-4">
+				<!-- Avatar -->
+				<div class="flex-shrink-0">
+					<?php
+					$avatar_size = 48;
+					echo get_avatar( $comment, $avatar_size, '', '', array(
+						'class' => 'rounded-full w-12 h-12 object-cover',
+						'extra_attr' => 'loading="lazy"',
+					) );
+					?>
+				</div>
+
+				<!-- Metadata -->
+				<div class="flex-1 min-w-0">
+					<div class="flex items-center justify-between gap-4 flex-wrap">
+						<div>
+							<div class="comment-author vcard">
+								<?php
+								if ( $comment->user_id === 0 && $comment->comment_author ) {
+									echo '<span class="fn font-semibold text-gray-900">' . esc_html( $comment->comment_author ) . '</span>';
+								} else {
+									echo '<span class="fn font-semibold text-gray-900"><a href="' . esc_url( get_comment_author_url( $comment ) ) . '" rel="external nofollow" class="text-purple-600 hover:text-purple-700 transition-colors">' . esc_html( get_comment_author( $comment ) ) . '</a></span>';
+								}
+								?>
+							</div>
+							<div class="text-sm text-gray-500 mt-1">
+								<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>" class="comment-link hover:text-purple-600 transition-colors">
+									<?php
+									/* translators: 1: comment date, 2: comment time */
+									printf(
+										esc_html__( '%1$s at %2$s', 'docspresso-theme' ),
+										get_comment_date( 'F j, Y', $comment ),
+										get_comment_time( 'g:i a', '', '', true )
+									);
+									?>
+								</a>
+							</div>
+						</div>
+
+						<?php
+						// Edit link for comment author or admin
+						if ( current_user_can( 'edit_comment', $comment->comment_ID ) ) :
+							?>
+							<div class="flex-shrink-0">
+								<a href="<?php echo esc_url( get_edit_comment_link( $comment->comment_ID ) ); ?>" class="inline-flex items-center text-xs font-medium text-gray-500 hover:text-purple-600 transition-colors">
+									<svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+									</svg>
+									<?php esc_html_e( 'Edit', 'docspresso-theme' ); ?>
+								</a>
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
+			</header><!-- .comment-header -->
+
+			<?php if ( '0' === $comment->comment_approved ) : ?>
+				<p class="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800 flex items-center gap-2">
+					<svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+					</svg>
+					<?php esc_html_e( 'Your comment is awaiting moderation.', 'docspresso-theme' ); ?>
+				</p>
+			<?php endif; ?>
+
+			<!-- Comment content -->
+			<div class="comment-content prose prose-sm prose-purple max-w-none text-gray-700">
+				<?php comment_text(); ?>
+			</div><!-- .comment-content -->
+
+			<!-- Comment footer actions -->
+			<footer class="comment-footer mt-4 flex items-center justify-between text-sm">
+				<?php
+				comment_reply_link(
+					array_merge(
+						$args,
+						array(
+							'depth'      => $depth,
+							'max_depth'  => $args['max_depth'],
+							'before'     => '<div class="comment-reply-link">',
+							'after'      => '</div>',
+							'reply_text' => '<span class="inline-flex items-center text-purple-600 hover:text-purple-700 transition-colors font-medium"><svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"></path><path d="M6 11h8v2H6v-2z"></path></svg>' . esc_html__( 'Reply', 'docspresso-theme' ) . '</span>',
+						)
+					),
+					$comment,
+					$args
+				);
+				?>
+			</footer><!-- .comment-footer -->
+		</article><!-- .comment-article -->
+	</<?php echo esc_attr( $tag ); ?>>
+	<?php
+}
