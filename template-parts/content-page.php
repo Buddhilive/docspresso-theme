@@ -51,13 +51,13 @@
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer mt-16 pt-8 border-t border-gray-300">
-			<div class="text-sm">
+			<div class="flex justify-end">
 				<?php
 				edit_post_link(
 					sprintf(
 						wp_kses(
 							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Edit <span class="screen-reader-text">%s</span>', 'docspresso-theme' ),
+							__( '<span class="material-icons mr-2 text-base">edit</span>Edit <span class="screen-reader-text">%s</span>', 'docspresso-theme' ),
 							array(
 								'span' => array(
 									'class' => array(),
@@ -66,7 +66,7 @@
 						),
 						wp_kses_post( get_the_title() )
 					),
-					'<span class="edit-link inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-purple-600 text-gray-900 hover:text-white rounded-lg transition-all duration-200 font-medium focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">',
+					'<span class="edit-link inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-purple-600 text-gray-900 hover:text-white rounded-full transition-all duration-200 font-semibold text-sm transform hover:scale-105">',
 					'</span>'
 				);
 				?>

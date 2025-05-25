@@ -371,6 +371,9 @@ add_action( 'pre_get_posts', 'docspresso_modify_main_query' );
  * Enqueue scripts and styles.
  */
 function docspresso_scripts() {
+	// Enqueue Material Icons
+	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null );
+	
 	// Enqueue Tailwind CSS
 	wp_enqueue_style( 'tailwind-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
 	
@@ -434,22 +437,7 @@ function docspresso_entry_footer() {
 		echo '</span>';
 	}
 
-	edit_post_link(
-		sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Edit <span class="screen-reader-text">%s</span>', 'docspresso-theme' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
+	// Note: edit_post_link removed from here as it's handled in the template
 }
 
 /**

@@ -50,26 +50,6 @@
 					</div>
 				</div>
 			<?php endif; ?>
-
-			<?php if ( has_tag() ) : ?>
-				<div class="w-full flex items-center gap-3 font-medium">
-					<svg class="w-5 h-5 text-purple-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-						<path fill-rule="evenodd" d="M5.5 3A2.5 2.5 0 003 5.5v2.879a2.5 2.5 0 00.732 1.767L6.5 12.914a1 1 0 001.414 0l2.914-2.914A2.5 2.5 0 0011.5 8.233V5.5A2.5 2.5 0 009 3H5.5zM5 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
-					</svg>
-					<div class="post-tags space-x-2">
-						<?php 
-						$tags = get_the_tags();
-						if ( $tags ) {
-							foreach ( $tags as $tag ) {
-								echo '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" class="inline-block px-3 py-1 bg-gray-200 text-gray-800 hover:bg-gray-300 rounded-full text-xs font-semibold transition-colors duration-200">';
-								echo esc_html( $tag->name );
-								echo '</a>';
-							}
-						}
-						?>
-					</div>
-				</div>
-			<?php endif; ?>
 		</nav><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -117,20 +97,32 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer mt-16 pt-10 border-t-2 border-gray-300">
-		<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-			<div class="text-sm">
-				<?php docspresso_entry_footer(); ?>
+	<div class="entry-footer mt-16 pt-10 border-t-2 border-gray-300">
+		<div class="flex flex-wrap items-center justify-between gap-4">
+			<!-- Tags Section -->
+			<div class="flex flex-wrap gap-2">
+				<?php 
+				$tags = get_the_tags();
+				if ( $tags ) {
+					foreach ( $tags as $tag ) {
+						echo '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-800 hover:bg-gray-200 hover:text-gray-900 rounded-full text-sm font-semibold transition-all duration-200 transform hover:scale-105">';
+						echo '<span class="material-icons text-base">tag</span>';
+						echo esc_html( $tag->name );
+						echo '</a>';
+					}
+				}
+				?>
 			</div>
-			
+
+			<!-- Edit Post Link -->
 			<?php if ( get_edit_post_link() ) : ?>
-				<div class="text-sm">
+				<div class="flex-shrink-0">
 					<?php
 					edit_post_link(
 						sprintf(
 							wp_kses(
 								/* translators: %s: Name of current post. Only visible to screen readers */
-								__( 'Edit <span class="screen-reader-text">%s</span>', 'docspresso-theme' ),
+								__( '<span class="material-icons mr-2 text-base">edit</span>Edit <span class="screen-reader-text">%s</span>', 'docspresso-theme' ),
 								array(
 									'span' => array(
 										'class' => array(),
@@ -139,12 +131,12 @@
 							),
 							wp_kses_post( get_the_title() )
 						),
-						'<span class="edit-link inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-purple-600 text-gray-900 hover:text-white rounded-lg transition-all duration-200 font-medium focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">',
+						'<span class="edit-link inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-purple-600 text-gray-900 hover:text-white rounded-full transition-all duration-200 font-semibold text-sm transform hover:scale-105">',
 						'</span>'
 					);
 					?>
 				</div>
 			<?php endif; ?>
 		</div>
-	</footer><!-- .entry-footer -->
+				</div><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
