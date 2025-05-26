@@ -179,16 +179,16 @@ body {
 }
 
 .search-form-wrapper {
-  @apply flex items-center bg-gray-50 rounded-lg border border-gray-200 focus-within:ring-2 focus-within:ring-purple-500 focus-within:border-transparent transition-all duration-200;
+  @apply flex items-center bg-gray-50 rounded-full border border-gray-200 focus-within:bg-white focus-within:shadow-sm transition-all duration-200;
 }
 
 .search-field {
-  @apply w-full bg-transparent border-0 focus:outline-none placeholder-gray-500 text-gray-900;
+  @apply w-full bg-transparent border-0 focus:outline-none focus-visible:outline-none placeholder-gray-400 text-gray-900 text-sm rounded-full;
 }
 
 /* Enhanced search submit button */
 .search-submit {
-  @apply bg-purple-600 text-white font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center;
+  @apply text-gray-400 hover:text-purple-600 hover:bg-gray-100 focus:outline-none focus:text-purple-600 rounded-full transition-all duration-200 flex items-center justify-center;
 }
 
 /* Button hover effects */
@@ -208,10 +208,6 @@ body {
   @apply ring-2 ring-purple-500 ring-offset-2 outline-none;
 }
 
-.search-field:focus-visible {
-  @apply ring-2 ring-purple-500 ring-offset-2 outline-none;
-}
-
 /* Ensure consistent heights for header elements */
 .site-header-content {
   min-height: 4rem;
@@ -227,19 +223,15 @@ body {
 /* Search form mobile improvements */
 @media (max-width: 640px) {
   .search-form-wrapper {
-    @apply flex-col space-y-2;
+    @apply bg-gray-50 focus-within:bg-primary;
   }
   
   .search-field {
-    @apply rounded-lg border border-gray-300;
+    @apply text-base py-3 px-4;
   }
   
   .search-submit {
-    @apply rounded-lg w-full justify-center;
-  }
-  
-  .search-submit span {
-    @apply inline;
+    @apply mr-2;
   }
 }
 

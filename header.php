@@ -88,8 +88,8 @@
                 class="search-dropdown absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-sm hidden opacity-0 transform translate-y-2 transition-all duration-200 ease-out"
                 style="transition: opacity 200ms ease-out, transform 200ms ease-out;"
             >
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <div class="max-w-2xl mx-auto">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div class="max-w-lg mx-auto">
                         <?php get_search_form(); ?>
                     </div>
                 </div>
