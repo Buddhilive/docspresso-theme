@@ -28,9 +28,6 @@ get_header();
                 </p>
             </header>
 
-            <!-- Search Form -->
-            <?php get_template_part( 'template-parts/search', 'section' ); ?>
-
             <!-- Search Results Grid -->
             <div class="search-results-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <?php

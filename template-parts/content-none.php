@@ -43,12 +43,7 @@
 		else :
 			?>
 
-			<p class="text-center mb-6"><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'docspresso-theme' ); ?></p>
-			<div class="max-w-md mx-auto">
-				<?php
-				get_search_form();
-				?>
-			</div>
+			<p class="text-center mb-6"><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. You can use the search in the header to find what you need.', 'docspresso-theme' ); ?></p>
 		<?php
 		endif;
 		?>
