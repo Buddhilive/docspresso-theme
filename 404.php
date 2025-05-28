@@ -10,50 +10,45 @@ get_header();
 
 	<main id="primary" class="site-main flex-grow">
 
-		<section class="error-404 not-found max-w-3xl mx-auto py-12">
-			<header class="page-header mb-8 text-center">
-				<h1 class="page-title text-4xl font-bold text-gray-900 mb-4"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'docspresso-theme' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p class="text-lg mb-8 text-center"><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'docspresso-theme' ); ?></p>
-
-				<div class="search-form-container max-w-lg mx-auto mb-12">
-					<?php
-					get_search_form();
-					?>
+		<section class="error-404 not-found max-w-5xl mx-auto py-16 px-6">
+			<!-- Hero Error Section -->
+			<div class="text-center mb-16">
+				<div class="mb-8">
+					<h1 class="inline-block text-5xl font-extrabold text-transparent bg-gradient-to-r text-purple-600 bg-clip-text mb-4">
+						404
+					</h1>
 				</div>
-
-				<div class="recent-posts mb-8">
-					<?php the_widget( 'WP_Widget_Recent_Posts', array( 'number' => 5 ) ); ?>
+				<h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+					<?php esc_html_e( 'Quantum entanglement failed!', 'docspresso-theme' ); ?>
+				</h1>
+				<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+					<?php esc_html_e( 'The page you\'re looking for seems to have been swallowed by a digital black hole. Don\'t worry, our algorithms are working to restore the data matrix.', 'docspresso-theme' ); ?>
+				</p>
+				
+				<!-- Action Buttons -->
+				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" 
+					   class="px-8 py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+						<?php esc_html_e( 'Return to Base', 'docspresso-theme' ); ?>
+					</a>
+					<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ?: home_url( '/blog/' ) ); ?>" 
+					   class="px-8 py-4 border-2 border-purple-600 text-purple-600 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105">
+						<?php esc_html_e( 'Explore Articles', 'docspresso-theme' ); ?>
+					</a>
 				</div>
+			</div>
 
-				<div class="widget widget_categories mb-8 p-6 bg-gray-50 rounded-lg">
-					<h2 class="widget-title text-xl font-semibold mb-4"><?php esc_html_e( 'Most Used Categories', 'docspresso-theme' ); ?></h2>
-					<ul class="list-disc pl-5 space-y-2">
-						<?php
-						wp_list_categories(
-							array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							)
-						);
-						?>
-					</ul>
-				</div><!-- .widget -->
-
-				<?php
-				/* translators: %1$s: smiley */
-				$docspresso_archive_content = '<p class="mt-4 text-gray-600">' . sprintf( esc_html__( 'Try looking in the monthly archives: %1$s', 'docspresso-theme' ), convert_smilies( ':)' ) ) . '</p>';
-				the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2><div class='p-4 bg-gray-50 rounded-lg'>$docspresso_archive_content</div>" );
-
-				the_widget( 'WP_Widget_Tag_Cloud', array( 'taxonomy' => 'post_tag' ), array( 'widget_id' => 'tag_cloud_404' ) );
-				?>
-
-			</div><!-- .page-content -->
+			<!-- Fun Easter Egg -->
+			<div class="text-center mt-8">
+				<details class="inline-block">
+					<summary class="cursor-pointer text-sm text-gray-400 hover:text-purple-600 transition-colors duration-200">
+						<?php esc_html_e( 'Error Code: DOCS_404_QUANTUM_FLUX', 'docspresso-theme' ); ?>
+					</summary>
+					<p class="mt-2 text-xs text-gray-500 max-w-md mx-auto">
+						<?php esc_html_e( 'Technical Details: The requested resource has been affected by spontaneous quantum decoherence. Our machine learning algorithms suggest trying a different approach or waiting for reality to stabilize.', 'docspresso-theme' ); ?>
+					</p>
+				</details>
+			</div>
 		</section><!-- .error-404 -->
 
 	</main><!-- #main -->
