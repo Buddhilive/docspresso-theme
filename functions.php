@@ -374,6 +374,9 @@ function docspresso_scripts() {
 	// Enqueue Material Icons
 	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), null );
 	
+	// Enqueue FontAwesome for social icons
+	wp_enqueue_style( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', array(), '6.5.0' );
+	
 	// Enqueue Tailwind CSS
 	wp_enqueue_style( 'tailwind-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
 	
