@@ -33,7 +33,7 @@
 
             <!-- Quick Links -->
             <div class="space-y-4">
-                <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Quick Links</h4>
+                <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-2">Quick Links</h4>
                 <nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer navigation', 'docspresso-theme' ); ?>">
                     <ul class="space-y-2">
                         <li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"><?php esc_html_e( 'About Us', 'docspresso-theme' ); ?></a></li>
@@ -45,7 +45,7 @@
 
             <!-- Legal Links & Social -->
             <div class="space-y-4">
-                <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Connect</h4>
+                <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-2">Connect</h4>
                 
                 <!-- Legal Links -->
                 <nav class="footer-legal" aria-label="<?php esc_attr_e( 'Legal navigation', 'docspresso-theme' ); ?>">
@@ -58,7 +58,7 @@
 
                 <!-- Social Media Links -->
                 <div class="space-y-3">
-                    <p class="text-sm text-gray-400"><?php esc_html_e( 'Follow us on social media', 'docspresso-theme' ); ?></p>
+                    <p class="text-sm font-semibold text-white"><?php esc_html_e( 'Follow us on social media', 'docspresso-theme' ); ?></p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on Twitter', 'docspresso-theme' ); ?>">
                             <i class="fab fa-twitter" aria-hidden="true"></i>
@@ -87,10 +87,7 @@
                     &copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All rights reserved.', 'docspresso-theme' ); ?>
                 </div>
                 <div class="flex items-center space-x-6 text-sm">
-                    <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>" class="text-gray-400 hover:text-purple-400 transition-colors duration-200"><?php esc_html_e( 'Sitemap', 'docspresso-theme' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/help/' ) ); ?>" class="text-gray-400 hover:text-purple-400 transition-colors duration-200"><?php esc_html_e( 'Help Center', 'docspresso-theme' ); ?></a>
-                    <span class="text-gray-500 hidden md:inline">|</span>
-                    <span class="text-gray-500 text-xs hidden md:inline"><?php esc_html_e( 'Made with ❤️ for developers', 'docspresso-theme' ); ?></span>
+                    <span class="text-gray-500 text-xs md:inline"><?php esc_html_e( 'Proudly Sri Lankan 🇱🇰', 'docspresso-theme' ); ?></span>
                 </div>
             </div>
         </div>
