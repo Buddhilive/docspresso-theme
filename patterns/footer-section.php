@@ -29,6 +29,27 @@
                         <?php echo $description; ?>
                     </p>
                 <?php endif; ?>
+
+                <!-- Social Media Links -->
+                <div class="space-y-3 mt-8">
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on Twitter', 'docspresso-theme' ); ?>">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on LinkedIn', 'docspresso-theme' ); ?>">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on GitHub', 'docspresso-theme' ); ?>">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Subscribe to our YouTube channel', 'docspresso-theme' ); ?>">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                        <a href="<?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?>" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Subscribe to our RSS feed', 'docspresso-theme' ); ?>">
+                            <i class="fas fa-rss" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Quick Links -->
@@ -55,28 +76,6 @@
                         <li><a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-sm"><?php esc_html_e( 'Cookie Policy', 'docspresso-theme' ); ?></a></li>
                     </ul>
                 </nav>
-
-                <!-- Social Media Links -->
-                <div class="space-y-3">
-                    <p class="text-sm font-semibold text-white"><?php esc_html_e( 'Follow us on social media', 'docspresso-theme' ); ?></p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on Twitter', 'docspresso-theme' ); ?>">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on LinkedIn', 'docspresso-theme' ); ?>">
-                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Follow us on GitHub', 'docspresso-theme' ); ?>">
-                            <i class="fab fa-github" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Subscribe to our YouTube channel', 'docspresso-theme' ); ?>">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                        </a>
-                        <a href="<?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?>" class="text-gray-400 hover:text-purple-400 transition-colors duration-200 text-lg" aria-label="<?php esc_attr_e( 'Subscribe to our RSS feed', 'docspresso-theme' ); ?>">
-                            <i class="fas fa-rss" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
 
