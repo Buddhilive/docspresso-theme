@@ -380,8 +380,17 @@ function docspresso_scripts() {
 	// Enqueue Tailwind CSS
 	wp_enqueue_style( 'tailwind-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
 	
+	// Enqueue patterns support CSS
+	wp_enqueue_style( 'patterns-support-css', get_template_directory_uri() . '/assets/css/patterns-support.css', array('tailwind-css'), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue background styles CSS
+	wp_enqueue_style( 'background-styles-css', get_template_directory_uri() . '/assets/css/background-styles.css', array('tailwind-css'), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue utility overrides CSS (highest priority)
+	wp_enqueue_style( 'utility-overrides-css', get_template_directory_uri() . '/assets/css/utility-overrides.css', array('tailwind-css', 'patterns-support-css'), wp_get_theme()->get( 'Version' ) );
+	
 	// Enqueue theme's custom CSS (with overrides)
-	wp_enqueue_style( 'docspresso-style', get_stylesheet_uri(), array('tailwind-css'), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'docspresso-style', get_stylesheet_uri(), array('tailwind-css', 'patterns-support-css', 'background-styles-css', 'utility-overrides-css'), wp_get_theme()->get( 'Version' ) );
 	
 	// Enqueue main JavaScript
 	wp_enqueue_script( 'docspresso-script', get_template_directory_uri() . '/assets/js/main.js', array(), wp_get_theme()->get( 'Version' ), true );
@@ -405,7 +414,23 @@ add_action( 'wp_enqueue_scripts', 'docspresso_scripts' );
  * Enqueue editor styles for the block editor.
  */
 function docspresso_block_editor_assets() {
-	wp_enqueue_style( 'docspresso-editor-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
+	// Enqueue Tailwind CSS for the block editor
+	wp_enqueue_style( 'docspresso-editor-tailwind', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue background styles CSS for the block editor (before patterns support)
+	wp_enqueue_style( 'docspresso-editor-backgrounds', get_template_directory_uri() . '/assets/css/background-styles.css', array( 'docspresso-editor-tailwind' ), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue patterns support CSS for the block editor
+	wp_enqueue_style( 'docspresso-editor-patterns', get_template_directory_uri() . '/assets/css/patterns-support.css', array( 'docspresso-editor-tailwind', 'docspresso-editor-backgrounds' ), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue utility overrides CSS for the block editor
+	wp_enqueue_style( 'docspresso-editor-utilities', get_template_directory_uri() . '/assets/css/utility-overrides.css', array( 'docspresso-editor-tailwind', 'docspresso-editor-backgrounds', 'docspresso-editor-patterns' ), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue editor-specific styles
+	wp_enqueue_style( 'docspresso-editor-styles', get_template_directory_uri() . '/assets/css/editor-style.css', array( 'docspresso-editor-tailwind', 'docspresso-editor-patterns', 'docspresso-editor-backgrounds', 'docspresso-editor-utilities' ), wp_get_theme()->get( 'Version' ) );
+	
+	// Enqueue force editor styles (highest priority)
+	wp_enqueue_style( 'docspresso-editor-force', get_template_directory_uri() . '/assets/css/editor-force.css', array( 'docspresso-editor-tailwind', 'docspresso-editor-patterns', 'docspresso-editor-backgrounds', 'docspresso-editor-utilities', 'docspresso-editor-styles' ), wp_get_theme()->get( 'Version' ) );
 }
 add_action( 'enqueue_block_editor_assets', 'docspresso_block_editor_assets' );
 

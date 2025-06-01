@@ -3,6 +3,9 @@ module.exports = {
   content: [
     '**/*.php',
     '**/*.html',
+    './patterns/**/*.php',
+    './template-parts/**/*.php',
+    './assets/js/**/*.js',
     '!**/node_modules/**',
     '!**/vendor/**',
   ],

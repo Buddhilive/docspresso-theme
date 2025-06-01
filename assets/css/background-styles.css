@@ -1,0 +1,225 @@
+/*!
+ * Background Styles for DocsPresso Theme Patterns
+ * This file contains gradient and background effects for patterns
+ */
+
+/* Hero Section Gradient Background - Both editor and frontend */
+.hero-section,
+.editor-styles-wrapper .hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background-attachment: fixed;
+    position: relative;
+    color: #ffffff !important;
+}
+
+/* Override for editor where fixed attachment doesn't work well */
+.editor-styles-wrapper .hero-section {
+    background-attachment: scroll !important;
+    min-height: 60vh !important; /* Better for editor preview */
+}
+
+.hero-section::before,
+.editor-styles-wrapper .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.9) 0%, 
+        rgba(118, 75, 162, 0.9) 25%,
+        rgba(139, 92, 246, 0.9) 50%,
+        rgba(124, 58, 237, 0.9) 75%,
+        rgba(76, 29, 149, 0.9) 100%
+    );
+    z-index: 1;
+}
+
+.hero-section > *,
+.editor-styles-wrapper .hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure WordPress background color classes work in editor */
+.editor-styles-wrapper .wp-block-group[style*="background-color:#667eea"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #ffffff !important;
+}
+
+/* Alternative gradient backgrounds for different sections */
+.gradient-bg-purple {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-blue {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+}
+
+.gradient-bg-dark {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+/* Animated gradient backgrounds */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient,
+.editor-styles-wrapper .animated-gradient {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #8B5CF6, #7C3AED) !important;
+    background-size: 400% 400% !important;
+    animation: gradientShift 15s ease infinite !important;
+}
+
+/* Glass morphism effects */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+.glass-effect-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+/* Pattern-specific background fixes */
+/* Ensure dark backgrounds work properly */
+.wp-block-group.has-black-background-color,
+.editor-styles-wrapper .wp-block-group.has-black-background-color {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.wp-block-group.has-black-background-color h1,
+.wp-block-group.has-black-background-color h2,
+.wp-block-group.has-black-background-color h3,
+.wp-block-group.has-black-background-color h4,
+.wp-block-group.has-black-background-color h5,
+.wp-block-group.has-black-background-color h6,
+.editor-styles-wrapper .wp-block-group.has-black-background-color h1,
+.editor-styles-wrapper .wp-block-group.has-black-background-color h2,
+.editor-styles-wrapper .wp-block-group.has-black-background-color h3,
+.editor-styles-wrapper .wp-block-group.has-black-background-color h4,
+.editor-styles-wrapper .wp-block-group.has-black-background-color h5,
+.editor-styles-wrapper .wp-block-group.has-black-background-color h6 {
+    color: #ffffff !important;
+}
+
+.wp-block-group.has-black-background-color p,
+.editor-styles-wrapper .wp-block-group.has-black-background-color p {
+    color: #ffffff !important;
+}
+
+/* White background fixes */
+.wp-block-group.has-white-background-color,
+.editor-styles-wrapper .wp-block-group.has-white-background-color {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+
+/* Purple background fixes */
+.wp-block-group.has-purple-background-color,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color {
+    background-color: #8B5CF6 !important;
+    color: #ffffff !important;
+}
+
+.wp-block-group.has-purple-background-color h1,
+.wp-block-group.has-purple-background-color h2,
+.wp-block-group.has-purple-background-color h3,
+.wp-block-group.has-purple-background-color h4,
+.wp-block-group.has-purple-background-color h5,
+.wp-block-group.has-purple-background-color h6,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color h1,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color h2,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color h3,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color h4,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color h5,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color h6 {
+    color: #ffffff !important;
+}
+
+.wp-block-group.has-purple-background-color p,
+.editor-styles-wrapper .wp-block-group.has-purple-background-color p {
+    color: #ffffff !important;
+}
+
+/* Responsive background adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+        min-height: 80vh;
+    }
+    
+    .editor-styles-wrapper .hero-section {
+        min-height: 50vh;
+    }
+}
+
+/* Ensure proper contrast for pattern text */
+.dark-section {
+    background-color: #111827;
+    color: #ffffff;
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3,
+.dark-section h4,
+.dark-section h5,
+.dark-section h6 {
+    color: #ffffff;
+}
+
+.dark-section p {
+    color: #f3f4f6;
+}
+
+.dark-section a {
+    color: #c084fc;
+}
+
+.dark-section a:hover {
+    color: #e879f9;
+}
+
+/* Light section contrast */
+.light-section {
+    background-color: #ffffff;
+    color: #111827;
+}
+
+.light-section h1,
+.light-section h2,
+.light-section h3,
+.light-section h4,
+.light-section h5,
+.light-section h6 {
+    color: #111827;
+}
+
+.light-section p {
+    color: #374151;
+}
+
+.light-section a {
+    color: #8B5CF6;
+}
+
+.light-section a:hover {
+    color: #7C3AED;
+}

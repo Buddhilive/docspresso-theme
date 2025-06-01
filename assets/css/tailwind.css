@@ -13,6 +13,42 @@ body {
   @apply max-w-6xl mx-auto px-4;
 }
 
+/* WordPress Block Editor and Frontend Compatibility */
+/* Ensure blocks inherit proper styling */
+.wp-block {
+  max-width: none;
+}
+
+/* Fix for WordPress block constraints */
+.wp-block-group__inner-container {
+  max-width: none;
+}
+
+/* Override WordPress default column styles when using grid */
+.wp-block-columns.grid {
+  display: grid;
+}
+
+.wp-block-columns.grid .wp-block-column {
+  width: auto;
+  flex-basis: auto;
+  margin: 0;
+}
+
+/* Fix for WordPress button blocks */
+.wp-block-button__link {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Ensure proper inheritance of Tailwind classes in WordPress blocks */
+.wp-block-group[class*="bg-"],
+.wp-block-column[class*="bg-"] {
+  position: relative;
+}
+
 /* Latest Posts Grid Card Styles */
 .archive-post-card {
   display: flex;

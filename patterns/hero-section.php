@@ -6,8 +6,8 @@
  */
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"8rem","bottom":"5rem","left":"1rem","right":"1rem"}}},"className":"hero-section min-h-screen flex flex-col justify-center items-center text-center relative z-10","layout":{"type":"constrained","contentSize":"64rem"}} -->
-<div class="wp-block-group hero-section min-h-screen flex flex-col justify-center items-center text-center relative z-10" style="padding-top:8rem;padding-right:1rem;padding-bottom:5rem;padding-left:1rem">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"8rem","bottom":"5rem","left":"1rem","right":"1rem"}},"color":{"background":"#667eea"}},"backgroundColor":"purple","className":"hero-section min-h-screen flex flex-col justify-center items-center text-center relative z-10 animated-gradient","layout":{"type":"constrained","contentSize":"64rem"}} -->
+<div class="wp-block-group hero-section min-h-screen flex flex-col justify-center items-center text-center relative z-10 animated-gradient has-purple-background-color has-background" style="background-color:#667eea;padding-top:8rem;padding-right:1rem;padding-bottom:5rem;padding-left:1rem">
     <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"3.5rem","fontWeight":"700"},"color":{"text":"#ffffff"}},"className":"drop-shadow-lg mb-6"} -->
     <h1 class="wp-block-heading has-text-align-center drop-shadow-lg mb-6 has-text-color" style="color:#ffffff;font-size:3.5rem;font-weight:700">Get started</h1>
     <!-- /wp:heading -->
