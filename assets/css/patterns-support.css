@@ -59,7 +59,7 @@
 /* Ensure text with inline styles are visible on hero background */
 .wp-block-group.hero-section .has-text-color[style*="color:#ffffff"],
 .editor-styles-wrapper .wp-block-group.hero-section .has-text-color[style*="color:#ffffff"] {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* Ensure Tailwind grid classes work correctly */

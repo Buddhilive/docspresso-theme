@@ -9,12 +9,12 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
     background-attachment: fixed;
     position: relative;
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* Override for editor where fixed attachment doesn't work well */
 .editor-styles-wrapper .hero-section {
-    background-attachment: scroll !important;
+    background-attachment: scroll;
     min-height: 60vh !important; /* Better for editor preview */
 }
 
@@ -44,8 +44,8 @@
 
 /* Ensure WordPress background color classes work in editor */
 .editor-styles-wrapper .wp-block-group[style*="background-color:#667eea"] {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-    color: #ffffff !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
 }
 
 /* Alternative gradient backgrounds for different sections */
@@ -100,8 +100,8 @@
 /* Ensure dark backgrounds work properly */
 .wp-block-group.has-black-background-color,
 .editor-styles-wrapper .wp-block-group.has-black-background-color {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .wp-block-group.has-black-background-color h1,
@@ -116,26 +116,26 @@
 .editor-styles-wrapper .wp-block-group.has-black-background-color h4,
 .editor-styles-wrapper .wp-block-group.has-black-background-color h5,
 .editor-styles-wrapper .wp-block-group.has-black-background-color h6 {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .wp-block-group.has-black-background-color p,
 .editor-styles-wrapper .wp-block-group.has-black-background-color p {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* White background fixes */
 .wp-block-group.has-white-background-color,
 .editor-styles-wrapper .wp-block-group.has-white-background-color {
-    background-color: #ffffff !important;
-    color: #111827 !important;
+    background-color: #ffffff;
+    color: #111827;
 }
 
 /* Purple background fixes */
 .wp-block-group.has-purple-background-color,
 .editor-styles-wrapper .wp-block-group.has-purple-background-color {
-    background-color: #8B5CF6 !important;
-    color: #ffffff !important;
+    background-color: #8B5CF6;
+    color: #ffffff;
 }
 
 .wp-block-group.has-purple-background-color h1,
@@ -150,12 +150,12 @@
 .editor-styles-wrapper .wp-block-group.has-purple-background-color h4,
 .editor-styles-wrapper .wp-block-group.has-purple-background-color h5,
 .editor-styles-wrapper .wp-block-group.has-purple-background-color h6 {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .wp-block-group.has-purple-background-color p,
 .editor-styles-wrapper .wp-block-group.has-purple-background-color p {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* Responsive background adjustments */

@@ -70,15 +70,15 @@
 
 /* Ensure text is visible on dark backgrounds in editor */
 .editor-styles-wrapper .has-text-color[style*="color:#ffffff"] {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .editor-styles-wrapper .wp-block-group.has-black-background-color .has-text-color[style*="color:#ffffff"] {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 .editor-styles-wrapper .wp-block-group.hero-section .has-text-color[style*="color:#ffffff"] {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 /* Ensure Tailwind classes work in the editor */

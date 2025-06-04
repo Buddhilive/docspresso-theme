@@ -32,7 +32,7 @@
 /* Text color utilities */
 .wp-block[class*="text-"],
 .wp-block-heading[class*="text-"] {
-    color: var(--tw-text-color) !important;
+    color: var(--tw-text-color);
 }
 
 /* Display utilities */

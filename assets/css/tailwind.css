@@ -460,5 +460,5 @@ body {
 }
 
 .custom-import-class {
-  @apply px-16 bg-slate-800;
+  @apply px-16 bg-slate-800 bg-slate-900;
 }
