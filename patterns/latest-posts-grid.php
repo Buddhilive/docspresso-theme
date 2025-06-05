@@ -52,10 +52,8 @@ $latest_posts = new WP_Query( array(
                             <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" class="font-medium">
                                 <?php echo esc_html( get_the_date() ); ?>
                             </time>
-                            <span class="text-gray-300">·</span>
-                            <span class="text-gray-600 font-medium"><?php esc_html_e( 'Blog', 'docspresso-theme' ); ?></span>
+                            <span class="text-gray-300">⬤</span>
                             <?php if ( get_the_category() ) : ?>
-                                <span class="text-gray-300">·</span>
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800"><?php echo esc_html( get_the_category()[0]->name ); ?></span>
                             <?php endif; ?>
                         </div>
