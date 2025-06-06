@@ -334,15 +334,6 @@ function docspresso_scripts() {
 	// Enqueue Tailwind CSS
 	wp_enqueue_style( 'tailwind-css', get_template_directory_uri() . '/assets/css/tailwind-output.css', array(), wp_get_theme()->get( 'Version' ) );
 	
-	// Enqueue patterns support CSS
-	wp_enqueue_style( 'patterns-support-css', get_template_directory_uri() . '/assets/css/patterns-support.css', array('tailwind-css'), wp_get_theme()->get( 'Version' ) );
-	
-	// Enqueue background styles CSS
-	wp_enqueue_style( 'background-styles-css', get_template_directory_uri() . '/assets/css/background-styles.css', array('tailwind-css'), wp_get_theme()->get( 'Version' ) );
-	
-	// Enqueue utility overrides CSS (highest priority)
-	wp_enqueue_style( 'utility-overrides-css', get_template_directory_uri() . '/assets/css/utility-overrides.css', array('tailwind-css', 'patterns-support-css'), wp_get_theme()->get( 'Version' ) );
-	
 	// Enqueue theme's custom CSS (with overrides)
 	wp_enqueue_style( 'docspresso-style', get_stylesheet_uri(), array('tailwind-css', 'patterns-support-css', 'background-styles-css', 'utility-overrides-css'), wp_get_theme()->get( 'Version' ) );
 	
