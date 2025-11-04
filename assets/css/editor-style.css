@@ -1,0 +1,399 @@
+/*!
+ * Editor styles for DocsPresso Tech Blog
+ */
+
+/* Import Tailwind base styles for editor */
+@import url('../tailwind-output.css');
+
+/* Editor specific styles */
+.editor-styles-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    max-width: 720px; /* Match the content width in the frontend */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Ensure WordPress block editor displays backgrounds properly */
+.editor-styles-wrapper .wp-block-group.has-purple-background-color {
+    background-color: #8B5CF6 !important;
+    color: #ffffff !important;
+}
+
+.editor-styles-wrapper .wp-block-group.has-black-background-color {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.editor-styles-wrapper .wp-block-group.has-white-background-color {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+
+/* Hero section specific styling for editor */
+.editor-styles-wrapper .hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    min-height: 50vh !important; /* Reduced for editor */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    position: relative !important;
+    color: #ffffff !important;
+}
+
+.editor-styles-wrapper .hero-section.animated-gradient {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #8B5CF6, #7C3AED) !important;
+    background-size: 400% 400% !important;
+    animation: gradientShift 15s ease infinite !important;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.editor-styles-wrapper .hero-section h1,
+.editor-styles-wrapper .hero-section h2,
+.editor-styles-wrapper .hero-section h3,
+.editor-styles-wrapper .hero-section h4,
+.editor-styles-wrapper .hero-section h5,
+.editor-styles-wrapper .hero-section h6 {
+    color: #ffffff !important;
+}
+
+.editor-styles-wrapper .hero-section p {
+    color: #ffffff !important;
+}
+
+/* Ensure text is visible on dark backgrounds in editor */
+.editor-styles-wrapper .has-text-color[style*="color:#ffffff"] {
+    color: #ffffff;
+}
+
+.editor-styles-wrapper .wp-block-group.has-black-background-color .has-text-color[style*="color:#ffffff"] {
+    color: #ffffff;
+}
+
+.editor-styles-wrapper .wp-block-group.hero-section .has-text-color[style*="color:#ffffff"] {
+    color: #ffffff;
+}
+
+/* Ensure Tailwind classes work in the editor */
+.editor-styles-wrapper .wp-block {
+    max-width: none;
+}
+
+/* Fix for editor alignment */
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+    max-width: 1200px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+    max-width: none;
+}
+
+/* Ensure grid and flexbox utilities work in editor */
+.editor-styles-wrapper .grid {
+    display: grid;
+}
+
+.editor-styles-wrapper .flex {
+    display: flex;
+}
+
+.editor-styles-wrapper .items-center {
+    align-items: center;
+}
+
+.editor-styles-wrapper .justify-between {
+    justify-content: space-between;
+}
+
+.editor-styles-wrapper .gap-4 {
+    gap: 1rem;
+}
+
+.editor-styles-wrapper .gap-8 {
+    gap: 2rem;
+}
+
+.editor-styles-wrapper .mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.editor-styles-wrapper .mb-4 {
+    margin-bottom: 1rem;
+}
+
+.editor-styles-wrapper .mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.editor-styles-wrapper .mb-8 {
+    margin-bottom: 2rem;
+}
+
+.editor-styles-wrapper .mb-12 {
+    margin-bottom: 3rem;
+}
+
+.editor-styles-wrapper .mb-16 {
+    margin-bottom: 4rem;
+}
+
+.editor-styles-wrapper .mt-8 {
+    margin-top: 2rem;
+}
+
+.editor-styles-wrapper .p-0 {
+    padding: 0;
+}
+
+.editor-styles-wrapper .p-6 {
+    padding: 1.5rem;
+}
+
+.editor-styles-wrapper .p-8 {
+    padding: 2rem;
+}
+
+.editor-styles-wrapper .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.editor-styles-wrapper .px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.editor-styles-wrapper .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.editor-styles-wrapper .py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.editor-styles-wrapper .py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Background colors */
+.editor-styles-wrapper .bg-white {
+    background-color: #ffffff;
+}
+
+.editor-styles-wrapper .bg-black {
+    background-color: #000000;
+}
+
+.editor-styles-wrapper .bg-gray-50 {
+    background-color: #f9fafb;
+}
+
+.editor-styles-wrapper .bg-gray-100 {
+    background-color: #f3f4f6;
+}
+
+.editor-styles-wrapper .bg-gray-800 {
+    background-color: #1f2937;
+}
+
+.editor-styles-wrapper .bg-gray-900 {
+    background-color: #111827;
+}
+
+.editor-styles-wrapper .bg-blue-100 {
+    background-color: #dbeafe;
+}
+
+.editor-styles-wrapper .bg-purple-100 {
+    background-color: #ede9fe;
+}
+
+/* Text colors */
+.editor-styles-wrapper .text-sm {
+    font-size: 0.875rem;
+}
+
+.editor-styles-wrapper .text-gray-400 {
+    color: #9ca3af;
+}
+
+/* Border radius */
+.editor-styles-wrapper .rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.editor-styles-wrapper .rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.editor-styles-wrapper .rounded-2xl {
+    border-radius: 1rem;
+}
+
+/* Shadows */
+.editor-styles-wrapper .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.editor-styles-wrapper .shadow-md {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.editor-styles-wrapper .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Hover effects */
+.editor-styles-wrapper .hover\:bg-gray-100:hover {
+    background-color: #f3f4f6;
+}
+
+.editor-styles-wrapper .hover\:bg-gray-800:hover {
+    background-color: #1f2937;
+}
+
+.editor-styles-wrapper .hover\:bg-purple-700:hover {
+    background-color: #7c3aed;
+}
+
+.editor-styles-wrapper .hover\:shadow-md:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Transitions */
+.editor-styles-wrapper .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.editor-styles-wrapper .transition-colors {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.editor-styles-wrapper .transition-shadow {
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.editor-styles-wrapper .duration-200 {
+    transition-duration: 200ms;
+}
+
+.editor-styles-wrapper .duration-300 {
+    transition-duration: 300ms;
+}
+
+/* Grid utilities */
+.editor-styles-wrapper .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    .editor-styles-wrapper .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Transform utilities */
+.editor-styles-wrapper .transform {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.editor-styles-wrapper .hover\:scale-105:hover {
+    --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/* Responsive utilities */
+@media (min-width: 640px) {
+    .editor-styles-wrapper .sm\:flex-row {
+        flex-direction: row;
+    }
+}
+
+/* Flexbox utilities */
+.editor-styles-wrapper .flex-col {
+    flex-direction: column;
+}
+
+.editor-styles-wrapper .items-start {
+    align-items: flex-start;
+}
+
+.editor-styles-wrapper .justify-center {
+    justify-content: center;
+}
+
+/* Width utilities */
+.editor-styles-wrapper .w-12 {
+    width: 3rem;
+}
+
+.editor-styles-wrapper .h-12 {
+    height: 3rem;
+}
+
+.editor-styles-wrapper .w-8 {
+    width: 2rem;
+}
+
+.editor-styles-wrapper .h-8 {
+    height: 2rem;
+}
+
+.editor-styles-wrapper .mr-4 {
+    margin-right: 1rem;
+}
+
+/* Additional spacing for max-width containers */
+.editor-styles-wrapper .max-w-2xl {
+    max-width: 42rem;
+}
+
+.editor-styles-wrapper .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Drop shadow utilities */
+.editor-styles-wrapper .drop-shadow-lg {
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.editor-styles-wrapper .drop-shadow-md {
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+/* Text alignment */
+.editor-styles-wrapper .text-center {
+    text-align: center;
+}
+
+/* Minimum height */
+.editor-styles-wrapper .min-h-screen {
+    min-height: 100vh;
+}
+
+/* Position utilities */
+.editor-styles-wrapper .relative {
+    position: relative;
+}
+
+.editor-styles-wrapper .z-10 {
+    z-index: 10;
+}
