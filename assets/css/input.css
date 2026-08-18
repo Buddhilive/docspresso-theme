@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------
+ * Dark mode: re-point WordPress' own generated custom properties
+ * (--wp--preset--color--*) so native blocks (buttons, quotes, table
+ * cells, etc.) re-theme automatically, not just Tailwind-classed markup.
+ * The [data-theme="dark"] attribute selector out-specifies WordPress'
+ * plain :root declarations, so this always wins regardless of print order.
+ * ------------------------------------------------------------------- */
+:root[data-theme='dark'] {
+	--wp--preset--color--white: #171412;
+	--wp--preset--color--neutral-50: #171412;
+	--wp--preset--color--neutral-100: #201c19;
+	--wp--preset--color--neutral-200: #2c2622;
+	--wp--preset--color--neutral-300: #3c332f;
+	--wp--preset--color--neutral-400: #6f5f58;
+	--wp--preset--color--neutral-500: #8f7a70;
+	--wp--preset--color--neutral-600: #b3a59e;
+	--wp--preset--color--neutral-700: #d9d2ce;
+	--wp--preset--color--neutral-800: #ebe7e5;
+	--wp--preset--color--neutral-900: #f6f4f4;
+	--wp--preset--color--neutral-950: #fbfaf9;
+	--wp--preset--color--primary-50: #2d1610;
+	--wp--preset--color--primary-100: #4f2317;
+	--wp--preset--color--primary-200: #6e2d1c;
+	--wp--preset--color--primary-300: #8c3821;
+	--wp--preset--color--primary-400: #a7452a;
+	--wp--preset--color--primary-500: #c65737;
+	--wp--preset--color--primary-600: #e28369;
+	--wp--preset--color--primary-700: #f0af9d;
+	--wp--preset--color--primary-800: #f8cfc3;
+	--wp--preset--color--primary-900: #fde8e3;
+	--wp--preset--color--primary-950: #fef3f0;
+}
+
+@layer base {
+	body {
+		background-color: var(--wp--preset--color--white);
+		color: var(--wp--preset--color--neutral-900);
+		transition: background-color 150ms ease, color 150ms ease;
+	}
+
+	a {
+		text-underline-offset: 0.15em;
+	}
+
+	:focus-visible {
+		outline: 2px solid theme('colors.primary.600');
+		outline-offset: 2px;
+	}
+
+	.docspresso-skip-link {
+		position: absolute;
+		left: -9999px;
+		top: 0;
+		z-index: 100;
+		padding: 0.75rem 1.25rem;
+		background: theme('colors.primary.600');
+		color: #fff;
+		border-radius: 0 0 0.5rem 0;
+	}
+
+	.docspresso-skip-link:focus {
+		left: 0;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+}
+
+@layer components {
+	.docspresso-prose {
+		@apply prose prose-neutral dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary-700 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline;
+	}
+
+	/* Sun/moon toggle icon swap driven by the html[data-theme] attribute. */
+	.docspresso-icon-moon {
+		display: none;
+	}
+
+	:root[data-theme='dark'] .docspresso-icon-sun {
+		display: none;
+	}
+
+	:root[data-theme='dark'] .docspresso-icon-moon {
+		display: block;
+	}
+
+	/* Bring the core Navigation block's mobile overlay in line with the theme palette. */
+	.docspresso-nav .wp-block-navigation__responsive-dialog {
+		background-color: var(--wp--preset--color--white);
+	}
+
+	.docspresso-nav .wp-block-navigation-item__content {
+		@apply text-neutral-800 dark:text-neutral-100;
+	}
+
+	.docspresso-nav .wp-block-navigation-item__content:hover {
+		@apply text-primary-700 dark:text-primary-400;
+	}
+
+	.docspresso-search-form .wp-block-search__inside-wrapper {
+		@apply overflow-hidden rounded-lg border border-neutral-300 dark:border-neutral-700;
+	}
+
+	.docspresso-search-form .wp-block-search__input {
+		@apply w-full border-0 bg-white dark:bg-neutral-900 px-4 py-2.5 text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 focus:outline-none;
+	}
+
+	.docspresso-search-form .wp-block-search__button {
+		@apply bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700;
+	}
+
+	.docspresso-card img,
+	.docspresso-page-hero img,
+	main img {
+		@apply h-auto max-w-full;
+	}
+
+	.docspresso-comments .comment-form input[type='text'],
+	.docspresso-comments .comment-form input[type='email'],
+	.docspresso-comments .comment-form input[type='url'],
+	.docspresso-comments .comment-form textarea {
+		@apply w-full rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-sm text-neutral-900 dark:text-neutral-100;
+	}
+
+	.docspresso-comments .comment-form input[type='submit'] {
+		@apply cursor-pointer rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700;
+	}
+}

@@ -1,0 +1,19 @@
+/*
+Theme Name: Docspresso
+Theme URI: https://buddhilive.local/
+Author: Buddhi Kavindra
+Author URI: https://buddhilive.local/
+Description: A modern, accessible WordPress block theme built with TailwindCSS. Light and dark mode, fully responsive, editorial blog layout.
+Requires at least: 6.5
+Tested up to: 7.0
+Requires PHP: 8.0
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: docspresso
+Tags: blog, full-site-editing, block-patterns, custom-colors, custom-menu, editor-style, featured-images, full-width-template, rtl-language-support, sticky-post, threaded-comments, translation-ready, accessibility-ready
+
+Docspresso is a modern block theme styled with TailwindCSS. All styles are
+compiled to assets/build/style.css and enqueued via functions.php; this file
+intentionally contains only the required theme header metadata.
+*/
