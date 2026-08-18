@@ -121,5 +121,17 @@
   "templateParts": [
     { "name": "header", "title": "Header", "area": "header" },
     { "name": "footer", "title": "Footer", "area": "footer" }
+  ],
+  "customTemplates": [
+    {
+      "name": "template-front-hero",
+      "title": "Front Page (Hero)",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "template-blog-grid",
+      "title": "Blog Listing",
+      "postTypes": ["page"]
+    }
   ]
 }
