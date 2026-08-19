@@ -54,6 +54,30 @@ header.wp-block-template-part {
 }
 
 /* ---------------------------------------------------------------------
+ * Site Logo in Navbar (Original in Light Mode, White in Dark Mode)
+ * ------------------------------------------------------------------- */
+.docspresso-site-logo,
+.docspresso-site-logo img,
+.docspresso-site-logo svg,
+.wp-block-site-logo,
+.wp-block-site-logo img,
+.custom-logo {
+	display: block;
+	max-height: 2.25rem;
+	width: auto;
+	transition: filter 150ms ease, opacity 150ms ease;
+	filter: none;
+}
+
+:root[data-theme='dark'] .docspresso-site-logo img,
+:root[data-theme='dark'] .docspresso-site-logo svg,
+:root[data-theme='dark'] .wp-block-site-logo img,
+:root[data-theme='dark'] .wp-block-site-logo svg,
+:root[data-theme='dark'] .custom-logo {
+	filter: brightness(0) invert(1);
+}
+
+/* ---------------------------------------------------------------------
  * Transparent Navigation Block & Harmonized Colors
  * ------------------------------------------------------------------- */
 .wp-block-navigation,
