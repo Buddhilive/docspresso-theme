@@ -8,6 +8,15 @@ module.exports = {
     './functions.php',
     './*.php',
   ],
+  safelist: [
+    'wp-site-blocks',
+    'wp-block-template-part',
+    'docspresso-sticky-header',
+    'docspresso-nav',
+    'wp-block-navigation',
+    'wp-block-navigation__container',
+    'wp-block-navigation__responsive-container',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -22,6 +31,19 @@ module.exports = {
         ],
       },
       colors: {
+        neutral: {
+          50: '#fbfaf9',
+          100: '#f6f4f4',
+          200: '#ebe7e5',
+          300: '#d9d2ce',
+          400: '#b3a59e',
+          500: '#8f7a70',
+          600: '#6f5f58',
+          700: '#564943',
+          800: '#3c332f',
+          900: '#28221f',
+          950: '#171412',
+        },
         primary: {
           50: '#fef3f0',
           100: '#fde8e3',

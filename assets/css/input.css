@@ -35,6 +35,69 @@
 	--wp--preset--color--primary-950: #fef3f0;
 }
 
+/* ---------------------------------------------------------------------
+ * Sticky Header on WordPress Template Part Container
+ * ------------------------------------------------------------------- */
+.wp-site-blocks {
+	overflow: visible;
+}
+
+header.wp-block-template-part {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	width: 100%;
+}
+
+.admin-bar header.wp-block-template-part {
+	top: var(--wp-admin--admin-bar--height, 32px);
+}
+
+/* ---------------------------------------------------------------------
+ * Transparent Navigation Block & Harmonized Colors
+ * ------------------------------------------------------------------- */
+.wp-block-navigation,
+.wp-block-navigation .wp-block-navigation__container,
+.wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open),
+.wp-block-navigation .wp-block-navigation__responsive-close,
+.wp-block-navigation .wp-block-navigation__responsive-dialog:not(.is-menu-open *),
+.wp-block-navigation .wp-block-navigation__responsive-container-content,
+.wp-block-navigation .wp-block-page-list,
+.wp-block-navigation .wp-block-navigation-item,
+.wp-block-navigation .wp-block-pages-list__item,
+.docspresso-nav,
+.docspresso-nav .wp-block-navigation__container,
+.docspresso-nav .wp-block-navigation__responsive-container:not(.is-menu-open),
+.docspresso-nav .wp-block-navigation__responsive-close,
+.docspresso-nav .wp-block-navigation__responsive-dialog:not(.is-menu-open *),
+.docspresso-nav .wp-block-navigation__responsive-container-content,
+.docspresso-nav .wp-block-page-list,
+.docspresso-nav .wp-block-navigation-item,
+.docspresso-nav .wp-block-pages-list__item {
+	background-color: transparent !important;
+}
+
+/* Mobile responsive navigation modal overlay */
+.wp-block-navigation__responsive-container.is-menu-open,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content,
+.docspresso-nav .wp-block-navigation__responsive-container.is-menu-open,
+.docspresso-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog,
+.docspresso-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	background-color: var(--wp--preset--color--white) !important;
+	color: var(--wp--preset--color--neutral-900) !important;
+}
+
+:root[data-theme='dark'] .wp-block-navigation__responsive-container.is-menu-open,
+:root[data-theme='dark'] .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog,
+:root[data-theme='dark'] .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content,
+:root[data-theme='dark'] .docspresso-nav .wp-block-navigation__responsive-container.is-menu-open,
+:root[data-theme='dark'] .docspresso-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog,
+:root[data-theme='dark'] .docspresso-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	background-color: var(--wp--preset--color--neutral-50) !important;
+	color: var(--wp--preset--color--neutral-950) !important;
+}
+
 @layer base {
 	body {
 		background-color: var(--wp--preset--color--white);
@@ -94,11 +157,6 @@
 
 	:root[data-theme='dark'] .docspresso-icon-moon {
 		display: block;
-	}
-
-	/* Bring the core Navigation block's mobile overlay in line with the theme palette. */
-	.docspresso-nav .wp-block-navigation__responsive-dialog {
-		background-color: var(--wp--preset--color--white);
 	}
 
 	.docspresso-nav .wp-block-navigation-item__content {
