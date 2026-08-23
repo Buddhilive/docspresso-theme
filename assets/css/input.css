@@ -219,4 +219,76 @@ header.wp-block-template-part {
 	.docspresso-comments .comment-form input[type='submit'] {
 		@apply cursor-pointer rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700;
 	}
+
+	/* ---------------------------------------------------------------------
+	 * Native block styling for blocks placed outside .docspresso-prose
+	 * (page/pattern templates, block editor pages that aren't wrapped in
+	 * core/post-content). Colors/borders/radius live in theme.json;
+	 * this covers structural CSS theme.json can't express.
+	 * ------------------------------------------------------------------- */
+	.wp-block-quote {
+		@apply italic;
+	}
+
+	.wp-block-quote cite {
+		@apply not-italic text-sm font-medium text-neutral-500 dark:text-neutral-500;
+	}
+
+	.wp-block-pullquote blockquote {
+		@apply text-center italic;
+	}
+
+	.wp-block-pullquote cite {
+		@apply not-italic text-sm font-medium uppercase tracking-wide text-neutral-500;
+	}
+
+	.wp-block-table table {
+		@apply w-full border-collapse;
+	}
+
+	.wp-block-table thead {
+		@apply bg-neutral-100 dark:bg-neutral-900;
+	}
+
+	.wp-block-table th {
+		@apply text-left font-semibold text-neutral-800 dark:text-neutral-200;
+	}
+
+	.wp-block-table th,
+	.wp-block-table td {
+		@apply px-4 py-2.5;
+	}
+
+	.wp-block-table tbody tr:nth-child(even) {
+		@apply bg-neutral-50 dark:bg-neutral-950;
+	}
+
+	.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+		@apply bg-neutral-50 dark:bg-neutral-950;
+	}
+
+	.wp-block-list {
+		@apply pl-5;
+	}
+
+	.wp-block-list li::marker {
+		color: var(--wp--preset--color--primary-600);
+	}
+
+	.wp-block-image figcaption,
+	.wp-block-gallery figcaption {
+		@apply mt-2 text-center text-sm text-neutral-500 dark:text-neutral-500;
+	}
+
+	.wp-block-embed {
+		@apply overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800;
+	}
+
+	.wp-block-embed__wrapper {
+		@apply bg-neutral-50 dark:bg-neutral-950;
+	}
+
+	.alignfull:not(.wp-block-cover):not(.wp-block-group[style*='background']) {
+		@apply px-4 sm:px-6 lg:px-8;
+	}
 }

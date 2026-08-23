@@ -19,6 +19,19 @@ module.exports = {
     'wp-block-navigation',
     'wp-block-navigation__container',
     'wp-block-navigation__responsive-container',
+    // Native blocks styled in input.css that aren't hardcoded in any
+    // template/pattern file, so Tailwind's content scanner can't see them
+    // — they're inserted dynamically via the block editor.
+    'wp-block-quote',
+    'wp-block-pullquote',
+    'wp-block-table',
+    'wp-block-list',
+    'wp-block-image',
+    'wp-block-gallery',
+    'wp-block-embed',
+    'wp-block-embed__wrapper',
+    'alignfull',
+    'is-style-stripes',
   ],
   theme: {
     extend: {
