@@ -14,14 +14,6 @@ define( 'DOCSPRESSO_DIR', get_template_directory() );
 define( 'DOCSPRESSO_URI', get_template_directory_uri() );
 
 /**
- * Google AdSense Auto Ads publisher ID (format: pub-XXXXXXXXXXXXXXXX).
- * Leave empty to disable Auto Ads and /ads.txt output entirely — keep
- * unset on this local ServBay environment and only define it in the
- * production deploy.
- */
-define( 'DOCSPRESSO_ADSENSE_PUBLISHER_ID', '' );
-
-/**
  * Theme setup: supports, image sizes, editor style.
  */
 function docspresso_setup() {
@@ -251,65 +243,3 @@ function docspresso_output_schema_jsonld() {
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
 add_action( 'wp_head', 'docspresso_output_schema_jsonld', 3 );
-
-/**
- * Output the Google AdSense Auto Ads script when a publisher ID is
- * configured via DOCSPRESSO_ADSENSE_PUBLISHER_ID.
- */
-function docspresso_output_adsense_auto_ads() {
-	if ( ! DOCSPRESSO_ADSENSE_PUBLISHER_ID ) {
-		return;
-	}
-
-	$publisher_id = DOCSPRESSO_ADSENSE_PUBLISHER_ID;
-
-	if ( ! preg_match( '/^pub-\d{16}$/', $publisher_id ) ) {
-		return;
-	}
-	?>
-	<script async src="<?php echo esc_url( 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' . $publisher_id ); ?>" crossorigin="anonymous"></script>
-	<?php
-}
-add_action( 'wp_head', 'docspresso_output_adsense_auto_ads', 5 );
-
-/**
- * Register the rewrite rule that serves a virtual /ads.txt.
- *
- * After this ships, visit Settings -> Permalinks -> Save Changes once in
- * wp-admin to flush rewrite rules, or /ads.txt will 404.
- */
-function docspresso_register_ads_txt_rewrite() {
-	add_rewrite_rule( '^ads\.txt$', 'index.php?docspresso_ads_txt=1', 'top' );
-}
-add_action( 'init', 'docspresso_register_ads_txt_rewrite' );
-
-/**
- * Register the ads_txt query var so WP recognizes it from the rewrite rule.
- */
-function docspresso_register_ads_txt_query_var( $vars ) {
-	$vars[] = 'docspresso_ads_txt';
-	return $vars;
-}
-add_filter( 'query_vars', 'docspresso_register_ads_txt_query_var' );
-
-/**
- * Output ads.txt content and short-circuit the request when the
- * docspresso_ads_txt query var is present.
- */
-function docspresso_render_ads_txt() {
-	if ( ! get_query_var( 'docspresso_ads_txt' ) ) {
-		return;
-	}
-
-	$publisher_id = DOCSPRESSO_ADSENSE_PUBLISHER_ID;
-
-	if ( ! $publisher_id || ! preg_match( '/^pub-\d{16}$/', $publisher_id ) ) {
-		status_header( 404 );
-		exit;
-	}
-
-	header( 'Content-Type: text/plain; charset=utf-8' );
-	echo esc_html( 'google.com, ' . $publisher_id . ', DIRECT, f08c47fec0942fa0' );
-	exit;
-}
-add_action( 'template_redirect', 'docspresso_render_ads_txt' );
