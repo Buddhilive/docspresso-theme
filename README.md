@@ -1,5 +1,7 @@
 # Docspresso — the official WordPress theme for BuddhiAI
 
+![Docspresso](screenshot.png)
+
 Docspresso is the official WordPress theme powering **BuddhiAI** — a site dedicated to educating people on and building an open-source, local-first edge AI ecosystem, so anyone can run capable, private AI on their own machine at no cost.
 
 It's a hybrid full-site-editing (FSE) block theme built with Tailwind CSS: light/dark mode, native WordPress block styling throughout, and baseline SEO (meta tags, Open Graph, JSON-LD) that stays out of the way if a dedicated SEO plugin is installed later.
@@ -14,15 +16,15 @@ Google AdSense (Auto Ads, `ads.txt`) is handled by the official **Google AdSense
 
 ## Theme structure
 
-| Path | Purpose |
-|---|---|
-| `templates/` | Block templates (front page, blog index, single, page, archive, search, 404) |
-| `parts/` | Template parts (header, footer) |
-| `patterns/` | Reusable block patterns (hero, feature sections, page hero, blog cards) |
-| `assets/css/input.css` | Tailwind source — edit this, never `assets/build/style.css` directly |
-| `assets/build/style.css` | Compiled, enqueued stylesheet (generated — do not hand-edit) |
-| `theme.json` | Global styles/settings: color palette, typography, native block styling |
-| `functions.php` | Theme setup, SEO meta tags, block bindings |
+| Path                     | Purpose                                                                      |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `templates/`             | Block templates (front page, blog index, single, page, archive, search, 404) |
+| `parts/`                 | Template parts (header, footer)                                              |
+| `patterns/`              | Reusable block patterns (hero, feature sections, page hero, blog cards)      |
+| `assets/css/input.css`   | Tailwind source — edit this, never `assets/build/style.css` directly         |
+| `assets/build/style.css` | Compiled, enqueued stylesheet (generated — do not hand-edit)                 |
+| `theme.json`             | Global styles/settings: color palette, typography, native block styling      |
+| `functions.php`          | Theme setup, SEO meta tags, block bindings                                   |
 
 ## Local development
 
@@ -47,30 +49,36 @@ WordPress themes are distributed as a `.zip` containing the theme folder at the 
    - `.git/`, `.gitignore`
    - `package.json`, `package-lock.json`
    - `tailwind.config.js`, `postcss.config.js`
-   - `assets/css/` (the Tailwind *source* — only `assets/build/style.css` is enqueued)
+   - `assets/css/` (the Tailwind _source_ — only `assets/build/style.css` is enqueued)
 
    Everything else (`templates/`, `parts/`, `patterns/`, `assets/build/`, `assets/fonts/`, `assets/js/`, `functions.php`, `theme.json`, `style.css`, `screenshot.png`, `LICENSE`) is required.
 
 3. **Create the zip.** From the `wp-content/themes/` directory (one level above the theme folder), so the theme folder itself is the zip's top-level entry:
 
    PowerShell:
+
    ```powershell
    Compress-Archive -Path "docspresso-theme" -DestinationPath "docspresso-theme.zip" -Force
    ```
+
    Then open the zip and delete the excluded folders/files listed above (`Compress-Archive` has no built-in exclude flag), or use a zip tool that supports exclusions (7-Zip, `git archive`, etc.) in one step:
+
    ```bash
    git archive --format=zip -o docspresso-theme.zip HEAD
    ```
+
    (`git archive` only includes tracked files, which already excludes `node_modules/` via `.gitignore` — just remember to `npm run build` and commit the fresh `assets/build/style.css` first, since gitignored or uncommitted changes won't be included.)
 
 ## Uploading to a WordPress site
 
 **Option A — WordPress admin (simplest, most sites):**
+
 1. Log in to `wp-admin` → **Appearance → Themes → Add New Theme → Upload Theme**.
 2. Choose `docspresso-theme.zip` and click **Install Now**.
 3. Click **Activate**.
 
 **Option B — FTP/SFTP or hosting file manager (needed if the zip exceeds the host's upload limit):**
+
 1. Unzip `docspresso-theme.zip` locally.
 2. Upload the resulting `docspresso-theme/` folder into `wp-content/themes/` on the server, so the final path is `wp-content/themes/docspresso-theme/`.
 3. In `wp-admin` → **Appearance → Themes**, activate **Docspresso**.
