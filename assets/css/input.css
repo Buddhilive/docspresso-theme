@@ -291,4 +291,152 @@ header.wp-block-template-part {
 	.alignfull:not(.wp-block-cover):not(.wp-block-group[style*='background']) {
 		@apply px-4 sm:px-6 lg:px-8;
 	}
+
+	/* ---------------------------------------------------------------------
+	 * Post Navigation Links (Previous / Next Post Cards)
+	 * ------------------------------------------------------------------- */
+	.docspresso-post-nav {
+		display: grid !important;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		align-items: stretch;
+		gap: 1rem !important;
+	}
+
+	.docspresso-post-nav > * {
+		margin: 0 !important;
+		margin-top: 0 !important;
+		margin-block-start: 0 !important;
+		margin-block-end: 0 !important;
+	}
+
+	@media (min-width: 640px) {
+		.docspresso-post-nav {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: 100%;
+		margin: 0 !important;
+		margin-top: 0 !important;
+		margin-block-start: 0 !important;
+		margin-block-end: 0 !important;
+		padding: 1.125rem 1.25rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--wp--preset--color--neutral-200);
+		background-color: var(--wp--preset--color--neutral-50);
+		transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+		min-width: 0;
+		text-decoration: none;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link:hover {
+		border-color: var(--wp--preset--color--primary-500);
+		background-color: var(--wp--preset--color--neutral-100);
+		box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+		transform: translateY(-2px);
+	}
+
+	:root[data-theme='dark'] .docspresso-post-nav .wp-block-post-navigation-link:hover {
+		box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.4);
+	}
+
+	@media (min-width: 640px) {
+		.docspresso-post-nav .post-navigation-link-next:only-child {
+			grid-column-start: 2;
+		}
+		.docspresso-post-nav .post-navigation-link-next {
+			text-align: right;
+			align-items: flex-end;
+		}
+		.docspresso-post-nav .post-navigation-link-next a {
+			align-items: flex-end;
+		}
+		.docspresso-post-nav .post-navigation-link-next .post-navigation-link__label {
+			justify-content: flex-end;
+		}
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link a,
+	.docspresso-post-nav .wp-block-post-navigation-link a:visited {
+		text-decoration: none !important;
+		color: var(--wp--preset--color--neutral-900) !important;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		min-width: 0;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 0.75rem;
+		z-index: 1;
+	}
+
+	.docspresso-post-nav .post-navigation-link__label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--wp--preset--color--neutral-500);
+		margin-bottom: 0.375rem;
+		transition: color 150ms ease;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link:hover .post-navigation-link__label {
+		color: var(--wp--preset--color--primary-600);
+	}
+
+	.docspresso-post-nav .post-navigation-link-previous .post-navigation-link__label::before {
+		content: '←';
+		font-size: 0.875rem;
+		line-height: 1;
+		transition: transform 150ms ease;
+	}
+
+	.docspresso-post-nav .post-navigation-link-previous:hover .post-navigation-link__label::before {
+		transform: translateX(-3px);
+	}
+
+	.docspresso-post-nav .post-navigation-link-next .post-navigation-link__label::after {
+		content: '→';
+		font-size: 0.875rem;
+		line-height: 1;
+		transition: transform 150ms ease;
+	}
+
+	.docspresso-post-nav .post-navigation-link-next:hover .post-navigation-link__label::after {
+		transform: translateX(3px);
+	}
+
+	.docspresso-post-nav .post-navigation-link__title {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-break: break-word;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.4;
+		min-height: 2.8em;
+		color: var(--wp--preset--color--neutral-900);
+		transition: color 150ms ease;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link:hover a,
+	.docspresso-post-nav .wp-block-post-navigation-link:hover .post-navigation-link__title {
+		color: var(--wp--preset--color--primary-600) !important;
+	}
 }
