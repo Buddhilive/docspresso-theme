@@ -10,7 +10,7 @@
 <!-- wp:query {"queryId":0,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"className":"docspresso-blog-grid"} -->
 <div class="wp-block-query docspresso-blog-grid">
 
-	<!-- wp:post-template {"className":"grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"} -->
+	<!-- wp:post-template {"className":"grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3","layout":{"type":"grid","columnCount":3},"style":{"spacing":{"blockGap":"0px"}}} -->
 
 		<!-- wp:group {"className":"docspresso-card group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-shadow hover:shadow-lg","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group docspresso-card group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-shadow hover:shadow-lg">

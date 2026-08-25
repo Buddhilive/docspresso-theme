@@ -203,10 +203,144 @@ header.wp-block-template-part {
 		@apply bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700;
 	}
 
-	.docspresso-card img,
 	.docspresso-page-hero img,
 	main img {
 		@apply h-auto max-w-full;
+	}
+
+	/* ---------------------------------------------------------------------
+	 * Blog Grid & Post Template Card Alignment
+	 * ------------------------------------------------------------------- */
+	body .docspresso-blog-grid ul.wp-block-post-template,
+	body .wp-block-post-template,
+	body ul.wp-block-post-template,
+	ul.wp-block-post-template,
+	.wp-block-post-template {
+		display: grid !important;
+		list-style: none !important;
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+		align-items: stretch !important;
+	}
+
+	body .docspresso-blog-grid ul.wp-block-post-template > li,
+	body .docspresso-blog-grid ul.wp-block-post-template > li + li,
+	body .docspresso-blog-grid .wp-block-post-template > li,
+	body .docspresso-blog-grid .wp-block-post-template > li + li,
+	body .wp-block-post-template > *,
+	body .wp-block-post-template > * + *,
+	body .wp-block-post-template > li,
+	body .wp-block-post-template > li + li,
+	body .is-layout-flow > .wp-block-post,
+	body .is-layout-flow > .wp-block-post + .wp-block-post,
+	ul.wp-block-post-template.is-layout-flow > li,
+	ul.wp-block-post-template.is-layout-flow > li + li,
+	ul.wp-block-post-template > li,
+	ul.wp-block-post-template > li + li,
+	.wp-block-post-template > li,
+	.wp-block-post-template > li + li,
+	li.wp-block-post {
+		margin: 0 !important;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		margin-block-start: 0 !important;
+		margin-block-end: 0 !important;
+		display: flex !important;
+		flex-direction: column !important;
+		height: 100% !important;
+	}
+
+	.docspresso-card {
+		display: flex !important;
+		flex-direction: column !important;
+		flex: 1 1 100% !important;
+		height: 100% !important;
+		width: 100% !important;
+	}
+
+	.docspresso-card figure.wp-block-post-featured-image,
+	.docspresso-card .wp-block-post-featured-image,
+	.docspresso-card .wp-block-post-featured-image a {
+		display: block !important;
+		width: 100% !important;
+		height: 12.5rem !important;
+		max-height: 12.5rem !important;
+		min-height: 12.5rem !important;
+		aspect-ratio: 16 / 9 !important;
+		overflow: hidden !important;
+		background-color: var(--wp--preset--color--neutral-100);
+		flex-shrink: 0 !important;
+		margin: 0 !important;
+	}
+
+	.docspresso-card .wp-block-post-featured-image img,
+	.docspresso-card figure.wp-block-post-featured-image img,
+	main .docspresso-card img {
+		width: 100% !important;
+		height: 100% !important;
+		max-height: 100% !important;
+		min-height: 100% !important;
+		object-fit: cover !important;
+		object-position: center !important;
+		display: block !important;
+	}
+
+	.docspresso-card > .wp-block-group {
+		display: flex !important;
+		flex-direction: column !important;
+		flex: 1 1 100% !important;
+		height: 100% !important;
+	}
+
+	.docspresso-card .wp-block-post-terms {
+		margin-top: 0;
+		margin-bottom: 0;
+		min-height: 1.25rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.docspresso-card .wp-block-post-title {
+		margin-top: 0;
+		margin-bottom: 0;
+		min-height: 3.25rem !important;
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.docspresso-card .wp-block-post-title a {
+		display: -webkit-box !important;
+		-webkit-box-orient: vertical !important;
+		-webkit-line-clamp: 2 !important;
+		line-clamp: 2 !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		word-break: break-word !important;
+		line-height: 1.4 !important;
+	}
+
+	.docspresso-card .wp-block-post-excerpt {
+		margin-top: 0;
+		margin-bottom: 0;
+		min-height: 4.5rem !important;
+	}
+
+	.docspresso-card .wp-block-post-excerpt__excerpt,
+	.docspresso-card .wp-block-post-excerpt p {
+		display: -webkit-box !important;
+		-webkit-box-orient: vertical !important;
+		-webkit-line-clamp: 3 !important;
+		line-clamp: 3 !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		word-break: break-word !important;
+		line-height: 1.5 !important;
+		margin: 0 !important;
+	}
+
+	.docspresso-card .wp-block-post-date {
+		margin-top: auto !important;
+		padding-top: 0.75rem;
 	}
 
 	.docspresso-comments .comment-form input[type='text'],
