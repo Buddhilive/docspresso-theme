@@ -439,4 +439,46 @@ header.wp-block-template-part {
 	.docspresso-post-nav .wp-block-post-navigation-link:hover .post-navigation-link__title {
 		color: var(--wp--preset--color--primary-600) !important;
 	}
+
+	/* ---------------------------------------------------------------------
+	 * Page Hero Title Card
+	 * ------------------------------------------------------------------- */
+	.docspresso-page-hero {
+		border-radius: 1rem !important;
+		overflow: hidden !important;
+		border: 1px solid var(--wp--preset--color--neutral-200);
+		background-color: var(--wp--preset--color--neutral-50) !important;
+		transition: background-color 150ms ease, border-color 150ms ease;
+	}
+
+	:root[data-theme='dark'] .docspresso-page-hero {
+		border-color: var(--wp--preset--color--neutral-800);
+		background-color: var(--wp--preset--color--neutral-100) !important;
+	}
+
+	/* When NO featured image is present (solid background, no overlay, crisp title) */
+	.docspresso-page-hero:not(:has(img.wp-block-cover__image-background)) .wp-block-cover__background {
+		display: none !important;
+	}
+
+	.docspresso-page-hero:not(:has(img.wp-block-cover__image-background)) .wp-block-post-title,
+	.docspresso-page-hero:not(:has(img.wp-block-cover__image-background)) h1 {
+		color: var(--wp--preset--color--neutral-950) !important;
+	}
+
+	/* When featured image IS present (dark dim overlay with opacity, white title) */
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) {
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) .wp-block-cover__background {
+		display: block !important;
+		background-color: rgba(0, 0, 0, 0.55) !important;
+	}
+
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) .wp-block-post-title,
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) h1 {
+		color: #ffffff !important;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	}
 }
