@@ -203,10 +203,144 @@ header.wp-block-template-part {
 		@apply bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700;
 	}
 
-	.docspresso-card img,
 	.docspresso-page-hero img,
 	main img {
 		@apply h-auto max-w-full;
+	}
+
+	/* ---------------------------------------------------------------------
+	 * Blog Grid & Post Template Card Alignment
+	 * ------------------------------------------------------------------- */
+	body .docspresso-blog-grid ul.wp-block-post-template,
+	body .wp-block-post-template,
+	body ul.wp-block-post-template,
+	ul.wp-block-post-template,
+	.wp-block-post-template {
+		display: grid !important;
+		list-style: none !important;
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+		align-items: stretch !important;
+	}
+
+	body .docspresso-blog-grid ul.wp-block-post-template > li,
+	body .docspresso-blog-grid ul.wp-block-post-template > li + li,
+	body .docspresso-blog-grid .wp-block-post-template > li,
+	body .docspresso-blog-grid .wp-block-post-template > li + li,
+	body .wp-block-post-template > *,
+	body .wp-block-post-template > * + *,
+	body .wp-block-post-template > li,
+	body .wp-block-post-template > li + li,
+	body .is-layout-flow > .wp-block-post,
+	body .is-layout-flow > .wp-block-post + .wp-block-post,
+	ul.wp-block-post-template.is-layout-flow > li,
+	ul.wp-block-post-template.is-layout-flow > li + li,
+	ul.wp-block-post-template > li,
+	ul.wp-block-post-template > li + li,
+	.wp-block-post-template > li,
+	.wp-block-post-template > li + li,
+	li.wp-block-post {
+		margin: 0 !important;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		margin-block-start: 0 !important;
+		margin-block-end: 0 !important;
+		display: flex !important;
+		flex-direction: column !important;
+		height: 100% !important;
+	}
+
+	.docspresso-card {
+		display: flex !important;
+		flex-direction: column !important;
+		flex: 1 1 100% !important;
+		height: 100% !important;
+		width: 100% !important;
+	}
+
+	.docspresso-card figure.wp-block-post-featured-image,
+	.docspresso-card .wp-block-post-featured-image,
+	.docspresso-card .wp-block-post-featured-image a {
+		display: block !important;
+		width: 100% !important;
+		height: 12.5rem !important;
+		max-height: 12.5rem !important;
+		min-height: 12.5rem !important;
+		aspect-ratio: 16 / 9 !important;
+		overflow: hidden !important;
+		background-color: var(--wp--preset--color--neutral-100);
+		flex-shrink: 0 !important;
+		margin: 0 !important;
+	}
+
+	.docspresso-card .wp-block-post-featured-image img,
+	.docspresso-card figure.wp-block-post-featured-image img,
+	main .docspresso-card img {
+		width: 100% !important;
+		height: 100% !important;
+		max-height: 100% !important;
+		min-height: 100% !important;
+		object-fit: cover !important;
+		object-position: center !important;
+		display: block !important;
+	}
+
+	.docspresso-card > .wp-block-group {
+		display: flex !important;
+		flex-direction: column !important;
+		flex: 1 1 100% !important;
+		height: 100% !important;
+	}
+
+	.docspresso-card .wp-block-post-terms {
+		margin-top: 0;
+		margin-bottom: 0;
+		min-height: 1.25rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.docspresso-card .wp-block-post-title {
+		margin-top: 0;
+		margin-bottom: 0;
+		min-height: 3.25rem !important;
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.docspresso-card .wp-block-post-title a {
+		display: -webkit-box !important;
+		-webkit-box-orient: vertical !important;
+		-webkit-line-clamp: 2 !important;
+		line-clamp: 2 !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		word-break: break-word !important;
+		line-height: 1.4 !important;
+	}
+
+	.docspresso-card .wp-block-post-excerpt {
+		margin-top: 0;
+		margin-bottom: 0;
+		min-height: 4.5rem !important;
+	}
+
+	.docspresso-card .wp-block-post-excerpt__excerpt,
+	.docspresso-card .wp-block-post-excerpt p {
+		display: -webkit-box !important;
+		-webkit-box-orient: vertical !important;
+		-webkit-line-clamp: 3 !important;
+		line-clamp: 3 !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		word-break: break-word !important;
+		line-height: 1.5 !important;
+		margin: 0 !important;
+	}
+
+	.docspresso-card .wp-block-post-date {
+		margin-top: auto !important;
+		padding-top: 0.75rem;
 	}
 
 	.docspresso-comments .comment-form input[type='text'],
@@ -291,4 +425,264 @@ header.wp-block-template-part {
 	.alignfull:not(.wp-block-cover):not(.wp-block-group[style*='background']) {
 		@apply px-4 sm:px-6 lg:px-8;
 	}
+
+	/* ---------------------------------------------------------------------
+	 * Post Navigation Links (Previous / Next Post Cards)
+	 * ------------------------------------------------------------------- */
+	.docspresso-post-nav {
+		display: grid !important;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		align-items: stretch;
+		gap: 1rem !important;
+	}
+
+	.docspresso-post-nav > * {
+		margin: 0 !important;
+		margin-top: 0 !important;
+		margin-block-start: 0 !important;
+		margin-block-end: 0 !important;
+	}
+
+	@media (min-width: 640px) {
+		.docspresso-post-nav {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: 100%;
+		margin: 0 !important;
+		margin-top: 0 !important;
+		margin-block-start: 0 !important;
+		margin-block-end: 0 !important;
+		padding: 1.125rem 1.25rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--wp--preset--color--neutral-200);
+		background-color: var(--wp--preset--color--neutral-50);
+		transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+		min-width: 0;
+		text-decoration: none;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link:hover {
+		border-color: var(--wp--preset--color--primary-500);
+		background-color: var(--wp--preset--color--neutral-100);
+		box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+		transform: translateY(-2px);
+	}
+
+	:root[data-theme='dark'] .docspresso-post-nav .wp-block-post-navigation-link:hover {
+		box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.4);
+	}
+
+	@media (min-width: 640px) {
+		.docspresso-post-nav .post-navigation-link-next:only-child {
+			grid-column-start: 2;
+		}
+		.docspresso-post-nav .post-navigation-link-next {
+			text-align: right;
+			align-items: flex-end;
+		}
+		.docspresso-post-nav .post-navigation-link-next a {
+			align-items: flex-end;
+		}
+		.docspresso-post-nav .post-navigation-link-next .post-navigation-link__label {
+			justify-content: flex-end;
+		}
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link a,
+	.docspresso-post-nav .wp-block-post-navigation-link a:visited {
+		text-decoration: none !important;
+		color: var(--wp--preset--color--neutral-900) !important;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		min-width: 0;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 0.75rem;
+		z-index: 1;
+	}
+
+	.docspresso-post-nav .post-navigation-link__label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--wp--preset--color--neutral-500);
+		margin-bottom: 0.375rem;
+		transition: color 150ms ease;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link:hover .post-navigation-link__label {
+		color: var(--wp--preset--color--primary-600);
+	}
+
+	.docspresso-post-nav .post-navigation-link-previous .post-navigation-link__label::before {
+		content: '←';
+		font-size: 0.875rem;
+		line-height: 1;
+		transition: transform 150ms ease;
+	}
+
+	.docspresso-post-nav .post-navigation-link-previous:hover .post-navigation-link__label::before {
+		transform: translateX(-3px);
+	}
+
+	.docspresso-post-nav .post-navigation-link-next .post-navigation-link__label::after {
+		content: '→';
+		font-size: 0.875rem;
+		line-height: 1;
+		transition: transform 150ms ease;
+	}
+
+	.docspresso-post-nav .post-navigation-link-next:hover .post-navigation-link__label::after {
+		transform: translateX(3px);
+	}
+
+	.docspresso-post-nav .post-navigation-link__title {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-break: break-word;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.4;
+		min-height: 2.8em;
+		color: var(--wp--preset--color--neutral-900);
+		transition: color 150ms ease;
+	}
+
+	.docspresso-post-nav .wp-block-post-navigation-link:hover a,
+	.docspresso-post-nav .wp-block-post-navigation-link:hover .post-navigation-link__title {
+		color: var(--wp--preset--color--primary-600) !important;
+	}
+
+	/* ---------------------------------------------------------------------
+	 * Page Hero Title Card
+	 * ------------------------------------------------------------------- */
+	.docspresso-page-hero {
+		border-radius: 1rem !important;
+		overflow: hidden !important;
+		border: 1px solid var(--wp--preset--color--neutral-200);
+		background-color: var(--wp--preset--color--neutral-50) !important;
+		transition: background-color 150ms ease, border-color 150ms ease;
+	}
+
+	:root[data-theme='dark'] .docspresso-page-hero {
+		border-color: var(--wp--preset--color--neutral-800);
+		background-color: var(--wp--preset--color--neutral-100) !important;
+	}
+
+	/* When NO featured image is present (solid background, no overlay, crisp title) */
+	.docspresso-page-hero:not(:has(img.wp-block-cover__image-background)) .wp-block-cover__background {
+		display: none !important;
+	}
+
+	.docspresso-page-hero:not(:has(img.wp-block-cover__image-background)) .wp-block-post-title,
+	.docspresso-page-hero:not(:has(img.wp-block-cover__image-background)) h1 {
+		color: var(--wp--preset--color--neutral-950) !important;
+	}
+
+	/* When featured image IS present (dark dim overlay with opacity, white title) */
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) {
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) .wp-block-cover__background {
+		display: block !important;
+		background-color: rgba(0, 0, 0, 0.55) !important;
+	}
+
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) .wp-block-post-title,
+	.docspresso-page-hero:has(img.wp-block-cover__image-background) h1 {
+		color: #ffffff !important;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	}
+
+	/* ---------------------------------------------------------------------
+	 * Home CTA Section & Inverted High-Contrast Action Button
+	 * ------------------------------------------------------------------- */
+	.docspresso-home-cta,
+	.bg-primary-600.rounded-2xl {
+		background-color: var(--wp--preset--color--primary-600) !important;
+		border-radius: 1rem !important;
+		overflow: hidden !important;
+	}
+
+	.docspresso-home-cta .wp-block-button__link,
+	.docspresso-home-cta .wp-element-button,
+	.docspresso-home-cta a.wp-block-button__link,
+	.bg-primary-600 .wp-block-button__link,
+	.bg-primary-600 .wp-element-button,
+	.bg-primary-600 a.wp-block-button__link,
+	.bg-primary-600 a.wp-element-button {
+		background-color: #ffffff !important;
+		color: #8c3821 !important; /* Rich primary dark for high contrast text */
+		border: 1px solid rgba(255, 255, 255, 0.4) !important;
+		box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.12) !important;
+		font-weight: 600 !important;
+		transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 150ms ease !important;
+	}
+
+	.docspresso-home-cta .wp-block-button__link:hover,
+	.docspresso-home-cta .wp-element-button:hover,
+	.docspresso-home-cta a.wp-block-button__link:hover,
+	.bg-primary-600 .wp-block-button__link:hover,
+	.bg-primary-600 .wp-element-button:hover,
+	.bg-primary-600 a.wp-block-button__link:hover,
+	.bg-primary-600 a.wp-element-button:hover {
+		background-color: #fef3f0 !important;
+		color: #4f2317 !important;
+		box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.18) !important;
+		transform: translateY(-2px);
+	}
+
+	:root[data-theme='dark'] .docspresso-home-cta,
+	:root[data-theme='dark'] .bg-primary-600.rounded-2xl {
+		background-color: var(--wp--preset--color--neutral-100) !important;
+		border: 1px solid var(--wp--preset--color--neutral-800) !important;
+	}
+
+	:root[data-theme='dark'] .docspresso-home-cta .wp-block-button__link,
+	:root[data-theme='dark'] .docspresso-home-cta .wp-element-button,
+	:root[data-theme='dark'] .docspresso-home-cta a.wp-block-button__link,
+	:root[data-theme='dark'] .bg-primary-600 .wp-block-button__link,
+	:root[data-theme='dark'] .bg-primary-600 .wp-element-button,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-block-button__link,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-element-button {
+		background-color: var(--wp--preset--color--primary-600) !important;
+		color: #ffffff !important;
+		border: 1px solid transparent !important;
+		box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.35) !important;
+	}
+
+	:root[data-theme='dark'] .docspresso-home-cta .wp-block-button__link:hover,
+	:root[data-theme='dark'] .docspresso-home-cta .wp-element-button:hover,
+	:root[data-theme='dark'] .docspresso-home-cta a.wp-block-button__link:hover,
+	:root[data-theme='dark'] .bg-primary-600 .wp-block-button__link:hover,
+	:root[data-theme='dark'] .bg-primary-600 .wp-element-button:hover,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-block-button__link:hover,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-element-button:hover {
+		background-color: var(--wp--preset--color--primary-500) !important;
+		color: #ffffff !important;
+		box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.45) !important;
+	}
 }
+

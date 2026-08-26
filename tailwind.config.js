@@ -32,6 +32,12 @@ module.exports = {
     'wp-block-embed__wrapper',
     'alignfull',
     'is-style-stripes',
+    'docspresso-post-nav',
+    'wp-block-post-navigation-link',
+    'post-navigation-link-previous',
+    'post-navigation-link-next',
+    'post-navigation-link__label',
+    'post-navigation-link__title',
   ],
   theme: {
     extend: {
