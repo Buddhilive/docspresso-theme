@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DOCSPRESSO_VERSION', '1.0.0' );
+define( 'DOCSPRESSO_VERSION', '1.1.0' );
 define( 'DOCSPRESSO_DIR', get_template_directory() );
 define( 'DOCSPRESSO_URI', get_template_directory_uri() );
 
@@ -242,4 +242,104 @@ function docspresso_output_schema_jsonld() {
 
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
-add_action( 'wp_head', 'docspresso_output_schema_jsonld', 3 );
+/**
+ * Ensure the single post template is loaded from the theme's templates/single.html
+ * file so theme updates to single post layout and related posts are always active.
+ *
+ * @param WP_Block_Template|null $block_template The block template object.
+ * @param string                 $id             Template unique identifier.
+ * @param string                 $template_type  Template type ('wp_template' or 'wp_template_part').
+ * @return WP_Block_Template|null
+ */
+function docspresso_load_theme_single_template( $block_template, $id, $template_type ) {
+	if ( $block_template && 'wp_template' === $template_type ) {
+		$slug = isset( $block_template->slug ) ? $block_template->slug : '';
+		if ( 'single' === $slug || str_ends_with( $id, '//single' ) ) {
+			$template_file = DOCSPRESSO_DIR . '/templates/single.html';
+			if ( file_exists( $template_file ) ) {
+				$block_template->content = file_get_contents( $template_file );
+				$block_template->source  = 'theme';
+			}
+		}
+	}
+	return $block_template;
+}
+add_filter( 'get_block_template', 'docspresso_load_theme_single_template', 10, 3 );
+
+
+/**
+ * Filter the secondary query on single post pages (Related Articles query loop)
+ * to automatically filter by current post categories, limit to 3 posts, and exclude
+ * the current post.
+ *
+ * @param array    $query Array containing parameters for `WP_Query` as parsed by the block editor.
+ * @param WP_Block $block The block instance being rendered.
+ * @param int      $page  The current page of the query.
+ * @return array Modified query arguments.
+ */
+function docspresso_filter_related_posts_query_vars( $query, $block, $page ) {
+	global $post;
+	$current_post_id = 0;
+	if ( ! empty( $post->ID ) ) {
+		$current_post_id = (int) $post->ID;
+	} elseif ( function_exists( 'get_queried_object_id' ) ) {
+		$current_post_id = (int) get_queried_object_id();
+	}
+
+	if ( $current_post_id ) {
+		$post_not_in   = isset( $query['post__not_in'] ) ? (array) $query['post__not_in'] : array();
+		$post_not_in[] = $current_post_id;
+		$query['post__not_in'] = array_values( array_unique( array_map( 'intval', $post_not_in ) ) );
+
+		$categories = wp_get_post_categories( $current_post_id );
+		if ( ! empty( $categories ) ) {
+			$query['category__in'] = array_values( array_map( 'intval', $categories ) );
+		}
+
+		$query['posts_per_page']      = 3;
+		$query['ignore_sticky_posts'] = 1;
+		$query['no_found_rows']       = true;
+	}
+
+	return $query;
+}
+add_filter( 'query_loop_block_query_vars', 'docspresso_filter_related_posts_query_vars', 10, 3 );
+
+
+/**
+ * Secondary pre_get_posts safety net for related posts queries on single posts.
+ *
+ * @param WP_Query $query The WP_Query instance.
+ */
+function docspresso_filter_related_posts_pre_get_posts( $query ) {
+	if ( is_admin() || ( method_exists( $query, 'is_main_query' ) && $query->is_main_query() ) ) {
+		return;
+	}
+
+	global $post;
+	$current_post_id = ! empty( $post->ID ) ? (int) $post->ID : (int) get_queried_object_id();
+	if ( ! $current_post_id ) {
+		return;
+	}
+
+	if ( is_single() || is_singular( 'post' ) || ! empty( $post ) ) {
+		$post_not_in   = (array) $query->get( 'post__not_in' );
+		$post_not_in[] = $current_post_id;
+		$query->set( 'post__not_in', array_values( array_unique( array_map( 'intval', $post_not_in ) ) ) );
+
+		$categories = wp_get_post_categories( $current_post_id );
+		if ( ! empty( $categories ) ) {
+			$query->set( 'category__in', array_values( array_map( 'intval', $categories ) ) );
+		}
+
+		$query->set( 'posts_per_page', 3 );
+		$query->set( 'ignore_sticky_posts', 1 );
+		$query->set( 'no_found_rows', true );
+	}
+}
+add_action( 'pre_get_posts', 'docspresso_filter_related_posts_pre_get_posts' );
+
+
+
+
+
