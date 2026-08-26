@@ -243,19 +243,19 @@ function docspresso_output_schema_jsonld() {
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
 /**
- * Ensure the single post template is loaded from the theme's templates/single.html
- * file so theme updates to single post layout and related posts are always active.
+ * Ensure theme templates in templates/*.html are always loaded dynamically
+ * so updates in theme files take precedence and stay synchronized.
  *
  * @param WP_Block_Template|null $block_template The block template object.
  * @param string                 $id             Template unique identifier.
  * @param string                 $template_type  Template type ('wp_template' or 'wp_template_part').
  * @return WP_Block_Template|null
  */
-function docspresso_load_theme_single_template( $block_template, $id, $template_type ) {
+function docspresso_sync_theme_templates( $block_template, $id, $template_type ) {
 	if ( $block_template && 'wp_template' === $template_type ) {
 		$slug = isset( $block_template->slug ) ? $block_template->slug : '';
-		if ( 'single' === $slug || str_ends_with( $id, '//single' ) ) {
-			$template_file = DOCSPRESSO_DIR . '/templates/single.html';
+		if ( ! empty( $slug ) ) {
+			$template_file = DOCSPRESSO_DIR . '/templates/' . $slug . '.html';
 			if ( file_exists( $template_file ) ) {
 				$block_template->content = file_get_contents( $template_file );
 				$block_template->source  = 'theme';
@@ -264,7 +264,8 @@ function docspresso_load_theme_single_template( $block_template, $id, $template_
 	}
 	return $block_template;
 }
-add_filter( 'get_block_template', 'docspresso_load_theme_single_template', 10, 3 );
+add_filter( 'get_block_template', 'docspresso_sync_theme_templates', 10, 3 );
+
 
 
 /**

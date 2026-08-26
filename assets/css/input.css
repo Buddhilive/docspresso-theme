@@ -615,4 +615,74 @@ header.wp-block-template-part {
 		color: #ffffff !important;
 		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 	}
+
+	/* ---------------------------------------------------------------------
+	 * Home CTA Section & Inverted High-Contrast Action Button
+	 * ------------------------------------------------------------------- */
+	.docspresso-home-cta,
+	.bg-primary-600.rounded-2xl {
+		background-color: var(--wp--preset--color--primary-600) !important;
+		border-radius: 1rem !important;
+		overflow: hidden !important;
+	}
+
+	.docspresso-home-cta .wp-block-button__link,
+	.docspresso-home-cta .wp-element-button,
+	.docspresso-home-cta a.wp-block-button__link,
+	.bg-primary-600 .wp-block-button__link,
+	.bg-primary-600 .wp-element-button,
+	.bg-primary-600 a.wp-block-button__link,
+	.bg-primary-600 a.wp-element-button {
+		background-color: #ffffff !important;
+		color: #8c3821 !important; /* Rich primary dark for high contrast text */
+		border: 1px solid rgba(255, 255, 255, 0.4) !important;
+		box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.12) !important;
+		font-weight: 600 !important;
+		transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 150ms ease !important;
+	}
+
+	.docspresso-home-cta .wp-block-button__link:hover,
+	.docspresso-home-cta .wp-element-button:hover,
+	.docspresso-home-cta a.wp-block-button__link:hover,
+	.bg-primary-600 .wp-block-button__link:hover,
+	.bg-primary-600 .wp-element-button:hover,
+	.bg-primary-600 a.wp-block-button__link:hover,
+	.bg-primary-600 a.wp-element-button:hover {
+		background-color: #fef3f0 !important;
+		color: #4f2317 !important;
+		box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.18) !important;
+		transform: translateY(-2px);
+	}
+
+	:root[data-theme='dark'] .docspresso-home-cta,
+	:root[data-theme='dark'] .bg-primary-600.rounded-2xl {
+		background-color: var(--wp--preset--color--neutral-100) !important;
+		border: 1px solid var(--wp--preset--color--neutral-800) !important;
+	}
+
+	:root[data-theme='dark'] .docspresso-home-cta .wp-block-button__link,
+	:root[data-theme='dark'] .docspresso-home-cta .wp-element-button,
+	:root[data-theme='dark'] .docspresso-home-cta a.wp-block-button__link,
+	:root[data-theme='dark'] .bg-primary-600 .wp-block-button__link,
+	:root[data-theme='dark'] .bg-primary-600 .wp-element-button,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-block-button__link,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-element-button {
+		background-color: var(--wp--preset--color--primary-600) !important;
+		color: #ffffff !important;
+		border: 1px solid transparent !important;
+		box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.35) !important;
+	}
+
+	:root[data-theme='dark'] .docspresso-home-cta .wp-block-button__link:hover,
+	:root[data-theme='dark'] .docspresso-home-cta .wp-element-button:hover,
+	:root[data-theme='dark'] .docspresso-home-cta a.wp-block-button__link:hover,
+	:root[data-theme='dark'] .bg-primary-600 .wp-block-button__link:hover,
+	:root[data-theme='dark'] .bg-primary-600 .wp-element-button:hover,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-block-button__link:hover,
+	:root[data-theme='dark'] .bg-primary-600 a.wp-element-button:hover {
+		background-color: var(--wp--preset--color--primary-500) !important;
+		color: #ffffff !important;
+		box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.45) !important;
+	}
 }
+
